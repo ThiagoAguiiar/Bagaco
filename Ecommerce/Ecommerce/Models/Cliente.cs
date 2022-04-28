@@ -8,7 +8,11 @@ namespace Ecommerce.Models
     public class Cliente : Usuario
     {
         private string endereco;
-        private string CPF;
+
+        public Cliente(string cpf, string senha) : base(cpf, senha)
+        {
+
+        }
 
     }
 }

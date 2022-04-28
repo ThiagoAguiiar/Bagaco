@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Ecommerce
+namespace Ecommerce.Models
 {
     public class Usuario
     {
@@ -40,21 +40,11 @@ namespace Ecommerce
 
             MySqlDataReader leitor = qry.ExecuteReader();
 
-            try{
-                
-
-            }
-            catch (Exception e)
-            {
-                return 
-            }
-            
-
-
             try
             {
                 //abre a conexão
                 con.Open();
+                return null;
 
             }
             catch (Exception e)
