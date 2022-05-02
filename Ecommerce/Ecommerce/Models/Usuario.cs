@@ -10,10 +10,8 @@ namespace Ecommerce.Models
     {
         static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
 
-        
         private string nome;
         private string telefone;
-        private string email;
         private string tipo;
         private string cpf;
         private string senha;
@@ -26,30 +24,39 @@ namespace Ecommerce.Models
 
         public string Nome { get => nome; set => nome = value; }
         public string Telefone { get => telefone; set => telefone = value; }
-        public string Email { get => email; set => email = value; }
+
         public string Tipo { get => tipo; set => tipo = value; }
         public string Cpf { get => cpf; set => cpf = value; }
         public string Senha { get => senha; set => senha = value; }
 
-        public string Entra(string cpf, string senha)
+        public string Login(string cpf, string senha)
         {
-            
             MySqlConnection con = new MySqlConnection(conexao);
-            MySqlCommand qry = new MySqlCommand("SELECT FROM Usuario(CPF) WHERE = '@cpf'", con);
-          
-
-            MySqlDataReader leitor = qry.ExecuteReader();
 
             try
             {
                 //abre a conexão
                 con.Open();
-                return null;
 
+                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuario WHERE cpf = '@cpf' AND senha = '@senha' ", con);
+                qry.Parameters.AddWithValue("@cpf", cpf);
+                qry.Parameters.AddWithValue("@senha", senha);
+                MySqlDataReader leitor = qry.ExecuteReader();
+
+                if (leitor.HasRows()> 0)
+                {
+               
+                        return "Logou";
+                 
+
+                }
+            
+                    return "ERRO";
+    
             }
             catch (Exception e)
             {
-                return null;
+                return "ERRO: " + e.Message;
             }
 
 

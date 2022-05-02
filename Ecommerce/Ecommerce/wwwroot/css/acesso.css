@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 :root {
@@ -45,16 +45,16 @@ body {
 }
 
 .user p {
-        padding: 10px 0px 0px 10px;
-        color: var(--VerdeEscuro);
-        font-weight: bold;
-        font-size: 1.8em;
+    padding: 10px 0px 0px 10px;
+    color: var(--VerdeEscuro);
+    font-weight: bold;
+    font-size: 1.8em;
 }
 
 .user span {
-        color: var(--VerdeClaro);
-        font-weight: 600;
-        padding: 0px 0px 15px 10px;
+    color: var(--VerdeClaro);
+    font-weight: 600;
+    padding: 0px 0px 15px 10px;
 }
 
 .input {
@@ -109,7 +109,7 @@ body {
 }
 
 .enviar:hover {
-        background-color: #63482d;
+    background-color: #63482d;
 }
 
 .check {
@@ -122,7 +122,7 @@ body {
     text-align: center;
     padding-bottom: 10px;
 }
-.logar span {
-        font-size: 13px;
 
+.logar span {
+    font-size: 13px;
 }
