@@ -15,6 +15,7 @@ namespace Ecommerce.Models
         private string tipo;
         private string cpf;
         private string senha;
+        private string endereco;
 
         public Usuario(string cpf, string senha)
         {
@@ -28,6 +29,7 @@ namespace Ecommerce.Models
         public string Tipo { get => tipo; set => tipo = value; }
         public string Cpf { get => cpf; set => cpf = value; }
         public string Senha { get => senha; set => senha = value; }
+        public string Endereco { get => endereco; set => endereco = value; }
 
         public string Login(string cpf, string senha)
         {
@@ -43,12 +45,19 @@ namespace Ecommerce.Models
                 qry.Parameters.AddWithValue("@senha", senha);
                 MySqlDataReader leitor = qry.ExecuteReader();
 
-                if (leitor.HasRows()> 0)
+                //verifica se existe no banco
+                if (leitor.HasRows)
                 {
+                    //verifica se é adm ou cliente
+                    if (leitor["Adm"].ToString() == "sim")
+                    {
+                        return "Bem-vindo, Adm";
+                    }
+                    else
+                    {
+                        return "Bem-vindo, Cliente";
+                    }
                
-                        return "Logou";
-                 
-
                 }
             
                     return "ERRO";
