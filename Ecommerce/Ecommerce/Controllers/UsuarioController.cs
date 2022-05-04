@@ -17,10 +17,25 @@ namespace Ecommerce.Controllers
         [HttpPost]
         public IActionResult Login(string cpf, string senha)
         {
-            Usuario u = new Usuario(cpf, senha);
+            Usuario u = new Usuario(null, null, null, cpf, senha, null);
             TempData["msg"] = u.Login(cpf, senha);
 
             return RedirectToAction("Login");
         }
-    }
+
+        public IActionResult Cadastro()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Cadastro(string nome, string cpf, string senha)
+        {
+            Usuario u = new Usuario(nome, null, null, cpf, senha, null);
+            TempData["msg"] = u.Cadastro(nome, cpf, senha);
+
+            return RedirectToAction("Cadastro");
+        }
+    }   
+    
 }

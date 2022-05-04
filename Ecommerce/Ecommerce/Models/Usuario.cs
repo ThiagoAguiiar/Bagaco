@@ -17,10 +17,14 @@ namespace Ecommerce.Models
         private string senha;
         private string endereco;
 
-        public Usuario(string cpf, string senha)
+        public Usuario(string nome, string telefone, string tipo, string cpf, string senha, string endereco)
         {
-            this.senha = senha;
+            this.nome = null;
+            this.telefone = null;
+            this.tipo = null;
             this.cpf = cpf;
+            this.senha = senha;
+            this.endereco = null;
         }
 
         public string Nome { get => nome; set => nome = value; }
@@ -41,7 +45,7 @@ namespace Ecommerce.Models
                 MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuario WHERE cpf = @cpf AND senha = @senha", con);
                 qry.Parameters.AddWithValue("@cpf", cpf);
                 qry.Parameters.AddWithValue("@senha", senha);
-   
+
                 MySqlDataReader leitor = qry.ExecuteReader();
                 leitor.Read();
 
@@ -52,7 +56,8 @@ namespace Ecommerce.Models
                     if (leitor["Adm"].ToString() == "sim")
                     {
                         return "Bem-vindo, Adm";
-                    } else
+                    }
+                    else
                     {
                         return "Bem-vindo Cliente";
                     }
@@ -61,6 +66,28 @@ namespace Ecommerce.Models
                 con.Close();
 
                 return "ERRO";
+
+            }
+            catch (Exception e)
+            {
+                return "ERRO: " + e.Message;
+            }
+        }
+
+        public string Cadastro(string nome, string cpf, string senha)
+        {
+            MySqlConnection con = new MySqlConnection(conexao);
+            try
+            {
+                con.Open();
+                MySqlCommand qry = new MySqlCommand("INSERT INTO Usuario VALUES (@cpf, @nome, null, @senha, null, null)", con);
+                qry.Parameters.AddWithValue("@nome", nome);
+                qry.Parameters.AddWithValue("@cpf", cpf);
+                qry.Parameters.AddWithValue("@senha", senha);
+                qry.ExecuteNonQuery();
+                con.Close();
+
+                return "Seja Bem-Vindo!";
 
             }
             catch (Exception e)

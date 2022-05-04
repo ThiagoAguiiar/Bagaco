@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UJStEKQmfcxWleOdXie3ah7K0HcGEmGNSU1mzog0voiNsgl1X6q+/duANAf/S5sjsdqltcnCdUFVAwt97Zl6PA==",
+  "dgSpecHash": "WI25jxYk9o7Myv1fIRyAcL5BHuus8qIWB3THa/FzeWD0yjSLPGtVplK7ctkSiQ2z0kem2DPLaXmT2HG6zcKDTA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aluno\\Source\\Repos\\2dsb_grupoa\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
+  "projectFilePath": "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aluno\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\aluno\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",

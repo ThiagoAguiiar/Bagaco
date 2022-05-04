@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model Ecommerce.Models.Usuario
+
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -15,15 +17,15 @@
         <a href="" id="logo">BAGAÇO</a>
 
         <div class="user-actions">
-            <a href="index.html" class="nav-link">Página Inicial</a>
+            <a href="~/home/index" class="nav-link">Página Inicial</a>
             <span class="divider"></span>
-            <a href="entrar.html" class="nav-link">Entrar</a>
+            <a href="~/usuario/login" class="nav-link">Entrar</a>
         </div>
     </header>
 
     <div class="container">
 
-        <form action="" class="form">
+        <form method="post" asp-action="Cadastro" class="form">
             <div class="user">
                 <p>Olá,</p>
                 <span>Faça cadastro para obter acesso</span>
@@ -37,11 +39,6 @@
                 <div class="cpf">
                     <label for="cpf" class="lbl">CPF *</label>
                     <input type="text" name="cpf" id="cpf" required>
-                </div>
-
-                <div class="email">
-                    <label for="email" class="lbl">E-mail *</label>
-                    <input type="email" name="email" id="email" required>
                 </div>
 
                 <div class="senha">
@@ -63,6 +60,7 @@
                 </div>
             </div>
         </form>
+        <p> @TempData["msg"]</p>
     </div>
 </body>
 
