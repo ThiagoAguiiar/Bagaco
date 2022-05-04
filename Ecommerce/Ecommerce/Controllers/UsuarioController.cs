@@ -15,15 +15,12 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-
         public IActionResult Login(string cpf, string senha)
         {
             Usuario u = new Usuario(cpf, senha);
             TempData["msg"] = u.Login(cpf, senha);
 
             return RedirectToAction("Login");
-         
-
         }
     }
 }

@@ -25,7 +25,6 @@ namespace Ecommerce.Models
 
         public string Nome { get => nome; set => nome = value; }
         public string Telefone { get => telefone; set => telefone = value; }
-
         public string Tipo { get => tipo; set => tipo = value; }
         public string Cpf { get => cpf; set => cpf = value; }
         public string Senha { get => senha; set => senha = value; }
@@ -37,38 +36,37 @@ namespace Ecommerce.Models
 
             try
             {
-                //abre a conexão
+                // Abre a Conexão
                 con.Open();
-
-                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuario WHERE cpf = '@cpf' AND senha = '@senha' ", con);
+                MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuario WHERE cpf = @cpf AND senha = @senha", con);
                 qry.Parameters.AddWithValue("@cpf", cpf);
                 qry.Parameters.AddWithValue("@senha", senha);
+   
                 MySqlDataReader leitor = qry.ExecuteReader();
+                leitor.Read();
 
-                //verifica se existe no banco
+                // Verifica se Existe no Banco
                 if (leitor.HasRows)
                 {
-                    //verifica se é adm ou cliente
+                    // Verifica se é Adm ou Cliente
                     if (leitor["Adm"].ToString() == "sim")
                     {
                         return "Bem-vindo, Adm";
-                    }
-                    else
+                    } else
                     {
-                        return "Bem-vindo, Cliente";
+                        return "Bem-vindo Cliente";
                     }
-               
                 }
-            
-                    return "ERRO";
-    
+
+                con.Close();
+
+                return "ERRO";
+
             }
             catch (Exception e)
             {
                 return "ERRO: " + e.Message;
             }
-
-
         }
     }
 }
