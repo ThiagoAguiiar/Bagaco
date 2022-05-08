@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@500;700&display=swap');
+
+* {
+    outline: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+:root {
+    --Branco: white;
+    --Fundo: #1c1c1c;
+    --Botão: #8B381F;
+    --BotãoHover: #682a17;
+    --NavLinkHover: lightgray;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--Fundo);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px 0px 0px 30px;
+    width: 40px;
+    height: 35px;
+    background-color: var(--Branco);
+    color: var(--Fundo);
+}
+
+#pesquisar {
+    font-size: 1em;
+    border-radius: 0px 30px 30px 0px;
+    width: 500px;
+    height: 35px;
+    color: gray;
+}
+
+.container {
+    width: 80%;
+    height: auto;
+    margin: 40px auto;
+}
+
+.container-txt {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.container-txt p {
+    color: var(--Branco);
+    font-size: 1.5em;
+}
+
+.lista-produtos {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.produtos-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 300px;
+    height: 350px;
+    background-color: red;
+}
+
+.produtos-card img {
+    border-radius: 10px;
+}
+
+.nome {
+    background-color: yellow;
+    font-size: 1.1em;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+}
+
+.ver-mais {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+}
+
+footer {
+    background-color: var(--Fundo);
+    border-top: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: var(--Branco);
+    font-weight: 500;
+    width: 100%;
+    height: 50px;
+    padding: 0 10%;
+}
+
+footer a {
+    color: white;
+}
+
+footer a i {
+    font-size: 20px;
+}

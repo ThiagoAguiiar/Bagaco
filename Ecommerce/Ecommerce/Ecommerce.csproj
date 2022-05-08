@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Views\Usuario\Adm.cshtml" />
+    <None Include="Views\Usuario\Cliente.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.29" />
   </ItemGroup>
 
