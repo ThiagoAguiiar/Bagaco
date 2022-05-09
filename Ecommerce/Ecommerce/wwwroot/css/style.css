@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+:root {
+    --VerdeClaro: #BBCE8A;
+    --VerdeEscuro: #939F5C;
+    --Marrom: #735230;
+    --Marrom-Hover: #583f25;
+    --Preto: black;
+    --Branco: white;
+}
+
+body {
+    overflow: hidden;
+}
+
+.fi-container {
+    width: 100vw;
+    height: calc(100vh);
+    font-family: 'Poppins';
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.fi-text {
+   position: absolute;
+   z-index: 100;
+   left: 10%;
+}
+
+.fi-text p {
+    font-size: 2.8em;
+}
+
+#green-block {
+    width: 300px;
+    height: 10px;
+    content: '';
+    display: block;
+    position: absolute;   
+    left: 15%; 
+    margin-top: 1em;
+    background-color: var(--VerdeEscuro);
+}
+
+.saiba-mais {
+    position: absolute;
+    margin-top: 4em;
+    left: 15%;
+}
+
+#mais {
+    width: 200px;
+    height: 40px;
+    cursor: pointer;
+    font-family: 'Inter';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: bold;
+    border: 2px solid var(--Marrom);
+    background-color: var(--Marrom);
+    color: var(--Branco);
+    transition: .3s;
+}
+
+#mais:hover {
+    background-color: var(--Marrom-Hover);
+    color: var(--Branco);
+    border: 2px solid var(--Marrom-Hover);
+}
+
+.fi-img {
+    position: absolute;
+    right: 0;
+
+}
+
+.fi-img img {  
+    width: 850px;
+}
