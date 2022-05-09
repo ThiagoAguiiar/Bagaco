@@ -55,11 +55,11 @@ namespace Ecommerce.Models
                     // Verifica se é Adm ou Cliente
                     if (leitor["Adm"].ToString() == "sim")
                     {
-                        return "Bem-vindo, Adm";
+                        return "True"; 
                     }
                     else
                     {
-                        return "Bem-vindo Cliente";
+                        return "False"; 
                     }
                 }
 
@@ -73,6 +73,10 @@ namespace Ecommerce.Models
                 return "ERRO: " + e.Message;
             }
         }
+
+
+
+       
 
         public string Cadastro(string nome, string cpf, string senha)
         {

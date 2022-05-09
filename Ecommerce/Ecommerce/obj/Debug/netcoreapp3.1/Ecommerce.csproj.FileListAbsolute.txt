@@ -205,3 +205,5 @@ C:\Users\thiag\Downloads\Projeto\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Eco
 C:\Users\thiag\Downloads\Projeto\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.genruntimeconfig.cache
 C:\Users\thiag\Downloads\Projeto\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Cliente.cshtml.g.cs
 C:\Users\thiag\Downloads\Projeto\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Adm.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Adm.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Cliente.cshtml.g.cs

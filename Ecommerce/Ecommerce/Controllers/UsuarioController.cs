@@ -19,9 +19,18 @@ namespace Ecommerce.Controllers
         {
             Usuario u = new Usuario(null, null, null, cpf, senha, null);
             TempData["msg"] = u.Login(cpf, senha);
+            if (TempData["msg"].ToString() == "True")
+            {
+                return View("Adm");
+            }
+            else
+            {
+                return View("Cliente");
+            }
 
-            return RedirectToAction("Login");
+            
         }
+
 
         public IActionResult Cadastro()
         {
