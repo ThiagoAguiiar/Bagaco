@@ -34,7 +34,7 @@ namespace Ecommerce.Models
         public string Senha { get => senha; set => senha = value; }
         public string Endereco { get => endereco; set => endereco = value; }
 
-        public string Login(string cpf, string senha)
+        public string Entra(string cpf, string senha)
         {
             MySqlConnection con = new MySqlConnection(conexao);
 
@@ -73,11 +73,6 @@ namespace Ecommerce.Models
                 return "ERRO: " + e.Message;
             }
         }
-
-
-
-       
-
         public string Cadastro(string nome, string cpf, string senha)
         {
             MySqlConnection con = new MySqlConnection(conexao);
