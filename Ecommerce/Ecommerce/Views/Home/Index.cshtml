@@ -15,34 +15,45 @@
 </head>
 
 <body>
-    <header class="header">
-        <nav class="nav">
-            <a href="" class="nav-link">Produtos</a>
-            <a href="" class="nav-link">Contato</a>
-            <a href="" class="nav-link">Sobre</a>
-        </nav>
-
-        <div class="user-actions">
-            <a href="~/usuario/cadastro" class="nav-link">Cadastrar</a>
-            <span class="divider"></span>
-            <a href="~/usuario/login" class="nav-link">Entrar</a>
+    <header>
+        <div class="logo">
+            <a href="~/home/index" id="logo">BAGAÇO</a>
         </div>
+        <nav>
+            <a href="" class="nav-link">Contato</a>
+            <a href="~/usuario/cadastro" class="nav-link">Cadastrar</a>
+            <span id="divider"></span>
+            <a href="~/usuario/login" class="nav-link">Entrar</a>
+        </nav>
     </header>
 
-    <div class="fi-container">
-        <div class="fi-text">
-            <p>Uma nova forma <br> de se fazer</p>
-            <span id="green-block"></span>
-            <div class="saiba-mais">
-                <a href="" id="mais">Saiba Mais</a>
+    <section>
+        <div class="img-container">
+            <div class="img-txt">
+                <h1>UMA NOVA <br> FORMA DE SE <br> FAZER </h1>
+                <p>
+                    A utilização de produtos biodegradáveis para o desenvolvimento de métodos sustentáveis é fundamental
+                    para o
+                    desenvolvimento íntegro da sociedade e do meio ambiente
+                </p>
+            </div>
+            <div class="btn-mais">
+                <a href="#produtos" class="mais">SAIBA MAIS</a>
             </div>
         </div>
+    </section>
 
-        <div class="fi-img">
-            <img src="~/img/bg.png" alt="">
+    <div class="produtos-container">
+        <div class="produtos-txt">
+            <h1>DESCUBRA</h1>
+            <p>Variedade de produtos comprometidos com a sustentabilidade e inovação</p>
+        </div>
+
+        <div class="produtos">
+            <div class="produtos-item img-fi"></div>
+            <div class="produtos-item img-se"></div>
         </div>
     </div>
-
 
 </body>
 

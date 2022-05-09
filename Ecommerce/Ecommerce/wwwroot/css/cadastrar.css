@@ -1,0 +1,144 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+:root {
+    --Branco: white;
+    --Fundo: #1c1c1c;
+    --Botão: #8B381F;
+    --BotãoHover: #682a17;
+    --NavLinkHover: lightgray;
+    --Link: #F39969;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 05)), url(../img/fundo-user.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container-se {
+    border-radius: 20px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--Fundo);
+    color: var(--Branco);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: auto;
+}
+
+.container-txt {
+    padding-top: 20px;
+    position: relative;
+}
+
+.logo {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+#line {
+    position: absolute;
+    content: '';
+    display: block;
+    left: 28%;
+    width: 100px;
+    height: 2px;
+    background-color: var(--Branco);
+}
+
+.aviso {
+    text-align: center;
+    color: gray;
+    font-size: 17px;
+    padding: 20px 0px;
+}
+
+.form {
+    padding-bottom: 20px;
+}
+
+.cpf,
+.senha {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+    .cpf input,
+    .senha input {
+        border: none;
+        outline: none;
+        border-radius: 7px;
+        font-size: 1.1em;
+        padding-left: 10px;
+        height: 40px;
+        width: 400px;
+    }
+
+.senha {
+    margin-top: 20px;
+}
+
+.botao {
+    margin-top: 40px;
+}
+
+#enviar {
+    background-color: var(--BotãoHover);
+    color: var(--Branco);
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    border-radius: 7px;
+    width: 400px;
+    height: 40px;
+}
+
+.logar {
+    text-align: center;
+    margin-top: 30px;
+}
+
+    .logar a {
+        text-decoration: none;
+        color: var(--Link);
+    }
+
+.home {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+
+#home {
+    color: var(--Branco);
+    padding: 5px;
+}
+#home:hover {
+   background-color: rgba(0, 0, 0, .05);
+}
