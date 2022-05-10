@@ -208,3 +208,6 @@ C:\Users\thiag\Downloads\Projeto\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Raz
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Adm.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Cliente.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\aluno\Documents\yasmin\Ecommerce\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\aluno\Documents\yasmin\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Adm.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Cliente.cshtml.g.cs
