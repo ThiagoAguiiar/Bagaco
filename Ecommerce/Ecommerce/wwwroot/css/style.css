@@ -1,0 +1,126 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --Branco: white;
+    --Fundo: #1c1c1c;
+    --Botão: #8B381F;
+    --BotãoHover: #682a17;
+    --NavLinkHover: lightgray;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Domine';
+    background-color: var(--Fundo);
+}
+
+.img-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.233), rgba(0, 0, 0, 05)), url(../img/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+}
+
+.img-txt {
+    color: var(--Branco);
+    position: absolute;
+    left: 10%;
+}
+
+    .img-txt h1 {
+        font-size: 3.8em;
+    }
+
+    .img-txt p {
+        font-size: 1.1em;
+        margin-top: 1em;
+        width: 490px;
+    }
+
+.btn-mais {
+    position: absolute;
+    right: 10%;
+    bottom: 2em;
+}
+
+.mais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    width: 200px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 7px;
+    background-color: var(--Botão);
+    color: var(--Branco);
+}
+
+    .mais:hover {
+        background-color: var(--BotãoHover);
+    }
+
+.produtos-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5em;
+    width: 70%;
+    margin: 4em auto;
+    height: auto;
+}
+
+.produtos-txt {
+    color: var(--Branco);
+}
+
+    .produtos-txt h1 {
+        font-size: 2.5em;
+    }
+
+    .produtos-txt p {
+        display: block;
+        color: rgba(255, 255, 255, 0.459);
+        margin-top: 1.5em;
+        width: 300px;
+    }
+
+.produtos {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    gap: 20px;
+}
+
+.produtos-item {
+    border-radius: 20px;
+    width: 250px;
+    height: 250px;
+}
+
+.img-fi {
+    background-image: url(/img/produto_01.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+.img-se {
+    background-image: url(/img/produto_02.jpg);
+    background-position: center;
+    background-size: cover;
+}

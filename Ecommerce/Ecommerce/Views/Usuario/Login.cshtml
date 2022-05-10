@@ -1,0 +1,57 @@
+﻿@model Ecommerce.Models.Usuario
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/login.css">
+    <title>Bagaço - Login</title>
+</head>
+
+    <body>
+        <div class="container-fi">
+            <p id="title">BAGAÇO</p>
+            <p id="obj">O nosso objetivo é trazer o melhor <br> para você de forma sustentável</p>
+        </div>
+
+        <div class="container-se">
+            <div class="home">
+                <a href="~/home/index" id="home"><i class="fa-solid fa-house" title="Home"></i></a>
+            </div>
+
+            <div class="container-txt">
+                <p class="saudacao">BEM-VINDO!</p>
+                <span id="line"></span>
+                <p class="aviso">Entrar na sua conta</p>
+            </div>
+
+            <div class="container-input">
+                <form method="POST" asp-action="Login" class="form">
+                    <div class="cpf">
+                        <label for="cpf">CPF</label>
+                        <input type="text" name="CPF" id="cpf" required>
+                    </div>
+
+                    <div class="senha">
+                        <label for="senha">Senha</label>
+                        <input type="password" name="senha" id="senha" required>
+                    </div>
+
+                    <div class="botao">
+                        <input type="submit" class="enviar" value="SIGN IN">
+                    </div>
+
+                    <div class="cadastrar">
+                        <p>Ainda não possui uma conta? <a href="~/usuario/cadastro">Cadastre-se</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <p> @TempData["msg"]</p>
+    </body>
+
+</html>
