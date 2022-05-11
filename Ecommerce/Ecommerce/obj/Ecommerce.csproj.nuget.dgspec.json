@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj": {}
+    "C:\\Users\\aluno\\Documents\\Yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj": {
+    "C:\\Users\\aluno\\Documents\\Yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
+        "projectUniqueName": "C:\\Users\\aluno\\Documents\\Yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
         "projectName": "Ecommerce",
-        "projectPath": "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
+        "projectPath": "C:\\Users\\aluno\\Documents\\Yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
         "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\obj\\",
+        "outputPath": "C:\\Users\\aluno\\Documents\\Yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

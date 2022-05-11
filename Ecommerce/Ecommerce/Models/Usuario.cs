@@ -54,7 +54,7 @@ namespace Ecommerce.Models
                 {
                     Usuario u = new Usuario(leitor["nome"].ToString(),
                         leitor["telefone"].ToString(),
-                        leitor["adm"].ToString(),
+                        leitor["Tipo"].ToString(),
                         leitor["cpf"].ToString(),
                         leitor["senha"].ToString(),
                         leitor["endereco"].ToString());
@@ -64,7 +64,6 @@ namespace Ecommerce.Models
                 }
 
                 con.Close();
-
                 return null;
 
             }
@@ -73,6 +72,8 @@ namespace Ecommerce.Models
                 return null;
             }
         }
+
+        //alterar a parte de cadastro
         public string Cadastro(string nome, string cpf, string senha)
         {
             MySqlConnection con = new MySqlConnection(conexao);
