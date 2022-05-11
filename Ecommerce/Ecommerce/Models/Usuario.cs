@@ -58,7 +58,7 @@ namespace Ecommerce.Models
                         leitor["cpf"].ToString(),
                         leitor["senha"].ToString(),
                         leitor["endereco"].ToString());
-                    // Verifica se é Adm ou Cliente no banco e retorna para o Controller
+                   
                      return u; 
                     
                 }

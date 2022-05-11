@@ -20,6 +20,8 @@ namespace Ecommerce.Controllers
         public IActionResult Login(string cpf, string senha)
         {
             Usuario u = Usuario.Entra(cpf, senha);
+
+            //verifica se tem algo no objeto
             if (u != null)
             {
                 //guarda o usuario
@@ -27,6 +29,7 @@ namespace Ecommerce.Controllers
                 //criar um cookie
                 Response.Cookies.Append("obj", JsonConvert.SerializeObject(u));
 
+                //verifica se é adm ou não
                 if (u.Tipo == "Adm")
                 {
                     return View("Adm");
@@ -36,6 +39,7 @@ namespace Ecommerce.Controllers
                     return View("Cliente");
                 }
             }
+            //retorna para a tela cadastro
             else
             {
                 return RedirectToAction("Cadastro");
