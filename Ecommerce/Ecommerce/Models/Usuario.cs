@@ -19,12 +19,12 @@ namespace Ecommerce.Models
 
         public Usuario(string nome, string telefone, string tipo, string cpf, string senha, string endereco)
         {
-            this.nome = null;
-            this.telefone = null;
-            this.tipo = null;
+            this.nome = nome;
+            this.telefone = telefone;
+            this.tipo = tipo;
             this.cpf = cpf;
             this.senha = senha;
-            this.endereco = null;
+            this.endereco = endereco;
         }
 
         public string Nome { get => nome; set => nome = value; }
@@ -34,7 +34,7 @@ namespace Ecommerce.Models
         public string Senha { get => senha; set => senha = value; }
         public string Endereco { get => endereco; set => endereco = value; }
 
-        public string Login(string cpf, string senha)
+        public static Usuario Entra(string cpf, string senha)
         {
             MySqlConnection con = new MySqlConnection(conexao);
 
@@ -49,41 +49,39 @@ namespace Ecommerce.Models
                 MySqlDataReader leitor = qry.ExecuteReader();
                 leitor.Read();
 
-                // Verifica se Existe no Banco
+                // Verifica se existe no Banco
                 if (leitor.HasRows)
                 {
-                    // Verifica se é Adm ou Cliente
-                    if (leitor["Adm"].ToString() == "sim")
-                    {
-                        return "True"; 
-                    }
-                    else
-                    {
-                        return "False"; 
-                    }
+                    Usuario u = new Usuario(leitor["nome"].ToString(),
+                        leitor["telefone"].ToString(),
+                        leitor["Tipo"].ToString(),
+                        leitor["cpf"].ToString(),
+                        leitor["senha"].ToString(),
+                        leitor["endereco"].ToString());
+                   
+                     return u; 
+                    
                 }
 
                 con.Close();
-
-                return "ERRO";
+                return null;
 
             }
             catch (Exception e)
             {
-                return "ERRO: " + e.Message;
+                return null;
             }
         }
 
-
-
-       
-
+        //alterar a parte de cadastro
         public string Cadastro(string nome, string cpf, string senha)
         {
             MySqlConnection con = new MySqlConnection(conexao);
             try
             {
                 con.Open();
+
+                //insere dados no banco
                 MySqlCommand qry = new MySqlCommand("INSERT INTO Usuario VALUES (@cpf, @nome, null, @senha, null, null)", con);
                 qry.Parameters.AddWithValue("@nome", nome);
                 qry.Parameters.AddWithValue("@cpf", cpf);

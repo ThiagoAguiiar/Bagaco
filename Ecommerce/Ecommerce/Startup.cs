@@ -24,6 +24,10 @@ namespace Ecommerce
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //adicionar o serviço de sessão
+            services.AddSession();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +49,10 @@ namespace Ecommerce
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //Configurar o uso de sessão
+            app.UseSession();
+
 
             app.UseEndpoints(endpoints =>
             {
