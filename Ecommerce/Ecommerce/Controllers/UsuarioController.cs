@@ -19,17 +19,18 @@ namespace Ecommerce.Controllers
         [HttpPost]
         public IActionResult Login(string cpf, string senha)
         {
-            if (HttpContext.Session.GetString("user") == null)
-            {
-                Usuario u = new Usuario(null, null, null, cpf, senha, null);
+            Usuario u = Usuario.Entra(cpf, senha);
 
-                TempData["msg"] = JsonConvert.SerializeObject(u.Entra(cpf, senha));
+            //verifica se tem algo no objeto
+            if (u != null)
+            {
                 //guarda o usuario
                 HttpContext.Session.SetString("user", JsonConvert.SerializeObject(u));
                 //criar um cookie
                 Response.Cookies.Append("obj", JsonConvert.SerializeObject(u));
 
-                if (TempData["msg"].ToString() == "True")
+                //verifica se é adm ou não
+                if (u.Tipo == "Adm")
                 {
                     return View("Adm");
                 }
@@ -38,21 +39,16 @@ namespace Ecommerce.Controllers
                     return View("Cliente");
                 }
             }
+            //retorna para a tela cadastro
             else
             {
-                Usuario u = JsonConvert.DeserializeObject<Usuario>(HttpContext.Session.GetString("user"));
-
-                if(u.Tipo == "sim")
-                {
-                    return View("Adm");
-                }
-                else
-                {
-                    return View("Cliente");
-                }
+                return RedirectToAction("Cadastro");
             }
+
+
         }
 
+        //alterar a parte de cadastro
         public IActionResult Cadastro()
         {
             return View();
@@ -62,10 +58,13 @@ namespace Ecommerce.Controllers
         public IActionResult Cadastro(string nome, string cpf, string senha)
         {
             Usuario u = new Usuario(nome, null, null, cpf, senha, null);
-            TempData["msg"] = u.Cadastro(nome, cpf, senha);
+            ViewBag["msg"] = u.Cadastro(nome, cpf, senha);
 
-            return RedirectToAction("Cadastro");
+            //retorna a view login após fazer o cadastro
+            return View("Login");
         }
-    }   
-    
+
+    }
 }
+
+
