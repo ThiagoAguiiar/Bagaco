@@ -1,4 +1,6 @@
 ﻿@model Ecommerce.Models.Usuario
+@using Microsoft.AspNetCore.Http;
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,7 +17,7 @@
 <body>
     <header>
         <div class="logo">
-            <a href="~/home/index" id="logo">BAGAÇO</a>
+            <a href="~/usuario/cliente" id="logo">BAGAÇO</a>
         </div>
 
         <div class="search-bar">
@@ -27,6 +29,10 @@
                 <i class="fa-solid fa-user"></i>
             </a>
             <a href="" class="nav-link"><i class="fa-solid fa-cart-shopping"></i></a>
+            @if (Context.Session.GetString("user") != null)
+            {
+                <a href="~/home/index" class="nav-link">Sair</a>
+            }
         </nav>
     </header>
 

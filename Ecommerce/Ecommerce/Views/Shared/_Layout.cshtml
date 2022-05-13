@@ -8,16 +8,7 @@
 </head>
 <body>
     @RenderBody()
-    <div>
-        <ul>
-            @if (Context.Session.GetString("user") != null)
-            {
-                <li class="nav-item">
-                    <a class="" asp-area="" asp-controller="Usuario" asp-action="Sair">SAIR</a>
-                </li>
-            }
-        </ul>
-    </div>
+  
 </body>
 </html>
 

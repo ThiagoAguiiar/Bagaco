@@ -46,6 +46,16 @@ namespace Ecommerce.Controllers
             }
         }
 
+        public IActionResult Adm()
+        {
+            return View();
+        }
+
+        public IActionResult Cliente()
+        {
+            return View();
+        }
+
         //alterar a parte de cadastro
         public IActionResult Cadastro()
         {
@@ -56,12 +66,9 @@ namespace Ecommerce.Controllers
         public IActionResult Cadastro(string nome, string cpf, string senha)
         {
             Usuario u = new Usuario(nome, null, null, cpf, senha, null);
-            ViewBag["msg"] = u.Cadastro(nome, cpf, senha);
-
-            //retorna a view login após fazer o cadastro
+            ViewBag.msg = u.Cadastro(nome, cpf, senha);
             return View("Login");
         }
-
     }
 }
 
