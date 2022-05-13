@@ -39,7 +39,7 @@ namespace Ecommerce.Models
             {
                 con.Open();
 
-                MySqlCommand comando = new MySqlCommand("INSERT INTO Produto VALUES (@nome, @preco, null, @cod, @quantidade)", con);
+                MySqlCommand comando = new MySqlCommand("INSERT INTO Produto VALUES (@nome, @preco, @cod, @quantidade)", con);
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@preco", preco);
                 comando.Parameters.AddWithValue("@descricao", descricao);
@@ -59,37 +59,39 @@ namespace Ecommerce.Models
                 return null;
             }
         }
+    }
+} 
 
         //retorna uma lista de produtos
-        public static List<Produto> Listar()
-        {
-            MySqlConnection con = new MySqlConnection(conexao);
+/*  public static List<Produto> Listar()
+ {
+     MySqlConnection con = new MySqlConnection(conexao);
 
-            try
-            {
-                con.Open();
-                MySqlCommand comando = new MySqlCommand("SELECT * FROM Produtos", con);
-                MySqlDataReader leitor = comando.ExecuteReader();
+     try
+     {
+         con.Open();
+         MySqlCommand comando = new MySqlCommand("SELECT * FROM Produtos", con);
+         MySqlDataReader leitor = comando.ExecuteReader();
 
-                while (leitor.Read())
-                {
-                    Produto p = new Produto(leitor["nome"].ToString(),
-                        leitor["preco"].ToString(),
-                        leitor["descricao"].ToString(),
-                        leitor["cod"].ToString(),
-                        leitor["qtd"].ToString());
+         while (leitor.Read())
+         {
+             Produto p = new Produto(leitor["nome"].ToString(),
+                 leitor["preco"].ToString(),
+                 leitor["descricao"].ToString(),
+                 leitor["cod"].ToString(),
+                 leitor["qtd"].ToString());
 
-                }
-                
-
+         }
 
 
-                con.Close();
-            }
-            catch (Exception e)
-            {
-                return null;
-            }
-        }
-    }
+         con.Close();
+     }
+     catch (Exception e)
+     {
+         return null;
+     }
+ }
 }
+}
+
+ */
