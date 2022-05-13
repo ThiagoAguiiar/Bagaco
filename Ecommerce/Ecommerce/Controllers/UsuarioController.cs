@@ -44,8 +44,6 @@ namespace Ecommerce.Controllers
             {
                 return RedirectToAction("Cadastro");
             }
-
-
         }
 
         //alterar a parte de cadastro
