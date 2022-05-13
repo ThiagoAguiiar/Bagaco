@@ -1,4 +1,4 @@
-﻿@model Ecommerce.Models.Usuario
+﻿@model IEnumerable<Ecommerce.Models.Produto>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -37,7 +37,7 @@
         <ul class="produtos">
             <li>
                 <div class="desc-produto">
-                    <img src="https://dummyimage.com/150x150/000/fff&text=Imagem">
+                    <img id="img" src="https://dummyimage.com/150x150/000/fff&text=Imagem">
                     <div>
                         <p class="nome">NOME: </p>
                         <p class="descricao">DESCRIÇÃO: </p>
@@ -50,66 +50,8 @@
                 </div>
             </li>
 
-            <li>
-                <div class="desc-produto">
-                    <img src="https://dummyimage.com/150x150/000/fff&text=Imagem">
-                    <div>
-                        <p class="nome">NOME: </p>
-                        <p class="descricao">DESCRIÇÃO: </p>
-                    </div>
-                </div>
-
-                <div class="preco-comprar">
-                    <p class="preco">Preço</p>
-                    <button class="alterar">Alterar</button>
-                </div>
-            </li>
-
-            <li>
-                <div class="desc-produto">
-                    <img src="https://dummyimage.com/150x150/000/fff&text=Imagem">
-                    <div>
-                        <p class="nome">NOME: </p>
-                        <p class="descricao">DESCRIÇÃO: </p>
-                    </div>
-                </div>
-
-                <div class="preco-comprar">
-                    <p class="preco">Preço</p>
-                    <button class="alterar">Alterar</button>
-                </div>
-            </li>
-
-            <li>
-                <div class="desc-produto">
-                    <img src="https://dummyimage.com/150x150/000/fff&text=Imagem">
-                    <div>
-                        <p class="nome">NOME: </p>
-                        <p class="descricao">DESCRIÇÃO: </p>
-                    </div>
-                </div>
-
-                <div class="preco-comprar">
-                    <p class="preco">Preço</p>
-                    <button class="alterar">Alterar</button>
-                </div>
-            </li>
-
-            <li>
-                <div class="desc-produto">
-                    <img src="https://dummyimage.com/150x150/000/fff&text=Imagem">
-                    <div>
-                        <p class="nome">NOME: </p>
-                        <p class="descricao">DESCRIÇÃO: </p>
-                    </div>
-                </div>
-
-                <div class="preco-comprar">
-                    <p class="preco">Preço</p>
-                    <button class="alterar">Alterar</button>
-                </div>
-            </li>
         </ul>
     </div>
+   
 </body>
 </html>

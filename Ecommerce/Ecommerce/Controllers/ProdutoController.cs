@@ -16,30 +16,21 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastroProduto(string nome, double preco, int cod, int qtd)
+        public IActionResult CadastroProduto(string nome, double preco, string descricao, int cod, int qtd)
         {
-            Produto prod = new Produto(nome, preco, null, cod, qtd);
-            ViewBag["msg"] = prod.Cadastro(nome, preco, null, cod, qtd);
+            Produto prod = new Produto(nome, preco, descricao, cod, qtd);
+            ViewBag.msg = prod.Cadastro(nome, preco, descricao, cod, qtd);
 
             //retorna a view principal
             return View();
         }
 
-        /* public IActionResult Lista()
-        {
-            return View("Produtos");
-        }
-
-        */
-
-        
-
-        // [HttpPost]
-        /* public IActionResult Lista()
+        public IActionResult Adm()
          {
+            
              return View(Produto.Listar());
          }
-        */
+        
     }
 
 }

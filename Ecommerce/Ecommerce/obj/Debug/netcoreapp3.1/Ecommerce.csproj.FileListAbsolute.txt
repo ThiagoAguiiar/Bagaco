@@ -266,3 +266,4 @@ C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\E
 C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.csproj.CopyComplete
 C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.genruntimeconfig.cache
 C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\CadastroProduto.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\CadastroProduto.cshtml.g.cs

@@ -31,7 +31,7 @@ namespace Ecommerce.Models
         public int Codigo { get => codigo; set => codigo = value; }
         public int Qtd { get => qtd; set => qtd = value; }
 
-        public string Cadastro(string nome, double preco, int cod, int qtd)
+        public string Cadastro(string nome, double preco, string descricao, int cod, int qtd)
         {
             MySqlConnection con = new MySqlConnection(conexao);
 
@@ -39,7 +39,7 @@ namespace Ecommerce.Models
             {
                 con.Open();
 
-                MySqlCommand comando = new MySqlCommand("INSERT INTO Produto VALUES (@nome, @preco, @cod, @quantidade)", con);
+                MySqlCommand comando = new MySqlCommand("INSERT INTO produto VALUES (@nome, @preco, @descricao, @cod, @quantidade)", con);
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@preco", preco);
                 comando.Parameters.AddWithValue("@descricao", descricao);
@@ -59,39 +59,44 @@ namespace Ecommerce.Models
                 return null;
             }
         }
+        //retorna uma lista de produtos
+        public static List<Produto> Listar()
+        {
+            List <Produto> lista = new List<Produto>();
+
+            MySqlConnection con = new MySqlConnection(conexao);
+
+            try
+            {
+                con.Open();
+                MySqlCommand comando = new MySqlCommand("SELECT * FROM Produtos", con);
+                MySqlDataReader leitor = comando.ExecuteReader();
+
+                while (leitor.Read())
+                {
+                    Produto produto = new Produto(
+                        leitor["nome"].ToString(),
+                        Convert.ToDouble(leitor["preco"]),
+                        leitor["descricao"].ToString(),
+                        Convert.ToInt32(leitor["cod"]),
+                        Convert.ToInt32(leitor["qtd"]));
+
+                    lista.Add(produto);
+                }
+                con.Close();
+
+                return lista;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
     }
 } 
 
-        //retorna uma lista de produtos
-/*  public static List<Produto> Listar()
- {
-     MySqlConnection con = new MySqlConnection(conexao);
-
-     try
-     {
-         con.Open();
-         MySqlCommand comando = new MySqlCommand("SELECT * FROM Produtos", con);
-         MySqlDataReader leitor = comando.ExecuteReader();
-
-         while (leitor.Read())
-         {
-             Produto p = new Produto(leitor["nome"].ToString(),
-                 leitor["preco"].ToString(),
-                 leitor["descricao"].ToString(),
-                 leitor["cod"].ToString(),
-                 leitor["qtd"].ToString());
-
-         }
+     
 
 
-         con.Close();
-     }
-     catch (Exception e)
-     {
-         return null;
-     }
- }
-}
-}
-
- */

@@ -41,7 +41,7 @@ namespace Ecommerce.Models
             try
             {
                 // Abre a Conexão
-                con.Open();
+                 con.Open();
                 MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuario WHERE cpf = @cpf AND senha = @senha", con);
                 qry.Parameters.AddWithValue("@cpf", cpf);
                 qry.Parameters.AddWithValue("@senha", senha);
