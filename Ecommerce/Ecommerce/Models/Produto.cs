@@ -31,7 +31,7 @@ namespace Ecommerce.Models
         public int Codigo { get => codigo; set => codigo = value; }
         public int Qtd { get => qtd; set => qtd = value; }
 
-        public string Cadastro(string nome, double preco, string descricao, int cod, int qtd)
+        public string Cadastro(string nome, double preco, int cod, int qtd)
         {
             MySqlConnection con = new MySqlConnection(conexao);
 
