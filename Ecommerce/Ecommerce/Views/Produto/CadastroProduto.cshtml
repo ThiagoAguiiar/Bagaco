@@ -22,7 +22,7 @@
             <a href="~/produto/cadastroProduto" id="logo">BAGAÇO</a>
         </div>
         <nav>
-            <a href="" class="nav-link">Produtos</a>
+            <a href="~/produto/adm" class="nav-link">Produtos</a>
             <a href="" class="nav-link">Clientes</a>
             <a href="" class="nav-link">Venda</a>
             <a href="" class="nav-link">Relatórios</a>
@@ -43,7 +43,7 @@
         </div>
 
         <div class="container-cadastro">
-            <form method="post" asp-action="cadastroProduto" class="form">
+            <form method="post" asp-action="cadastroProduto" enctype="multipart/form-data" class="form">
                 <div class="nome-produto produto">
                     <label for="nome">Nome do Produto</label>
                     <input type="text" name="nome" id="nome" required>
@@ -60,20 +60,18 @@
                 </div>
 
                 <div class="codigo-produto produto">
-                    <label for="cod">Código do Produto</label>
-                    <input type="number" name="cod" id="codigo" required>
+                    <label for="codigo">Código do Produto</label>
+                    <input type="number" name="codigo" id="codigo" required>
                 </div>
-
 
                 <div class="qtd-produto produto">
                     <label for="qtd">Quantidade de Produtos</label>
                     <input type="number" name="qtd" id="qtd" required>
                 </div>
 
-
                 <div class="img-produto produto">
-                    <label for="img" id="img">Selecionar Imagem</label>
-                    <input type="file" name="img" id="img">
+                    <label for="imgProduto" id="img">Selecionar Imagem</label>
+                    <input type="file" name="arquivo" id="imgProduto">
                 </div>
 
                 <div class="btn-cadastrar">
@@ -87,47 +85,45 @@
         </div>
     </div>
 
-    <script src="~/js/toastr.min.js"></script>
+    <script src="assets/js/toastr.min.js"></script>
+    <script>
+        const cadastrar = document.querySelector('#cadastrar')
+        const imgProduto = document.querySelector('#img')
 
-        <script>
-            const cadastrar = document.querySelector('#cadastrar')
-            const imgProduto = document.querySelector('#imgProduto')
-
-            cadastrar.addEventListener('click', (e) => {
-                // e.preventDefault()
-                if (imgProduto.value == null) {
-                    alert('Preencha os campos corretamente')
-                } else {
-                    toastr["success"]("Cadastro efetuado com sucesso", "Okay!")
-                }
-
-            })
-
-            imgProduto.addEventListener('input', (e) => {
-                e.preventDefault()
-                const msg = document.querySelector('.msg')
-                msg.classList.add('active')
-            })
-
-            toastr.options = {
-                "closeButton": true,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "2000",
-                "extendedTimeOut": "0",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
+        cadastrar.addEventListener('click', (e) => {
+            e.preventDefault()
+            if (imgProduto.value == null) {
+                alert('Preencha os campos corretamente')
+            } else {
+                toastr["success"]("Cadastro efetuado com sucesso", "Okay!")
             }
-        </script>
 
-</body>
+        })
 
-</html>
+        imgProduto.addEventListener('input', (e) => {
+            e.preventDefault()
+            const msg = document.querySelector('.msg')
+            msg.classList.add('active')
+        })
+
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "2000",
+            "extendedTimeOut": "0",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+</script>
+</body >
+
+</html >

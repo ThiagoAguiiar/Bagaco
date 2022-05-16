@@ -32,7 +32,7 @@ namespace Ecommerce.Controllers
                 //verifica se é adm ou não
                 if (u.Tipo == "Adm")
                 {
-                    return View("Adm");
+                    return RedirectToAction("Adm","Produto");
                 }
                 else
                 {
