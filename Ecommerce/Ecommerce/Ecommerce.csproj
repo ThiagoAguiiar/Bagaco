@@ -20,15 +20,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\cliente.cshtml" />
+    <Content Remove="Views\Home\contato.cshtml" />
     <Content Remove="Views\Produto\Listar.cshtml" />
-    <Content Remove="Views\Usuario\adm_clientes.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\cliente.cshtml" />
+    <None Include="Views\Home\contato.cshtml" />
     <None Include="Views\Produto\CadastroProduto.cshtml" />
-    <None Include="Views\Produto\Adm.cshtml" />
+    <None Include="Views\Produto\ProdutosAdm.cshtml" />
+    <None Include="Views\Produto\ProdutosCliente.cshtml" />
     <None Include="Views\Usuario\adm_clientes.cshtml" />
-    <None Include="Views\Usuario\Cliente.cshtml" />
+    <None Include="Views\Usuario\carrinho.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

@@ -38,11 +38,17 @@ namespace Ecommerce.Controllers
                 return RedirectToAction("CadastroProduto");  
         }
 
-        public IActionResult Adm()
+        public IActionResult ProdutosAdm()
         {
 
             return View(Produto.Listar());
         }
+
+        public IActionResult ProdutosCliente()
+        {
+            return View(Produto.Listar());
+        }
+
 
 
     }

@@ -81,14 +81,14 @@ body {
 }
 
 .cpf,
-.senha {
+.senha, .telefone, .endereco, .nome {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
     .cpf input,
-    .senha input {
+    .senha input, .telefone input, .endereco input, .nome input {
         border: none;
         outline: none;
         border-radius: 7px;
@@ -98,7 +98,8 @@ body {
         width: 400px;
     }
 
-.senha {
+
+.nome, .endereco, .telefone, .senha {
     margin-top: 20px;
 }
 

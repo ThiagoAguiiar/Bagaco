@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/menu.css" />
+    <link rel="stylesheet" href="assets/css/cliente.css" />
+    <title>Bagaço - Produtos</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <a href="cliente.html" id="logo">BAGAÇO</a>
+      </div>
+
+      <div class="search-bar">
+        <i class="fa-solid fa-magnifying-glass search"></i>
+        <input type="search" id="pesquisar" placeholder="Pesquisar Produto" />
+      </div>
+      <nav>
+        <a href="" class="nav-link user">
+          <i class="fa-solid fa-user"></i>
+        </a>
+        <a href="carrinho.html" class="nav-link"
+          ><i class="fa-solid fa-cart-shopping"></i
+        ></a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="container-txt">
+        <img src="img/filtro.png" id="filtro" />
+        <p>PRODUTOS MAIS VENDIDOS</p>
+      </div>
+
+      <div class="lista-produtos">
+        <div class="produtos-card">
+          <p class="nome">Nome do Produto</p>
+          <img
+            src="https://dummyimage.com/200x200/000/fff&text=Imagem"
+            alt=""
+          />
+          <div class="ver-mais">
+            <span>Ver Mais</span>
+          </div>
+        </div>
+        <div class="produtos-card">
+          <p class="nome">Nome do Produto</p>
+          <img
+            src="https://dummyimage.com/200x200/000/fff&text=Imagem"
+            alt=""
+          />
+          <div class="ver-mais">
+            <span>Ver Mais</span>
+          </div>
+        </div>
+        <div class="produtos-card">
+          <p class="nome">Nome do Produto</p>
+          <img
+            src="https://dummyimage.com/200x200/000/fff&text=Imagem"
+            alt=""
+          />
+          <div class="ver-mais">
+            <span>Ver Mais</span>
+          </div>
+        </div>
+        <div class="produtos-card">
+          <p class="nome">Nome do Produto</p>
+          <img
+            src="https://dummyimage.com/200x200/000/fff&text=Imagem"
+            alt=""
+          />
+          <div class="ver-mais">
+            <span>Ver Mais</span>
+          </div>
+        </div>
+      </div>
+
+    <footer>
+      <p>Redes Sociais</p>
+      <a href="https://www.facebook.com/" target="_blank"
+        ><i class="fa-brands fa-facebook"></i
+      ></a>
+      <a href="https://www.facebook.com/" target="_blank"
+        ><i class="fa-brands fa-instagram"></i
+      ></a>
+      <div id="divider"></div>
+      <p>Email</p>
+      <p>bagaco.store@bagaco.com</p>
+      <div id="divider"></div>
+      <p>Telefone</p>
+      <p>(19) 99173-3270</p>
+    </footer>
+
+    <div class="modal-content">
+        <div class="fechar">
+            <i class="fa-solid fa-xmark sair"></i>
+        </div>
+      <div class="modal">
+        <div class="modal-produto">
+          <p class="nomeProduto">NOME DO PRODUTO</p>
+        </div>
+        <div class="modal-body">
+          <div class="img">
+            <div class="desc">
+              <p id="desc">DESCRIÇÃO DO PRODUTO VAI FICAR AQUI</p>
+            </div>
+
+            <img
+              src="https://dummyimage.com/250x250/000/fff&text=Imagem"
+              alt=""
+            />
+          </div>
+
+          <div class="combo-container">
+            <div class="combo">
+              <span id="qtdDis">Dísponível <span id="disp"></span></span>
+
+              <button class="mais">+</button>
+              <input type="number" id="qtd" min="0" />
+              <button class="menos">-</button>
+            </div>
+
+            <div class="preco">
+              <p>
+                PREÇO <br />
+                <span id="preco"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="carrinho">
+          <button class="car">Adicionar ao carrinho</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="assets/js/cliente.js"></script>
+</html>
