@@ -1,0 +1,83 @@
+﻿@model List<Produto>
+@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/adm.css">
+    <title>Bagaço - Administração</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="~/usuario/adm" id="logo">BAGAÇO</a>
+        </div>
+        <nav>
+            <a href="" class="nav-link">Produtos</a>
+            <a href="" class="nav-link">Clientes</a>
+            <a href="~/produto/cadastroProduto" class="">Cadastrar</a>
+            <a href="" class="nav-link">Venda</a>
+            <a href="" class="nav-link">Relatórios</a>
+            <div id="divider"></div>
+            <a href="" class="nav-link  user">
+                <i class="fa-solid fa-user"></i>
+            </a>
+
+            @if (Context.Session.GetString("user") != null)
+            {
+                <a href="~/home/index" class="nav-link">Sair</a>
+            }
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="container-txt">
+            <p>PRODUTOS</p>
+        </div>
+        
+
+
+        @foreach (Produto p in Model)
+        {
+            string formato = "data:image/jpeg;base64," + Convert.ToBase64String(p.Img);
+            <ul class="produtos">      
+              <li>
+                    <div class="desc-produto">
+                        <img src="@formato" class="img">
+                        <div>
+                            <p class="nome">@p.Nome  </p>
+                            <p class="descricao">@p.Descricao </p>
+                            <p class="quantidade">Quantidade: @p.Qtd </p>
+                            <p class="codigo"> Código: @p.Codigo </p>
+                        </div>
+                    </div>
+
+                    <div class="preco-comprar">
+                        <p class="preco">@p.Preco</p>
+                        
+                        <button class="alterar">Alterar</button>
+                    </div>
+                </li>
+            </ul>
+        }
+  
+    </div>
+
+    <script>
+        const preco = document.querySelectorAll('.preco')
+        preco.forEach(e => {
+            const valor = Number(e.innerHTML)
+            const formatacao = valor.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+            e.innerHTML = formatacao
+        })
+     
+       
+    </script>
+   
+</body>
+</html>

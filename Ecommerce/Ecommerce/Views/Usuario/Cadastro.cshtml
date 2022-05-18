@@ -7,61 +7,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/css/menu.css">
-    <link rel="stylesheet" href="~/css/acesso.css">
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/cadastrar.css">
     <title>Bagaço - Cadastre-se</title>
 </head>
 
 <body>
-    <header class="header">
-        <a href="" id="logo">BAGAÇO</a>
-
-        <div class="user-actions">
-            <a href="~/home/index" class="nav-link">Página Inicial</a>
-            <span class="divider"></span>
-            <a href="~/usuario/login" class="nav-link">Entrar</a>
+    <div class="container-se">
+        <div class="home">
+            <a href="~/home/index" id="home"><i class="fa-solid fa-house" title="Home"></i></a>
         </div>
-    </header>
 
-    <div class="container">
+        <div class="container-txt">
+            <p class="logo">BAGAÇO</p>
+            <span id="line"></span>
+            <p class="aviso">Crie uma conta e aproveite nossos benefícios</p>
 
-        <form method="post" asp-action="Cadastro" class="form">
-            <div class="user">
-                <p>Olá,</p>
-                <span>Faça cadastro para obter acesso</span>
-            </div>
-            <div class="input">
-                <div class="nome">
-                    <label for="nome" class="lbl">Nome *</label>
-                    <input type="text" name="nome" id="nome" required>
-                </div>
-
+            <form method="POST" asp-action="Cadastro" class="form">
                 <div class="cpf">
-                    <label for="cpf" class="lbl">CPF *</label>
-                    <input type="text" name="cpf" id="cpf" required>
+                    <label for="CPF">CPF</label>
+                    <input type="text" name="CPF" id="CPF" required >
                 </div>
 
                 <div class="senha">
-                    <label for="senha" class="lbl">Senha *</label>
+                    <label for="senha">Senha</label>
                     <input type="password" name="senha" id="senha" required>
                 </div>
 
-                <div class="check">
-                    <input type="checkbox" name="check" id="check">
-                    <label for="check">Lembrar minha senha</label>
-                </div>
-
-                <div class="submit">
-                    <input type="submit" value="Cadastre-se" class="enviar">
+                <div class="botao">
+                    <input type="submit" id="enviar" value="SIGN IN">
                 </div>
 
                 <div class="logar">
-                    <span>Já possui uma conta? <a href="entrar.html">Acessar</a></span>
+                    <p>Já possui uma conta? <a href="login.html">Entre aqui</a></p>
                 </div>
-            </div>
-        </form>
-        <p> @TempData["msg"]</p>
+            </form>
+        </div>
     </div>
+    <p> @TempData["msg"]</p>
 </body>
-
+    
 </html>

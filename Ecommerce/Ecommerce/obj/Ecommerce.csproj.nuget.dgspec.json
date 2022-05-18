@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj": {}
+    "C:\\Users\\aluno\\Documents\\yasmin\\_Projeto Final\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj": {
+    "C:\\Users\\aluno\\Documents\\yasmin\\_Projeto Final\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
+        "projectUniqueName": "C:\\Users\\aluno\\Documents\\yasmin\\_Projeto Final\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
         "projectName": "Ecommerce",
-        "projectPath": "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
+        "projectPath": "C:\\Users\\aluno\\Documents\\yasmin\\_Projeto Final\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
         "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aluno\\Documents\\yasmin\\Ecommerce\\Ecommerce\\Ecommerce\\obj\\",
+        "outputPath": "C:\\Users\\aluno\\Documents\\yasmin\\_Projeto Final\\Ecommerce\\Ecommerce\\Ecommerce\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -44,9 +44,21 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.0.29, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             }
           },
           "imports": [

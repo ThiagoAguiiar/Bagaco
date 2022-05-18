@@ -1,5 +1,7 @@
 ﻿using Ecommerce.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +19,44 @@ namespace Ecommerce.Controllers
         [HttpPost]
         public IActionResult Login(string cpf, string senha)
         {
-            Usuario u = new Usuario(null, null, null, cpf, senha, null);
-            TempData["msg"] = u.Login(cpf, senha);
+            Usuario u = Usuario.Entra(cpf, senha);
 
-            return RedirectToAction("Login");
+            //verifica se tem algo no objeto
+            if (u != null)
+            {
+                //guarda o usuario
+                HttpContext.Session.SetString("user", JsonConvert.SerializeObject(u));
+                //criar um cookie
+                Response.Cookies.Append("obj", JsonConvert.SerializeObject(u));
+
+                //verifica se é adm ou não
+                if (u.Tipo == "Adm")
+                {
+                    return RedirectToAction("Adm","Produto");
+                }
+                else
+                {
+                    return View("Cliente");
+                }
+            }
+            //retorna para a tela cadastro
+            else
+            {
+                return RedirectToAction("Cadastro");
+            }
         }
 
+        public IActionResult Adm()
+        {
+            return View();
+        }
+
+        public IActionResult Cliente()
+        {
+            return View();
+        }
+
+        //alterar a parte de cadastro
         public IActionResult Cadastro()
         {
             return View();
@@ -32,10 +66,10 @@ namespace Ecommerce.Controllers
         public IActionResult Cadastro(string nome, string cpf, string senha)
         {
             Usuario u = new Usuario(nome, null, null, cpf, senha, null);
-            TempData["msg"] = u.Cadastro(nome, cpf, senha);
-
-            return RedirectToAction("Cadastro");
+            ViewBag.msg = u.Cadastro(nome, cpf, senha);
+            return View("Login");
         }
-    }   
-    
+    }
 }
+
+
