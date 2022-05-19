@@ -59,6 +59,18 @@ namespace Ecommerce.Controllers
             return View("Login");
         }
 
+        public IActionResult PromoveAdm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult PromoveAdm(string cpf)
+        {
+            Usuario u = new Usuario(cpf, null, null, null, null, null);
+            u.Promove();
+            return View("PromoveAdm");
+        }
         public IActionResult adm_clientes()
         {
             return View();

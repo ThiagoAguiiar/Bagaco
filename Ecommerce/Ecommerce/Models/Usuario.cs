@@ -8,7 +8,8 @@ namespace Ecommerce.Models
 {
     public class Usuario
     {
-        static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
+        //static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
+        static string conexao = "Server=localhost;Database=ycm;User id=yasmin;Password=Yasmin230780";
 
         private string nome;
         private string telefone;
@@ -102,5 +103,28 @@ namespace Ecommerce.Models
                 return "ERRO: " + e.Message;
             }
         }
+
+        public string Promove()
+        {
+            MySqlConnection con = new MySqlConnection(conexao);
+            try
+            {
+                con.Open();
+
+                //atualiza o campo "tipo" 
+                MySqlCommand qry = new MySqlCommand("UPDATE Usuario SET tipo ='Adm' WHERE cpf = @cpf", con);
+                qry.Parameters.AddWithValue("@cpf", cpf);
+
+                qry.ExecuteNonQuery();
+                con.Close();
+
+                return "Promoção feita";
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            }
     }
 }
