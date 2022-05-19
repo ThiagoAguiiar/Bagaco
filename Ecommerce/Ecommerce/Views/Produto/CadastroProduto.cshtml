@@ -1,7 +1,6 @@
 ﻿@model Ecommerce.Models.Produto
 @using Microsoft.AspNetCore.Http;
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -64,17 +63,17 @@
                     <input type="number" name="cod" id="codigo" required>
                 </div>
 
-
                 <div class="qtd-produto produto">
                     <label for="qtd">Quantidade de Produtos</label>
                     <input type="number" name="qtd" id="qtd" required>
                 </div>
 
-
                 <div class="img-produto produto">
-                    <label for="img" id="img">Selecionar Imagem</label>
-                    <input type="file" name="img" id="img">
+                    <label for="img">Selecionar Imagem</label>
+                    <input type="file" name="img">
                 </div>
+
+
 
                 <div class="btn-cadastrar">
                     <input type="submit" value="Cadastrar Produto" id="cadastrar">
@@ -90,20 +89,26 @@
     <script src="~/js/toastr.min.js"></script>
 
         <script>
-            const cadastrar = document.querySelector('#cadastrar')
-            const imgProduto = document.querySelector('#imgProduto')
+            const seletor = {
+                cadastrar: document.querySelector('#cadastrar'),
+                imgProduto: document.querySelector('#img'),
+                nome: document.querySelector('#nome'),
+                preco: document.querySelector('#preco'),
+                descricao: document.querySelector('#descricao'),
+                codigo: document.querySelector('#codigo'),
+                quantidade: document.querySelector('#qtd')
+            }
 
-            cadastrar.addEventListener('click', (e) => {
+            seletor.cadastrar.addEventListener('click', (e) => {
                 // e.preventDefault()
-                if (imgProduto.value == null) {
+                if ((seletor.nome || seletor.preco || seletor.descricao || seletor.codigo || seletor.quantidade).value == '') {
                     alert('Preencha os campos corretamente')
                 } else {
                     toastr["success"]("Cadastro efetuado com sucesso", "Okay!")
                 }
-
             })
 
-            imgProduto.addEventListener('input', (e) => {
+            seletor.imgProduto.addEventListener('input', (e) => {
                 e.preventDefault()
                 const msg = document.querySelector('.msg')
                 msg.classList.add('active')
@@ -127,7 +132,6 @@
                 "hideMethod": "fadeOut"
             }
         </script>
-
 </body>
 
 </html>
