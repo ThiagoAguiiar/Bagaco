@@ -8,8 +8,8 @@ namespace Ecommerce.Models
 {
     public class Usuario
     {
-        //static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
-        static string conexao = "Server=localhost;Database=ycm;User id=yasmin;Password=Yasmin230780";
+        static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
+        
 
         private string nome;
         private string telefone;
@@ -137,7 +137,7 @@ namespace Ecommerce.Models
             try
             {
                 con.Open();
-                MySqlCommand comando = new MySqlCommand("SELECT cpf, nome, telefone, senha, tipo, endereco FROM Usuario WHERE cpf = @cpf", con);
+                MySqlCommand comando = new MySqlCommand("SELECT * FROM Usuario WHERE cpf = @cpf", con);
                 MySqlDataReader leitor = comando.ExecuteReader();
 
                 while (leitor.Read())

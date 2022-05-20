@@ -74,21 +74,25 @@ namespace Ecommerce.Controllers
 
         public IActionResult AlterarDados()
         {
-
-            return View(Usuario.Listar());
+            return View();
         }
 
-        public IActionResult adm_clientes()
+        public IActionResult Dados()
         {
             return View();
         }
 
-        public IActionResult carrinho()
+        public IActionResult Adm_clientes()
         {
             return View();
         }
 
-        public IActionResult cliente()
+        public IActionResult Carrinho()
+        {
+            return View();
+        }
+
+        public IActionResult Cliente()
         {
             return View();
         }

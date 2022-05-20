@@ -1,79 +1,19 @@
-﻿@model
+﻿@model Usuario
 @using Microsoft.AspNetCore.Http;
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="~/css/cliente.css">
-    <title>Bagaço - Administração</title>
-</head>
-
-<body>
-    <header class="header">
-        <div class="logo">
-            <a href="~/produto/ProdutosCliente" id="logo">BAGAÇO</a>
-        </div>
-        <nav>
-            <a href="~/produto/ProdutosCliente" class="nav-link">Produtos</a>
-            <a href="" class="nav-link">Alterar Dados</a>
-            <a href="" class="nav-link">Compras</a>
-            <div id="divider"></div>
-            <a href="" class="nav-link  user">
-                <i class="fa-solid fa-user"></i>
-            </a>
-
-            @if (Context.Session.GetString("user") != null)
-            {
-                <a href="~/home/index" class="nav-link">Sair</a>
-            }
-        </nav>
-    </header>
-
-    <div class="container">
-        <div class="container-txt">
-            <p>PRODUTOS</p>
-        </div>
+@using Newtonsoft.Json;
+@{ 
+    Usuario u = JsonConvert.DeserializeObject<Usuario>(Context.Session.GetString("user").ToString());
+}
 
 
 
-        @foreach (Usuario p in Model)
-        {
-
-            <div class="lista-produtos">
-                <div class="produtos-card">
-                    <p class="nome">@p.Nome</p>
-                    <p class="nome">@p.Cpf</p>
-                    <p class="nome">@p.Telefone</p>
-                    <p class="nome">@p.Senha</p>
-                    <p class="nome">@p.Tipo</p>
-                    <div class="ver-mais">
-                        <span>Editar</span>
-                    </div>
-                </div>
-            </div>
-
-        }
-
-
-
-        <footer>
-            <p>Redes Sociais</p>
-            <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <div id="divider"></div>
-            <p>Email</p>
-            <p>bagaco.store@bagaco.com</p>
-            <div id="divider"></div>
-            <p>Telefone</p>
-            <p>(19) 99173-3270</p>
-        </footer>
-
-</body>
-</html>
-
-
+                <p class="nome">@u.Nome</p>
+                <p class="nome">@u.Cpf</p>
+                <p class="nome">@u.Telefone</p>
+                <p class="nome">@u.Senha</p>
+                <p class="nome">@u.Tipo</p>
  
+
+
+
+

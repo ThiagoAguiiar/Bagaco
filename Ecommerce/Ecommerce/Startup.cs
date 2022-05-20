@@ -25,7 +25,7 @@ namespace Ecommerce
         {
             services.AddControllersWithViews();
 
-            //adicionar o serviço de sessão
+            //adicionar o serviço de sessão -----
             services.AddSession();
 
         }
@@ -50,7 +50,7 @@ namespace Ecommerce
 
             app.UseAuthorization();
 
-            //Configurar o uso de sessão
+            //Configurar o uso de sessão ----
             app.UseSession();
 
 

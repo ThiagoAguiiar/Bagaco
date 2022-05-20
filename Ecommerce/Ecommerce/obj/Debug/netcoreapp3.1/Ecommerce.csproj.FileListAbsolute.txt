@@ -205,7 +205,6 @@ C:\Users\thiag\Downloads\Projeto\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Eco
 C:\Users\thiag\Downloads\Projeto\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.genruntimeconfig.cache
 C:\Users\thiag\Downloads\Projeto\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Cliente.cshtml.g.cs
 C:\Users\thiag\Downloads\Projeto\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Adm.cshtml.g.cs
-C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Cliente.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\aluno\Documents\yasmin\Ecommerce\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.csprojAssemblyReference.cache
@@ -336,7 +335,6 @@ C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\bin
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Adm.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\Ecommerce\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\aluno\Documents\yasmin\Ecommerce\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 C:\Users\aluno\Documents\yasmin\Ecommerce\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
@@ -545,3 +543,9 @@ C:\Users\yasco\Documents\_Yasmin\_Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcor
 C:\Users\yasco\Documents\_Yasmin\_Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.dll
 C:\Users\yasco\Documents\_Yasmin\_Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.pdb
 C:\Users\yasco\Documents\_Yasmin\_Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.genruntimeconfig.cache
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\ProdutosAdm.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\ProdutosCliente.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\carrinho.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\PromoveAdm.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Dados.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\AlterarDados.cshtml.g.cs
