@@ -32,11 +32,11 @@ namespace Ecommerce.Controllers
                 //verifica se é adm ou não
                 if (u.Tipo == "Adm")
                 {
-                    return RedirectToAction("Adm","Produto");
+                    return RedirectToAction("ProdutosAdm", "Produto");
                 }
                 else
                 {
-                    return View("Cliente");
+                    return RedirectToAction("ProdutosCliente", "Produto");
                 }
             }
             //retorna para a tela cadastro
@@ -45,17 +45,6 @@ namespace Ecommerce.Controllers
                 return RedirectToAction("Cadastro");
             }
         }
-
-        public IActionResult Adm()
-        {
-            return View();
-        }
-
-        public IActionResult Cliente()
-        {
-            return View();
-        }
-
         //alterar a parte de cadastro
         public IActionResult Cadastro()
         {
@@ -63,12 +52,48 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastro(string nome, string cpf, string senha)
+        public IActionResult Cadastro(string cpf, string nome, string telefone, string senha, string endereco)
         {
-            Usuario u = new Usuario(nome, null, null, cpf, senha, null);
-            ViewBag.msg = u.Cadastro(nome, cpf, senha);
+            Usuario u = new Usuario(cpf, nome, telefone, senha, null, endereco);
+            u.Cadastro();
             return View("Login");
         }
+
+        public IActionResult PromoveAdm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult PromoveAdm(string cpf)
+        {
+            Usuario u = new Usuario(cpf, null, null, null, null, null);
+            u.Promove();
+            return View("PromoveAdm");
+        }
+
+        public IActionResult AlterarDados()
+        {
+
+            return View(Usuario.Listar());
+        }
+
+        public IActionResult adm_clientes()
+        {
+            return View();
+        }
+
+        public IActionResult carrinho()
+        {
+            return View();
+        }
+
+        public IActionResult cliente()
+        {
+            return View();
+        }
+
+
     }
 }
 

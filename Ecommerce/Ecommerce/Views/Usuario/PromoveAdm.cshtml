@@ -1,0 +1,43 @@
+﻿@model Ecommerce.Models.Usuario
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/cadastrar.css">
+    <title>Bagaço - Cadastre-se</title>
+</head>
+
+<body>
+    <div class="container-se">
+        <div class="home">
+            <a href="~/produto/Adm" id="home"><i class="fa-solid fa-house" title="Home"></i></a>
+        </div>
+
+        <div class="container-txt">
+            <p class="logo">BAGAÇO</p>
+            <span id="line"></span>
+            <p class="aviso"> Promover a Adm </p>
+
+            <form method="POST" asp-action="PromoveAdm" class="form">
+
+
+                <div class="nome">
+                    <label for="cpf">CPF do usuário</label>
+                    <input type="text" name="cpf" id="cpf" required>
+                </div>
+
+                <div class="botao">
+                    <input type="submit" id="enviar" value="Promover">
+                </div>
+            </form>
+        </div>
+    </div>
+    @*<p> @TempData["msg"]</p>*@
+</body>
+
+</html>

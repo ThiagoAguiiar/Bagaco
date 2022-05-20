@@ -27,6 +27,14 @@ body {
     background-color: var(--Fundo);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -117,6 +125,9 @@ body {
 }
 
 footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
     background-color: var(--Fundo);
     border-top: 1px solid white;
     display: flex;
@@ -136,4 +147,120 @@ footer a {
 
 footer a i {
     font-size: 20px;
+}
+
+.modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.384);
+}
+
+.modal {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+.modal-body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    gap: 3em;
+    margin: 0 auto;
+    height: calc(100% - 60px);
+}
+
+.modal-produto {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+.combo {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+#qtdDis {
+    width: 100%;
+    font-size: 13px;
+    position: absolute;
+    top: 80px;
+}
+
+.mais,
+.menos {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: orangered;
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.combo input {
+    border: 1px solid orangered;
+    text-align: center;
+    outline: none;
+    width: 40px;
+    height: 40px;
+}
+
+.carrinho {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.carrinho button {
+    cursor: pointer;
+    width: 180px;
+    height: 40px;
+    font-size: 1em;
+    background-color: green;
+    color: var(--Branco);
+}
+
+.carrinho button:hover {
+    background-color: rgb(1, 97, 1) ;
+}
+
+#preco {
+    font-weight: 600;
+}
+
+.desc {
+    padding: 10px 0px;
+}
+
+.fechar {
+    position: absolute;
+    top: 1.5em;
+    right: 1.5em;
+}
+
+.sair {
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
 }

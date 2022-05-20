@@ -24,9 +24,21 @@
             <p class="aviso">Crie uma conta e aproveite nossos benefícios</p>
 
             <form method="POST" asp-action="Cadastro" class="form">
-                <div class="cpf">
-                    <label for="CPF">CPF</label>
-                    <input type="text" name="CPF" id="CPF" required >
+
+
+                <div class="nome">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" required>
+                </div>
+
+                <div class="telefone">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" name="telefone" id="telefone" required>
+                </div>
+
+                <div class="endereco">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" name="endereco" id="endereco" required>
                 </div>
 
                 <div class="senha">
@@ -34,17 +46,22 @@
                     <input type="password" name="senha" id="senha" required>
                 </div>
 
+                <div class="cpf">
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" id="cpf" required>
+                </div>
+
                 <div class="botao">
-                    <input type="submit" id="enviar" value="SIGN IN">
+                    <input type="submit" id="enviar" value="CADASTRAR">
                 </div>
 
                 <div class="logar">
-                    <p>Já possui uma conta? <a href="login.html">Entre aqui</a></p>
+                    <p>Já possui uma conta? <a href="~/Usuario/Login">Entre aqui</a></p>
                 </div>
             </form>
         </div>
     </div>
-    <p> @TempData["msg"]</p>
+    @*<p> @TempData["msg"]</p>*@
 </body>
-    
+
 </html>
