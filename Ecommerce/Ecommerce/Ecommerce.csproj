@@ -23,6 +23,7 @@
     <Content Remove="Views\cliente.cshtml" />
     <Content Remove="Views\Home\contato.cshtml" />
     <Content Remove="Views\Produto\Listar.cshtml" />
+    <Content Remove="Views\Usuario\AlterarDados.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +34,7 @@
     <None Include="Views\Produto\ProdutosCliente.cshtml" />
     <None Include="Views\Usuario\adm_clientes.cshtml" />
     <None Include="Views\Usuario\carrinho.cshtml" />
+    <None Include="Views\Usuario\AlterarDados.cshtml" />
   </ItemGroup>
 
   <ItemGroup>

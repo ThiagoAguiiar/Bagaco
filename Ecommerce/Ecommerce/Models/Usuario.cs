@@ -126,5 +126,40 @@ namespace Ecommerce.Models
                 return null;
             }
             }
+
+        //retorna uma lista de todos os atributos do Usuario
+        public static List<Usuario> Listar()
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            MySqlConnection con = new MySqlConnection(conexao);
+
+            try
+            {
+                con.Open();
+                MySqlCommand comando = new MySqlCommand("SELECT cpf, nome, telefone, senha, tipo, endereco FROM Usuario WHERE cpf = @cpf", con);
+                MySqlDataReader leitor = comando.ExecuteReader();
+
+                while (leitor.Read())
+                {
+                    Usuario u = new Usuario(leitor["cpf"].ToString(),
+                          leitor["nome"].ToString(),
+                          leitor["Telefone"].ToString(),
+                          leitor["senha"].ToString(),
+                          leitor["Tipo"].ToString(),
+                          leitor["endereco"].ToString());
+
+                    lista.Add(u);
+                }
+                con.Close();
+
+                return lista;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
     }
 }

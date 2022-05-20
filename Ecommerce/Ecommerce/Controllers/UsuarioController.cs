@@ -71,6 +71,13 @@ namespace Ecommerce.Controllers
             u.Promove();
             return View("PromoveAdm");
         }
+
+        public IActionResult AlterarDados()
+        {
+
+            return View(Usuario.Listar());
+        }
+
         public IActionResult adm_clientes()
         {
             return View();
