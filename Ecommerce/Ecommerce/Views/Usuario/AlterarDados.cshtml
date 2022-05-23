@@ -1,19 +1,67 @@
 ﻿@model Usuario
 @using Microsoft.AspNetCore.Http;
 @using Newtonsoft.Json;
-@{ 
+@{
     Usuario u = JsonConvert.DeserializeObject<Usuario>(Context.Session.GetString("user").ToString());
 }
 
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/cadastrar.css">
+    <title>Bagaço - Cadastre-se</title>
+</head>
+
+<body>
+    <div class="container-se">
+        <div class="home">
+            <a href="~/home/index" id="home"><i class="fa-solid fa-house" title="Home"></i></a>
+        </div>
+
+        <div class="container-txt">
+            <p class="logo">BAGAÇO</p>
+            <span id="line"></span>
+            <p class="aviso">Insi</p>
+
+            <form method="POST" asp-action="AlterarDados" class="form">
 
 
-                <p class="nome">@u.Nome</p>
-                <p class="nome">@u.Cpf</p>
-                <p class="nome">@u.Telefone</p>
-                <p class="nome">@u.Senha</p>
-                <p class="nome">@u.Tipo</p>
- 
+                <div class="nome">
+                    <label for="nome">Nome</label>
+                    <input value="@u.Nome" name="nome" id="nome" required>
+                </div>
 
+                <div class="telefone">
+                    <label for="telefone">Telefone</label>
+                    <input  value="@u.Telefone" type="text" name="telefone" id="telefone" required>
+                </div>
 
+                <div class="endereco">
+                    <label for="endereco">Endereço</label>
+                    <input  value="@u.Endereco" type="text" name="endereco" id="endereco" required>
+                </div>
 
+                <div class="senha">
+                    <label for="senha">Senha</label>
+                    <input  value="@u.Senha" type="password" name="senha" id="senha" required>
+                </div>
 
+                <div class="cpf">
+                    <label for="cpf">CPF</label>
+                    <input  value="@u.Cpf" type="text" name="cpf" id="cpf" required>
+                </div>
+
+                <div class="botao">
+                    <input type="submit" id="enviar" value="ALTERAR">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

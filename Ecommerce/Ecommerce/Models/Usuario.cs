@@ -125,10 +125,32 @@ namespace Ecommerce.Models
             {
                 return null;
             }
-            }
+        }
 
-        //retorna uma lista de todos os atributos do Usuario
-        public static List<Usuario> Listar()
+        public string Alterar(string cpf, string nome, string telefone, string senha, string endereco)
+        {
+            MySqlConnection con = new MySqlConnection(conexao);
+            try
+            {
+                con.Open();
+                MySqlCommand qry = new MySqlCommand("UPDATE Usuario Set nome = @nome, telefone = @telefone, senha = @senha, endereco = @endereco WHERE cpf= @cpf ", con);
+                qry.Parameters.AddWithValue("@cpf", cpf);
+                qry.Parameters.AddWithValue("@nome", nome);
+                qry.Parameters.AddWithValue("@telefone", telefone);
+                qry.Parameters.AddWithValue("@senha", senha);
+                qry.Parameters.AddWithValue("@endereco", endereco);
+                qry.ExecuteNonQuery();
+                con.Close();
+
+                return "Cadastro feito com sucesso";
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+        public static List<Usuario> ListarClientes()
         {
             List<Usuario> lista = new List<Usuario>();
 
@@ -137,17 +159,17 @@ namespace Ecommerce.Models
             try
             {
                 con.Open();
-                MySqlCommand comando = new MySqlCommand("SELECT * FROM Usuario WHERE cpf = @cpf", con);
+                MySqlCommand comando = new MySqlCommand("SELECT * FROM Usuario", con);
                 MySqlDataReader leitor = comando.ExecuteReader();
 
                 while (leitor.Read())
                 {
                     Usuario u = new Usuario(leitor["cpf"].ToString(),
-                          leitor["nome"].ToString(),
-                          leitor["Telefone"].ToString(),
-                          leitor["senha"].ToString(),
-                          leitor["Tipo"].ToString(),
-                          leitor["endereco"].ToString());
+                        leitor["nome"].ToString(),
+                        leitor["Telefone"].ToString(),
+                        leitor["senha"].ToString(),
+                        leitor["Tipo"].ToString(),
+                        leitor["endereco"].ToString());
 
                     lista.Add(u);
                 }
@@ -161,5 +183,7 @@ namespace Ecommerce.Models
                 return null;
             }
         }
+
+
     }
 }

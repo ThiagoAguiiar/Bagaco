@@ -31,7 +31,6 @@
     <None Include="Views\Produto\CadastroProduto.cshtml" />
     <None Include="Views\Produto\ProdutosAdm.cshtml" />
     <None Include="Views\Produto\ProdutosCliente.cshtml" />
-    <None Include="Views\Usuario\Dados.cshtml" />
     <None Include="Views\Usuario\Carrinho.cshtml" />
   </ItemGroup>
 

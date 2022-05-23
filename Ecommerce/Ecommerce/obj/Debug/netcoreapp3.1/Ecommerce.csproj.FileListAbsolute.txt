@@ -547,5 +547,5 @@ C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\ProdutosCliente.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\carrinho.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\PromoveAdm.cshtml.g.cs
-C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Dados.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\AlterarDados.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListaClientes.cshtml.g.cs

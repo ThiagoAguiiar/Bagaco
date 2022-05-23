@@ -1,0 +1,66 @@
+﻿@model Usuario
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@{
+    Usuario u = JsonConvert.DeserializeObject<Usuario>(Context.Session.GetString("user").ToString());
+}
+
+
+
+<p class="nome">@u.Nome</p>
+<p class="nome">@u.Cpf</p>
+<p class="nome">@u.Telefone</p>
+<p class="nome">@u.Senha</p>
+<p class="nome">@u.Tipo</p>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/adm_clientes.css">
+    <title>Bagaço - Clientes</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="adm_clientes.html" id="logo">BAGAÇO</a>
+        </div>
+        <nav>
+            <a href="adm_produtos.html" class="nav-link">Produtos</a>
+            <a href="adm_cadastrar.html" class="nav-link">Cadastrar</a>
+            <a href="" class="nav-link">Vendas</a>
+            <a href="" class="nav-link">Relatórios</a>
+            <div id="divider"></div>
+            <a href="" class="nav-link  user">
+                <i class="fa-solid fa-user"></i>
+            </a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="container-txt">
+            <p>CLIENTES</p>
+        </div>
+
+
+        <ul class="clientes">
+            <li>
+                <div class="info-cliente">
+                    <div>
+                        <p class="nome">NOME DO CLIENTE: @u.Nome </p>
+                        <p class="nome">CPF DO CLIENTE: @u.Cpf </p>
+                        <p class="nome">ENDEREÇO DO CLIENTE:@u.Endereco </p>
+                        <p class="nome">TELEFONE DO CLIENTE: @u.Telefone </p>
+                        p class="nome">SENHA DO CLIENTE: @u.Telefone </p>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+
