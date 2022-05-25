@@ -680,3 +680,4 @@ C:\Users\aluno\Desktop\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Eco
 C:\Users\aluno\Desktop\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.dll
 C:\Users\aluno\Desktop\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.pdb
 C:\Users\aluno\Desktop\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.genruntimeconfig.cache
+C:\Users\aluno\Desktop\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Carrinho.cshtml.g.cs

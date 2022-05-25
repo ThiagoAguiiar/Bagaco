@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Http;
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js"
+            crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" href="~/css/menu.css" />
+    <link type="text/css" rel="stylesheet" href="~/css/carrinho.css" />
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <title>Bagaço - Carrinho</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="cliente.html" id="logo">BAGAÇO</a>
+        </div>
+
+        <nav>
+            <a href="" class="nav-link user">
+                <i class="fa-solid fa-user"></i>
+            </a>
+            @if (Context.Session.GetString("user") != null)
+            {
+                <a href="~/home/index" class="nav-link">Sair</a>
+            }
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="container-txt">
+            <p>SUAS COMPRAS</p>
+        </div>
+
+        <ul class="produtos">
+        </ul>
+    </div>
+
+    <div class="finalizar">
+        <p class="total">Total da Compra:</p>
+        <button class="finalizarCompra">Finalizar Compra</button>
+    </div>
+</body>
+</html>

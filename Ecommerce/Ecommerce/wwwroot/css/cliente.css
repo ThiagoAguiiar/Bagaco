@@ -150,6 +150,10 @@ input::-webkit-inner-spin-button {
 
 }
 
+.preco {
+    color: white;
+}
+
 footer {
     position: fixed;
     bottom: 0;

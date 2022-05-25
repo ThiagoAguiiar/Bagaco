@@ -25,6 +25,9 @@
             <a href="" class="nav-link  user">
                 <i class="fa-solid fa-user"></i>
             </a>
+            <a href="~/Produto/Carrinho" class="nav-link car">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
 
             @if (Context.Session.GetString("user") != null)
             {
@@ -47,7 +50,7 @@
                 <div class="produtos-card">
                     <p class="nome">@p.Nome</p>
                     <img src="@formato" alt="Imagem do Produto">
-                    <p class="preco">@p.Preco</p>
+                    <p class="preco">R$ @p.Preco,00</p>
                     <div class="ver-mais">
                         <span class="addCarrinho">ADICIONAR AO CARRINHO</span>
                     </div>

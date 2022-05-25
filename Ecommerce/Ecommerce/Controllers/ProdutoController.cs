@@ -17,6 +17,13 @@ namespace Ecommerce.Controllers
             return View();
         }
 
+        public IActionResult Carrinho()
+        {
+            //retorna para a view principal do Adm
+            return View();
+        }
+
+
         [HttpPost]
         public IActionResult CadastroProduto(string nome, double preco, string descricao, int codigo, int qtd)
         {
@@ -31,8 +38,8 @@ namespace Ecommerce.Controllers
                     arquivo.CopyToAsync(s);
                     byte[] bytesArquivo = s.ToArray();
                     Produto p = new Produto(nome, preco, descricao, codigo, qtd, bytesArquivo);
-                    p.Cadastro();
-
+                    
+                    TempData["msg"] = p.Cadastro();
                 }
             }
                 return RedirectToAction("CadastroProduto");  
@@ -49,7 +56,7 @@ namespace Ecommerce.Controllers
             return View(Produto.Listar());
         }
 
-
+        
 
     }
 } 

@@ -62,7 +62,7 @@ namespace Ecommerce.Models
             }
             catch (Exception e)
             {
-                return null;
+                return "Erro " + e;
             }
         }
         //retorna uma lista de produtos
