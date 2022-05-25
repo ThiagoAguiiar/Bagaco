@@ -17,9 +17,8 @@ namespace Ecommerce.Controllers
             return View();
         }
 
-        public IActionResult Carrinho()
+        public IActionResult Carrinho(int codigo)
         {
-            //retorna para a view principal do Adm
             return View();
         }
 

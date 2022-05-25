@@ -52,7 +52,8 @@
                     <img src="@formato" alt="Imagem do Produto">
                     <p class="preco">R$ @p.Preco,00</p>
                     <div class="ver-mais">
-                        <span class="addCarrinho">ADICIONAR AO CARRINHO</span>
+                        <span class="addCarrinho">@Html.ActionLink("ADICIONAR AO CARRINHO", "Carrinho", new { codigo = p.Codigo }) </span>
+         
                     </div>
                 </div>
             }

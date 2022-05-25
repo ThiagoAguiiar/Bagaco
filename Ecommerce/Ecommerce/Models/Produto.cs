@@ -102,5 +102,12 @@ namespace Ecommerce.Models
             }
         }
 
+        // CARRINHO 
+      public string Carrinho()
+        {
+            return null;
+        }
+
     }
+
 }
