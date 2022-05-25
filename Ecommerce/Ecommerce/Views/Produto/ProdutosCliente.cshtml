@@ -38,26 +38,23 @@
             <p>PRODUTOS</p>
         </div>
 
+        <div class="lista-produtos">
 
+            @foreach (Produto p in Model)
+            {
+                string formato = "data:image/jpeg;base64," + Convert.ToBase64String(p.Img);
 
-        @foreach (Produto p in Model)
-        {
-            string formato = "data:image/jpeg;base64," + Convert.ToBase64String(p.Img);
-            <div class="lista-produtos">
                 <div class="produtos-card">
                     <p class="nome">@p.Nome</p>
-                    <img src="@formato" alt="">
+                    <img src="@formato" alt="Imagem do Produto">
+                    <p class="preco">@p.Preco</p>
                     <div class="ver-mais">
-                        <span>Ver Mais</span>
+                        <span class="addCarrinho">ADICIONAR AO CARRINHO</span>
                     </div>
                 </div>
-            </div>
-
-          
-
-        }
-
-      
+            }
+        </div>
+        </div>
 
         <footer>
             <p>Redes Sociais</p>
