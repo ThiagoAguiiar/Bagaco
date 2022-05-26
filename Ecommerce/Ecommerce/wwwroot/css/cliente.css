@@ -33,8 +33,6 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-
-
 .search-bar {
     display: flex;
     align-items: center;
@@ -263,4 +261,14 @@ footer a i {
     font-size: 1.5em;
     color: white;
     cursor: pointer;
+}
+
+.precoDB,
+.quantidadeDB {
+    display:none;
+}
+
+.img {
+    width: 200px;
+    height: 200px;
 }
