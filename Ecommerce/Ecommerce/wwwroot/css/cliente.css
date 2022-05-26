@@ -61,7 +61,8 @@ input::-webkit-inner-spin-button {
 .container {
     width: 80%;
     height: auto;
-    margin: 40px auto;
+    margin: 50px auto;
+    position: relative;
 }
 
 .container-txt {
@@ -76,30 +77,36 @@ input::-webkit-inner-spin-button {
 }
 
 .lista-produtos {
+    position: relative;
     margin-top: 30px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 300px);
+    grid-auto-flow: row;
     align-items: center;
-    justify-content: center;
     gap: 1em;
 }
 
 .produtos-card {
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     width: 300px;
-    height: 350px;
-    background-color: red;
+    height: 380px;
 }
 
 .produtos-card img {
     border-radius: 10px;
+    width: 200px;
+    height: 200px;
 }
 
+
 .nome {
-    background-color: yellow;
+    border-bottom: 1px solid black;
+    color: white;
     font-size: 1.1em;
     width: 100%;
     height: 40px;
@@ -110,20 +117,45 @@ input::-webkit-inner-spin-button {
     top: 0;
 }
 
-.ver-mais {
+.carrinhoProdutos {
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: blue;
+    background-color: black;
+    color: white;
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 40px;
 }
 
-footer {
+.preco {
+    margin-top: 10px;
+    color: white;
+}
+
+.addCarrinho {
+    cursor: pointer;
     position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+
+}
+
+.preco {
+    color: white;
+}
+
+footer {
+    position: fixed;
     bottom: 0;
     left: 0;
     background-color: var(--Fundo);
@@ -147,128 +179,6 @@ footer a i {
     font-size: 20px;
 }
 
-.modal-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.384);
-}
-
-.modal {
-    position: relative;
-    width: 60%;
-    height: 60%;
-    background-color: white;
-    border-radius: 10px;
-}
 
 
-.modal-body {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-    gap: 3em;
-    margin: 0 auto;
-    height: calc(100% - 60px);
-}
 
-.modal-produto {
-    width: 100%;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5em;
-}
-
-.combo {
-    margin-top: 1em;
-    display: flex;
-    align-items: center;
-    margin-bottom: 2em;
-}
-
-#qtdDis {
-    width: 100%;
-    font-size: 13px;
-    position: absolute;
-    top: 80px;
-}
-
-.mais,
-.menos {
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: orangered;
-    width: 40px;
-    height: 40px;
-    color: white;
-}
-
-.combo input {
-    border: 1px solid orangered;
-    text-align: center;
-    outline: none;
-    width: 40px;
-    height: 40px;
-}
-
-.carrinho {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-}
-
-.carrinho button {
-    cursor: pointer;
-    width: 180px;
-    height: 40px;
-    font-size: 1em;
-    background-color: green;
-    color: var(--Branco);
-}
-
-.carrinho button:hover {
-    background-color: rgb(1, 97, 1) ;
-}
-
-#preco {
-    font-weight: 600;
-}
-
-.desc {
-    padding: 10px 0px;
-}
-
-.fechar {
-    position: absolute;
-    top: 1.5em;
-    right: 1.5em;
-}
-
-.sair {
-    font-size: 1.5em;
-    color: white;
-    cursor: pointer;
-}
-
-.precoDB,
-.quantidadeDB {
-    display:none;
-}
-
-.img {
-    width: 200px;
-    height: 200px;
-}

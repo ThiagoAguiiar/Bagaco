@@ -9,7 +9,7 @@ namespace Ecommerce.Models
     public class Produto
     {
         static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
-      
+       
 
 
         private string nome;
@@ -62,7 +62,7 @@ namespace Ecommerce.Models
             }
             catch (Exception e)
             {
-                return null;
+                return "Erro " + e;
             }
         }
         //retorna uma lista de produtos
@@ -102,5 +102,12 @@ namespace Ecommerce.Models
             }
         }
 
+        // CARRINHO 
+      public string Carrinho()
+        {
+            return null;
+        }
+
     }
+
 }

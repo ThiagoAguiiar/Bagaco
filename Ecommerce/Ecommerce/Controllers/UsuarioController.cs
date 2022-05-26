@@ -71,17 +71,35 @@ namespace Ecommerce.Controllers
             u.Promove();
             return View("PromoveAdm");
         }
-        public IActionResult adm_clientes()
+
+        public IActionResult ListarClientes()
         {
             return View();
         }
 
-        public IActionResult carrinho()
+        public IActionResult AlterarDados()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AlterarDados(string cpf, string nome, string telefone, string senha, string endereco)
+        {
+            Usuario u = new Usuario(cpf, nome, telefone, senha, null, endereco);
+            u.Alterar(cpf, nome, telefone, senha, endereco);
+            return View("AlterarDados");
+        }
+
+        public IActionResult Adm_clientes()
         {
             return View();
         }
 
-        public IActionResult cliente()
+        public IActionResult Carrinho()
+        {
+            return View();
+        }
+
+        public IActionResult Cliente()
         {
             return View();
         }
