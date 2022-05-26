@@ -8,7 +8,8 @@ namespace Ecommerce.Models
 {
     public class Usuario
     {
-        static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
+        //static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
+        static string conexao = "Server=localhost;Database=ycm;User id=yasmin;Password=Yasmin230780";
 
         private string nome;
         private string telefone;
@@ -17,14 +18,17 @@ namespace Ecommerce.Models
         private string senha;
         private string endereco;
 
-        public Usuario(string nome, string telefone, string tipo, string cpf, string senha, string endereco)
+        public Usuario(string cpf, string nome, string telefone, string senha, string tipo, string endereco)
         {
+            this.cpf = cpf;
             this.nome = nome;
             this.telefone = telefone;
-            this.tipo = tipo;
-            this.cpf = cpf;
             this.senha = senha;
+            this.tipo = tipo;
             this.endereco = endereco;
+            
+            
+            
         }
 
         public string Nome { get => nome; set => nome = value; }
@@ -41,7 +45,7 @@ namespace Ecommerce.Models
             try
             {
                 // Abre a Conexão
-                con.Open();
+                 con.Open();
                 MySqlCommand qry = new MySqlCommand("SELECT * FROM Usuario WHERE cpf = @cpf AND senha = @senha", con);
                 qry.Parameters.AddWithValue("@cpf", cpf);
                 qry.Parameters.AddWithValue("@senha", senha);
@@ -52,11 +56,11 @@ namespace Ecommerce.Models
                 // Verifica se existe no Banco
                 if (leitor.HasRows)
                 {
-                    Usuario u = new Usuario(leitor["nome"].ToString(),
-                        leitor["telefone"].ToString(),
-                        leitor["Tipo"].ToString(),
-                        leitor["cpf"].ToString(),
+                    Usuario u = new Usuario(leitor["cpf"].ToString(),
+                        leitor["nome"].ToString(),
+                        leitor["Telefone"].ToString(),
                         leitor["senha"].ToString(),
+                        leitor["Tipo"].ToString(),
                         leitor["endereco"].ToString());
                    
                      return u; 
@@ -74,7 +78,7 @@ namespace Ecommerce.Models
         }
 
         //alterar a parte de cadastro
-        public string Cadastro(string nome, string cpf, string senha)
+        public string Cadastro()
         {
             MySqlConnection con = new MySqlConnection(conexao);
             try
@@ -82,14 +86,16 @@ namespace Ecommerce.Models
                 con.Open();
 
                 //insere dados no banco
-                MySqlCommand qry = new MySqlCommand("INSERT INTO Usuario VALUES (@cpf, @nome, null, @senha, null, null)", con);
-                qry.Parameters.AddWithValue("@nome", nome);
+                MySqlCommand qry = new MySqlCommand("INSERT INTO Usuario VALUES (@cpf, @nome, @telefone, @senha, null, @endereco)", con);
                 qry.Parameters.AddWithValue("@cpf", cpf);
+                qry.Parameters.AddWithValue("@nome", nome);
+                qry.Parameters.AddWithValue("@telefone", telefone);
                 qry.Parameters.AddWithValue("@senha", senha);
+                qry.Parameters.AddWithValue("@endereco", endereco);
                 qry.ExecuteNonQuery();
                 con.Close();
 
-                return "Seja Bem-Vindo!";
+                return "Cadastro feito com sucesso";
 
             }
             catch (Exception e)
@@ -97,5 +103,28 @@ namespace Ecommerce.Models
                 return "ERRO: " + e.Message;
             }
         }
+
+        public string Promove()
+        {
+            MySqlConnection con = new MySqlConnection(conexao);
+            try
+            {
+                con.Open();
+
+                //atualiza o campo "tipo" 
+                MySqlCommand qry = new MySqlCommand("UPDATE Usuario SET tipo ='Adm' WHERE cpf = @cpf", con);
+                qry.Parameters.AddWithValue("@cpf", cpf);
+
+                qry.ExecuteNonQuery();
+                con.Close();
+
+                return "Promoção feita";
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+            }
     }
 }

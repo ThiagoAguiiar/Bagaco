@@ -150,3 +150,13 @@ nav a {
     font-weight: bold;
     color: var(--Branco);
 }
+
+.img {
+    width: 100px;
+    height: 100px;
+}
+
+.nome {
+    color: gray;
+    font-size: 1.2em;
+}

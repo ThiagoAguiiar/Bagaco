@@ -1,9 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\aluno\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\aluno\\.nuget\\packages",
-      "C:\\Microsoft\\Xamarin\\NuGet"
+      "C:\\Users\\yasco\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\yasco\\.nuget\\packages"
     ]
   }
 }

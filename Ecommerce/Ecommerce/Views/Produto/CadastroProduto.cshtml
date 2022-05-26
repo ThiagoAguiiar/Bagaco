@@ -1,6 +1,7 @@
 ﻿@model Ecommerce.Models.Produto
 @using Microsoft.AspNetCore.Http;
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,11 +19,11 @@
 <body>
     <header class="header">
         <div class="logo">
-            <a href="~/produto/cadastroProduto" id="logo">BAGAÇO</a>
+            <a href="~/produto/ProdutosAdm" id="logo">BAGAÇO</a>
         </div>
         <nav>
-            <a href="" class="nav-link">Produtos</a>
-            <a href="" class="nav-link">Clientes</a>
+            <a href="~/produto/ProdutosAdm" class="nav-link">Produtos</a>
+            <a href="~/usuario/adm_clientes" class="nav-link">Clientes</a>
             <a href="" class="nav-link">Venda</a>
             <a href="" class="nav-link">Relatórios</a>
             <div id="divider"></div>
@@ -42,7 +43,7 @@
         </div>
 
         <div class="container-cadastro">
-            <form method="post" asp-action="cadastroProduto" class="form">
+            <form method="post" asp-action="cadastroProduto" enctype="multipart/form-data" class="form">
                 <div class="nome-produto produto">
                     <label for="nome">Nome do Produto</label>
                     <input type="text" name="nome" id="nome" required>
@@ -59,8 +60,8 @@
                 </div>
 
                 <div class="codigo-produto produto">
-                    <label for="cod">Código do Produto</label>
-                    <input type="number" name="cod" id="codigo" required>
+                    <label for="codigo">Código do Produto</label>
+                    <input type="number" name="codigo" id="codigo" required>
                 </div>
 
                 <div class="qtd-produto produto">
@@ -69,11 +70,9 @@
                 </div>
 
                 <div class="img-produto produto">
-                    <label for="img">Selecionar Imagem</label>
-                    <input type="file" name="img">
+                    <label for="imgProduto" id="img">Selecionar Imagem</label>
+                    <input type="file" name="arquivo" id="imgProduto">
                 </div>
-
-
 
                 <div class="btn-cadastrar">
                     <input type="submit" value="Cadastrar Produto" id="cadastrar">
@@ -86,52 +85,45 @@
         </div>
     </div>
 
-    <script src="~/js/toastr.min.js"></script>
+    <script src="assets/js/toastr.min.js"></script>
+    <script>
+        const cadastrar = document.querySelector('#cadastrar')
+        const imgProduto = document.querySelector('#img')
 
-        <script>
-            const seletor = {
-                cadastrar: document.querySelector('#cadastrar'),
-                imgProduto: document.querySelector('#img'),
-                nome: document.querySelector('#nome'),
-                preco: document.querySelector('#preco'),
-                descricao: document.querySelector('#descricao'),
-                codigo: document.querySelector('#codigo'),
-                quantidade: document.querySelector('#qtd')
+        cadastrar.addEventListener('click', (e) => {
+            e.preventDefault()
+            if (imgProduto.value == null) {
+                alert('Preencha os campos corretamente')
+            } else {
+                toastr["success"]("Cadastro efetuado com sucesso", "Okay!")
             }
 
-            seletor.cadastrar.addEventListener('click', (e) => {
-                // e.preventDefault()
-                if ((seletor.nome || seletor.preco || seletor.descricao || seletor.codigo || seletor.quantidade).value == '') {
-                    alert('Preencha os campos corretamente')
-                } else {
-                    toastr["success"]("Cadastro efetuado com sucesso", "Okay!")
-                }
-            })
+        })
 
-            seletor.imgProduto.addEventListener('input', (e) => {
-                e.preventDefault()
-                const msg = document.querySelector('.msg')
-                msg.classList.add('active')
-            })
+        imgProduto.addEventListener('input', (e) => {
+            e.preventDefault()
+            const msg = document.querySelector('.msg')
+            msg.classList.add('active')
+        })
 
-            toastr.options = {
-                "closeButton": true,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "2000",
-                "extendedTimeOut": "0",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            }
-        </script>
-</body>
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "2000",
+            "extendedTimeOut": "0",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+</script>
+</body >
 
-</html>
+</html >

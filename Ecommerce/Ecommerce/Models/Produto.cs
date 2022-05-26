@@ -8,7 +8,9 @@ namespace Ecommerce.Models
 {
     public class Produto
     {
-        static string conexao = "Server = ESN509VMYSQL; Database=bagaco; User id=aluno; Password=Senai1234";
+        //static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
+        static string conexao = "Server=localhost;Database=ycm;User id=yasmin;Password=Yasmin230780";
+
 
         private string nome;
         private double preco;
@@ -17,7 +19,7 @@ namespace Ecommerce.Models
         private int qtd;
         private byte[] img;
 
-        public Produto(string nome, double preco, string descricao, int codigo, int qtd, byte[] img)
+        public Produto(string nome, double preco, string descricao, int codigo, int qtd,byte[] img)
         {
             this.nome = nome;
             this.preco = preco;
@@ -32,10 +34,9 @@ namespace Ecommerce.Models
         public string Descricao { get => descricao; set => descricao = value; }
         public int Codigo { get => codigo; set => codigo = value; }
         public int Qtd { get => qtd; set => qtd = value; }
-
         public byte[] Img { get => img; set => img = value; }
 
-        public string Cadastro(string nome, double preco, string descricao, int cod, int qtd, byte[] img)
+        public string Cadastro()
         {
             MySqlConnection con = new MySqlConnection(conexao);
 
@@ -43,11 +44,11 @@ namespace Ecommerce.Models
             {
                 con.Open();
 
-                MySqlCommand comando = new MySqlCommand("INSERT INTO Produto VALUES (@nome, @preco, @descricao, @cod, @quantidade, @imagem)", con);
+                MySqlCommand comando = new MySqlCommand("INSERT INTO produto VALUES (@nome, @preco, @descricao, @codigo, @quantidade,@imagem)", con);
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@preco", preco);
                 comando.Parameters.AddWithValue("@descricao", descricao);
-                comando.Parameters.AddWithValue("@cod", cod);
+                comando.Parameters.AddWithValue("@codigo", codigo);
                 comando.Parameters.AddWithValue("@quantidade", qtd);
                 comando.Parameters.AddWithValue("@imagem", img);
 
@@ -56,45 +57,50 @@ namespace Ecommerce.Models
                 con.Close();
 
                 return "Feito";
+
+
             }
             catch (Exception e)
             {
-                return "Erro";
+                return null;
             }
         }
-    }
-} 
-
         //retorna uma lista de produtos
-/*  public static List<Produto> Listar()
- {
-     MySqlConnection con = new MySqlConnection(conexao);
+        public static List<Produto> Listar()
+        {
+            List<Produto> lista = new List<Produto>();
 
-     try
-     {
-         con.Open();
-         MySqlCommand comando = new MySqlCommand("SELECT * FROM Produtos", con);
-         MySqlDataReader leitor = comando.ExecuteReader();
+            MySqlConnection con = new MySqlConnection(conexao);
 
-         while (leitor.Read())
-         {
-             Produto p = new Produto(leitor["nome"].ToString(),
-                 leitor["preco"].ToString(),
-                 leitor["descricao"].ToString(),
-                 leitor["cod"].ToString(),
-                 leitor["qtd"].ToString());
+            try
+            {
+                con.Open();
+                MySqlCommand comando = new MySqlCommand("SELECT * FROM Produto", con);
+                MySqlDataReader leitor = comando.ExecuteReader();
 
-         }
+                while (leitor.Read())
+                {
+                    byte[] imgBytes = (byte[])leitor["imagem"];
+                    Produto produto = new Produto(
+                        leitor["nome"].ToString(),
+                        (Double)leitor["preco"],
+                        leitor["descricao"].ToString(),
+                        (int)leitor["codigo"],
+                        (int)leitor["quantidade"],
+                        imgBytes);
 
+                    lista.Add(produto);
+                }
+                con.Close();
 
-         con.Close();
-     }
-     catch (Exception e)
-     {
-         return null;
-     }
- }
+                return lista;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+    }
 }
-}
-
- */

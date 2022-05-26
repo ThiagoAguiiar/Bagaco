@@ -14,12 +14,13 @@ namespace Ecommerce.Controllers
         public IActionResult CadastroProduto()
         {
             //retorna para a view principal do Adm
-            return View("CadastroProduto");
+            return View();
         }
 
         [HttpPost]
-        public IActionResult CadastroProduto(string nome, double preco, string descricao, int cod, int qtd, string img)
+        public IActionResult CadastroProduto(string nome, double preco, string descricao, int codigo, int qtd)
         {
+            //IFormFile arquivo = Request.Form.Files[0];
             foreach (IFormFile arquivo in Request.Form.Files)
             {
                 string tipoArquivo = arquivo.ContentType;
@@ -29,32 +30,29 @@ namespace Ecommerce.Controllers
                     MemoryStream s = new MemoryStream();
                     arquivo.CopyToAsync(s);
                     byte[] bytesArquivo = s.ToArray();
-                    Produto p = new Produto(nome, preco, descricao, cod, qtd, bytesArquivo);
-                    p.Cadastro(nome, preco, descricao, cod, qtd, bytesArquivo);
+                    Produto p = new Produto(nome, preco, descricao, codigo, qtd, bytesArquivo);
+                    p.Cadastro();
 
                 }
             }
-           
-            
-                //retorna a view principal
-                return RedirectToAction("CadastroProduto");
+                return RedirectToAction("CadastroProduto");  
         }
 
-
-         public IActionResult Lista()
+        public IActionResult ProdutosAdm()
         {
-            return View("Produtos");
+
+            return View(Produto.Listar());
         }
 
-      
+        public IActionResult ProdutosCliente()
+        {
+            return View(Produto.Listar());
+        }
 
-        // [HttpPost]
-        /* public IActionResult Lista()
-         {
-             return View(Produto.Listar());
-         }
-        */
+
+
     }
+} 
 
-}
+    
 
