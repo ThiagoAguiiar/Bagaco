@@ -19,22 +19,6 @@
     --NavLinkHover: lightgray;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@500;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --Branco: white;
-    --Fundo: #1c1c1c;
-    --Botão: #8B381F;
-    --BotãoHover: #682a17;
-    --NavLinkHover: lightgray;
-}
 
 html {
     scroll-behavior: smooth;
@@ -117,7 +101,7 @@ nav a {
     justify-content: space-between;
     align-items: center;
     width: 85%;
-    height: 180px;
+    height: 250px;
 }
 
 .desc-produto {
@@ -152,8 +136,8 @@ nav a {
 }
 
 .img {
-    width: 100px;
-    height: 100px;
+    width: 190px;
+    height: 190px;
 }
 
 .nome {
