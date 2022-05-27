@@ -32,6 +32,11 @@ namespace Ecommerce.Controllers
             return RedirectToAction("ProdutosCliente");
         }
 
+        [HttpGet]
+        public IActionResult AtualizarDados(int comprados)
+        {
+            return View("Carrinho");
+        }
 
         [HttpPost]
         public IActionResult CadastroProduto(string nome, double preco, string descricao, int codigo, int qtd)
@@ -64,7 +69,9 @@ namespace Ecommerce.Controllers
         {
             return View(Produto.Listar());
         }
+
     }
+
 } 
 
     

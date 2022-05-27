@@ -141,13 +141,16 @@ input::-webkit-inner-spin-button {
     bottom: 0;
     left: 0;
     width: 100%;
-    color: white;
     background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
 
+}
+
+.addCarrinho a {
+    color: white;
 }
 
 .preco {
@@ -178,7 +181,4 @@ footer a {
 footer a i {
     font-size: 20px;
 }
-
-
-
 

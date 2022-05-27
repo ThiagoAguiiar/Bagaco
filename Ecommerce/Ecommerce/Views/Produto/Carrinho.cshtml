@@ -24,13 +24,19 @@
             <a href="" class="nav-link  user">
                 <i class="fa-solid fa-user"></i>
             </a>
-            <a href="" class="nav-link">Sair</a>
+            @if (Context.Session.GetString("user") != null)
+            {
+                <a href="~/home/index" class="nav-link">Sair</a>
+            }
         </nav>
     </header>
 
     <div class="container">
 
-        @{ double total = 0;}
+        @{ 
+            double total = 0;
+            int quantidade = 1; 
+         }
 
         <div class="container-txt">
             <p>SUAS COMPRAS</p>
@@ -50,12 +56,10 @@
                         </div>
                     </div>
 
+                    @{/* PROBLEMA AQUI  */ }
                     <div class="combo">
-                        <button class="mais" formmethod="post">+</button>
-                        <input type="number" value="1" maxlength="@p.Qtd">
-                        <button class="menos">-</button>
+                        <input type="number"  value="@quantidade" maxlength="@p.Qtd" id="quantidade">
                     </div>
-
 
                     <div class="qtd-container">
                         <div class="qtd">Disponível: @p.Qtd produtos</div>
@@ -69,18 +73,23 @@
     </div>
 
     <div class="finalizar">
-        <p class="total">Total da Compra: @Produto.total  </p>
+        <p class="total">Total da Compra: <span id="tot">@total</span></p>
         <div class = "btns">
-            <button class="salvarDados">Salvar Alterações</button>
+            <button class="salvarDados">@Html.ActionLink("Salvar Dados", "Carrinho", new {comprados = quantidade})</button>
             <button class="finalizarCompra">Finalizar Compra</button>
         </div>
     </div>
 
     <script>
         const preco = document.querySelector('.preco')
-        const value = Number(preco.innerHTML)
-        const formatar = value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-        preco.innerHTML = formatar
+        const valuePreco = Number(preco.innerHTML)
+        const formatarPreco = valuePreco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+        preco.innerHTML = formatarPreco
+
+        const tot = document.querySelector('#tot')
+        const valueTot = Number(tot.innerHTML)
+        const formatarTot  = valueTot.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+        tot.innerHTML = formatarTot
 
     </script>
 </body>
