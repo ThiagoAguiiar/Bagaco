@@ -29,9 +29,9 @@
     </header>
 
     <div class="container">
-       
-       @{ double total = 0;}
-        
+
+        @{ double total = 0;}
+
         <div class="container-txt">
             <p>SUAS COMPRAS</p>
         </div>
@@ -63,14 +63,25 @@
                 </li>
 
                 total += p.Preco * p.Qtd;
-         }
+            }
 
         </ul>
     </div>
 
     <div class="finalizar">
         <p class="total">Total da Compra: @Produto.total  </p>
-        <button class="finalizarCompra">Finalizar Compra</button>
+        <div class = "btns">
+            <button class="salvarDados">Salvar Alterações</button>
+            <button class="finalizarCompra">Finalizar Compra</button>
+        </div>
     </div>
+
+    <script>
+        const preco = document.querySelector('.preco')
+        const value = Number(preco.innerHTML)
+        const formatar = value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
+        preco.innerHTML = formatar
+
+    </script>
 </body>
 </html>

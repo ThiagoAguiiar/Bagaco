@@ -101,14 +101,18 @@ input::-webkit-inner-spin-button {
         color: white;
     }
 
-    .finalizar button {
+   .finalizarCompra,
+   .salvarDados {
         cursor: pointer;
         border: none;
         width: 200px;
         height: 40px;
-        background-color: orangered;
         color: white;
     }
+
+.finalizarCompra {
+    background-color: orangered;
+}
 
 .qtd-container {
     position: absolute;
@@ -134,4 +138,9 @@ input::-webkit-inner-spin-button {
 .descricao,
 .preco {
     margin-top: 10px;
+}
+
+
+.salvarDados {
+    background-color: darkolivegreen;
 }
