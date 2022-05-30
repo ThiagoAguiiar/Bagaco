@@ -1,60 +1,62 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using Microsoft.AspNetCore.Http;
 
-<!DOCTYPE html>
-<html lang="pt-br">
+    <!DOCTYPE html>
+    <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="~/css/menu.css">
-    <link rel="stylesheet" href="~/css/style.css">
-    <title>Ecommerce</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="~/css/menu.css">
+        <link rel="stylesheet" href="~/css/style.css">
+        <title>Ecommerce</title>
+    </head>
 
-<body>
-    <header>
-        <div class="logo">
-            <a href="~/home/index" id="logo">BAGAÇO</a>
-        </div>
-        <nav>
-            <a href="~/Home/contato" class="nav-link">Contato</a>
-            <a href="~/usuario/cadastro" class="nav-link">Cadastrar</a>
-            <span id="divider"></span>
-            <a href="~/usuario/login" class="nav-link">Entrar</a>
-        </nav>
-    </header>
+    <body>
 
-    <section>
-        <div class="img-container">
-            <div class="img-txt">
-                <h1>UMA NOVA <br> FORMA DE SE <br> FAZER </h1>
-                <p>
-                    A utilização de produtos biodegradáveis para o desenvolvimento de métodos sustentáveis é fundamental
-                    para o
-                    desenvolvimento íntegro da sociedade e do meio ambiente
-                </p>
+        <header>
+            <div class="logo">
+                <a href="~/home/index" id="logo">BAGAÇO</a>
             </div>
-            <div class="btn-mais">
-                <a href="#produtos" class="mais">SAIBA MAIS</a>
+            <nav>
+                <a href="~/Home/contato" class="nav-link">Contato</a>
+                <a href="~/usuario/cadastro" class="nav-link">Cadastrar</a>
+                <span id="divider"></span>
+                <a href="~/usuario/login" class="nav-link">Entrar</a>
+            </nav>
+        </header>
+
+        <section>
+            <div class="img-container">
+                <div class="img-txt">
+                    <h1>UMA NOVA <br> FORMA DE SE <br> FAZER </h1>
+                    <p>
+                        A utilização de produtos biodegradáveis para o desenvolvimento de métodos sustentáveis é fundamental
+                        para o
+                        desenvolvimento íntegro da sociedade e do meio ambiente
+                    </p>
+                </div>
+                <div class="btn-mais">
+                    <a href="#produtos" class="mais">SAIBA MAIS</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="produtos-container">
+            <div class="produtos-txt">
+                <h1>DESCUBRA</h1>
+                <p>Variedade de produtos comprometidos com a sustentabilidade e inovação</p>
+            </div>
+
+            <div class="produtos">
+                <div class="produtos-item img-fi"></div>
+                <div class="produtos-item img-se"></div>
             </div>
         </div>
-    </section>
 
-    <div class="produtos-container">
-        <div class="produtos-txt">
-            <h1>DESCUBRA</h1>
-            <p>Variedade de produtos comprometidos com a sustentabilidade e inovação</p>
-        </div>
-
-        <div class="produtos">
-            <div class="produtos-item img-fi"></div>
-            <div class="produtos-item img-se"></div>
-        </div>
-    </div>
-
-</body>
+    </body>
 
 </html>

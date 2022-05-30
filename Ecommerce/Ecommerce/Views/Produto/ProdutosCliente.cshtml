@@ -52,8 +52,7 @@
                     <img src="@formato" alt="Imagem do Produto">
                     <p class="preco">R$ @p.Preco,00</p>
                     <div class="ver-mais">
-                        <span class="addCarrinho">@Html.ActionLink("ADICIONAR AO CARRINHO", "Carrinho", new { codigo = p.Codigo }) </span>
-         
+                        <span class="addCarrinho">@Html.ActionLink("ADICIONAR AO CARRINHO", "AddCarrinho", new { codigo = p.Codigo }) </span>
                     </div>
                 </div>
             }
@@ -71,8 +70,6 @@
             <p>Telefone</p>
             <p>(19) 99173-3270</p>
         </footer>
-
-        <script src="~/js/cliente.js"></script>
 </body>
 </html>
 

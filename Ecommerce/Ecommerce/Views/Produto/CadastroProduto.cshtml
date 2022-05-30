@@ -41,8 +41,6 @@
             <p>CADASTRAR PRODUTOS</p>
         </div>
 
-        <p>@TempData["msg"]</p>
-
         <div class="container-cadastro">
             <form method="post" asp-action="CadastroProduto" enctype="multipart/form-data" class="form">
                 <div class="nome-produto produto">
@@ -80,7 +78,7 @@
                 </div>
 
                 <div class="msg">
-                    <p>Imagem adicionada com sucesso</p>
+                    @TempData["msg"]
                 </div>
             </form>
         </div>

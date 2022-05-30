@@ -9,8 +9,7 @@ namespace Ecommerce.Models
     public class Produto
     {
         static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
-       
-
+        public static List<Produto> carrinho = new List<Produto>();
 
         private string nome;
         private double preco;
@@ -19,7 +18,7 @@ namespace Ecommerce.Models
         private int qtd;
         private byte[] img;
 
-        public Produto(string nome, double preco, string descricao, int codigo, int qtd,byte[] img)
+        public Produto(string nome, double preco, string descricao, int codigo, int qtd, byte[] img)
         {
             this.nome = nome;
             this.preco = preco;
@@ -103,11 +102,83 @@ namespace Ecommerce.Models
         }
 
         // CARRINHO 
-      public string Carrinho()
+        public string AddCarrinho()
         {
-            return null;
+            MySqlConnection con = new MySqlConnection(conexao);
+
+            try
+            {
+                con.Open();
+                MySqlCommand comando = new MySqlCommand("SELECT * FROM Produto WHERE codigo = @codigo", con);
+                comando.Parameters.AddWithValue("@codigo", codigo);
+
+                MySqlDataReader leitor = comando.ExecuteReader();
+
+                while (leitor.Read())
+                {
+                    byte[] imgBytes = (byte[])leitor["imagem"];
+                    Produto produto = new Produto(
+                        leitor["nome"].ToString(),
+                        (Double)leitor["preco"],
+                        leitor["descricao"].ToString(),
+                        (int)leitor["codigo"],
+                        (int)leitor["quantidade"],
+                        imgBytes);
+
+                    carrinho.Add(produto);
+                }
+
+                con.Close();
+
+                return "Adicionado";
+            }
+            catch (Exception e)
+            {
+                return "Erro " + e;
+            }
         }
 
-    }
+        public static List<Produto> MostrarCarrinho()
+        {
+            try
+            {
 
+                return carrinho;
+
+            } catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        //public double CalcularPreco(int codigo)
+        //{
+        //    MySqlConnection con = new MySqlConnection(conexao);
+
+        //    try
+        //    {
+        //        con.Open();
+        //        MySqlCommand comando = new MySqlCommand("SELECT * FROM Produto WHERE codigo = @codigo", con);
+        //        comando.Parameters.AddWithValue("@codigo", codigo);
+
+        //        MySqlDataReader leitor = comando.ExecuteReader();
+
+        //        while (leitor.Read())
+        //        {
+        //        }
+
+        //            double total;
+
+
+
+        //    }
+        //    catch (Exception e)
+        //    {
+
+        //    }
+        //}
+
+
+    }
 }
+           

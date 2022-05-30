@@ -16,12 +16,27 @@ namespace Ecommerce.Controllers
             //retorna para a view principal do Adm
             return View();
         }
-
-        public IActionResult Carrinho(int codigo)
+    
+        public IActionResult Carrinho()
         {
-            return View();
+            return View(Produto.MostrarCarrinho());
         }
 
+        public IActionResult AddCarrinho(int codigo)
+        {
+
+            Produto p = new Produto("", 0, "", codigo, 0, null);
+
+            TempData["msg"] = p.AddCarrinho();
+            
+            return RedirectToAction("ProdutosCliente");
+        }
+
+        [HttpGet]
+        public IActionResult AtualizarDados(int comprados)
+        {
+            return View("Carrinho");
+        }
 
         [HttpPost]
         public IActionResult CadastroProduto(string nome, double preco, string descricao, int codigo, int qtd)
@@ -55,9 +70,8 @@ namespace Ecommerce.Controllers
             return View(Produto.Listar());
         }
 
-        
-
     }
+
 } 
 
     

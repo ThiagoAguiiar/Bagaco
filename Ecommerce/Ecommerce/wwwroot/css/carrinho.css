@@ -45,7 +45,7 @@ input::-webkit-inner-spin-button {
         align-items: center;
         justify-content: space-between;
         width: 100%;
-        height: 180px;
+        height: 250px;
         border-bottom: 1px solid white;
     }
 
@@ -101,14 +101,18 @@ input::-webkit-inner-spin-button {
         color: white;
     }
 
-    .finalizar button {
+   .finalizarCompra,
+   .salvarDados {
         cursor: pointer;
         border: none;
         width: 200px;
         height: 40px;
-        background-color: orangered;
         color: white;
     }
+
+.finalizarCompra {
+    background-color: orangered;
+}
 
 .qtd-container {
     position: absolute;
@@ -119,4 +123,24 @@ input::-webkit-inner-spin-button {
 .qtd {
     color: white;
     font-size: 13px;
+}
+
+#img {
+    width: 180px;
+    height: 180px;
+}
+
+.nome {
+    font-size: 1.2em;
+}
+
+.nome,
+.descricao,
+.preco {
+    margin-top: 10px;
+}
+
+
+.salvarDados {
+    background-color: darkolivegreen;
 }
