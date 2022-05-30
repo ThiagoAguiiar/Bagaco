@@ -10,8 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
-    <script src="~/js/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="~/css/toastr.min.css">
+    <link rel="stylesheet" href="~/css/menu.css">
     <link rel="stylesheet" href="~/css/adm_cadastrar.css">
     <title>Bagaço - Administração</title>
 </head>
@@ -42,8 +41,10 @@
             <p>CADASTRAR PRODUTOS</p>
         </div>
 
+        <p>@TempData["msg"]</p>
+
         <div class="container-cadastro">
-            <form method="post" asp-action="cadastroProduto" enctype="multipart/form-data" class="form">
+            <form method="post" asp-action="CadastroProduto" enctype="multipart/form-data" class="form">
                 <div class="nome-produto produto">
                     <label for="nome">Nome do Produto</label>
                     <input type="text" name="nome" id="nome" required>
@@ -70,8 +71,8 @@
                 </div>
 
                 <div class="img-produto produto">
-                    <label for="imgProduto" id="img">Selecionar Imagem</label>
-                    <input type="file" name="arquivo" id="imgProduto">
+                    <label for="img">Selecionar Imagem</label>
+                    <input type="file" name="arquivo" id="img">
                 </div>
 
                 <div class="btn-cadastrar">
@@ -84,46 +85,6 @@
             </form>
         </div>
     </div>
-
-    <script src="assets/js/toastr.min.js"></script>
-    <script>
-        const cadastrar = document.querySelector('#cadastrar')
-        const imgProduto = document.querySelector('#img')
-
-        cadastrar.addEventListener('click', (e) => {
-            e.preventDefault()
-            if (imgProduto.value == null) {
-                alert('Preencha os campos corretamente')
-            } else {
-                toastr["success"]("Cadastro efetuado com sucesso", "Okay!")
-            }
-
-        })
-
-        imgProduto.addEventListener('input', (e) => {
-            e.preventDefault()
-            const msg = document.querySelector('.msg')
-            msg.classList.add('active')
-        })
-
-        toastr.options = {
-            "closeButton": true,
-            "debug": false,
-            "newestOnTop": false,
-            "progressBar": false,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "2000",
-            "extendedTimeOut": "0",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        }
-</script>
 </body >
 
 </html >

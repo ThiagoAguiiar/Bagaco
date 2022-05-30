@@ -62,7 +62,7 @@ namespace Ecommerce.Models
             }
             catch (Exception e)
             {
-                return null;
+                return "Erro " + e;
             }
         }
         //retorna uma lista de produtos
@@ -102,5 +102,12 @@ namespace Ecommerce.Models
             }
         }
 
+        // CARRINHO 
+      public string Carrinho()
+        {
+            return null;
+        }
+
     }
+
 }
