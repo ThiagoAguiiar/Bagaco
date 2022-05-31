@@ -89,9 +89,9 @@ namespace Ecommerce.Controllers
             return View("AlterarDados");
         }
 
-        public IActionResult Adm_clientes()
+        public IActionResult ListaClientes()
         {
-            return View();
+            return View(Usuario.ListarClientes());
         }
 
         public IActionResult Carrinho()

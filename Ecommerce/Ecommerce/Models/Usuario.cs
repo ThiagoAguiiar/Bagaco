@@ -159,7 +159,7 @@ namespace Ecommerce.Models
             try
             {
                 con.Open();
-                MySqlCommand comando = new MySqlCommand("SELECT * FROM Usuario", con);
+                MySqlCommand comando = new MySqlCommand("SELECT * FROM Usuario WHERE tipo = 'Cliente'", con);
                 MySqlDataReader leitor = comando.ExecuteReader();
 
                 while (leitor.Read())

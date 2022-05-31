@@ -151,32 +151,73 @@ namespace Ecommerce.Models
             }
         }
 
-        //public double CalcularPreco(int codigo)
-        //{
-        //    MySqlConnection con = new MySqlConnection(conexao);
+        public string AlterarProduto(int codigo)
+        {
+            MySqlConnection con = new MySqlConnection(conexao);
+            try
+            {
+               con.Open();
+               MySqlCommand comando = new MySqlCommand("UPDATE Produto Set nome = @nome, preco = @preco, descricao = @descricao, codigo = @codigo, quantidade = @quantidade, imagem = @img WHERE codigo = @codigo", con);
+               comando.Parameters.AddWithValue("@nome", nome);
+               comando.Parameters.AddWithValue("@preco", preco);
+               comando.Parameters.AddWithValue("@descricao", descricao);
+               comando.Parameters.AddWithValue("@codigo", codigo);
+               comando.Parameters.AddWithValue("@quantidade", qtd);
+               comando.Parameters.AddWithValue("@img", img);
 
-        //    try
-        //    {
-        //        con.Open();
-        //        MySqlCommand comando = new MySqlCommand("SELECT * FROM Produto WHERE codigo = @codigo", con);
-        //        comando.Parameters.AddWithValue("@codigo", codigo);
+                comando.ExecuteNonQuery();
 
-        //        MySqlDataReader leitor = comando.ExecuteReader();
+                con.Close();
 
-        //        while (leitor.Read())
-        //        {
-        //        }
+               return "Alteração feita com sucesso";
+            }
+               catch (Exception e)
+            {
+               return null;
+            }
 
-        //            double total;
+        }
 
+        public static List<Produto> RetornarDados(int codigo)
+        { 
+            MySqlConnection con = new MySqlConnection(conexao);
 
+            List<Produto> lista = new List<Produto>();
 
-        //    }
-        //    catch (Exception e)
-        //    {
+            try
+            {
+                con.Open();
+                MySqlCommand comando = new MySqlCommand("SELECT * FROM Produto WHERE codigo = @codigo", con);
+                comando.Parameters.AddWithValue("@codigo", codigo);
+                MySqlDataReader leitor = comando.ExecuteReader();
 
-        //    }
-        //}
+                while(leitor.Read())
+                {
+                    byte[] imgBytes = (byte[])leitor["imagem"];
+
+                    Produto p = new Produto(
+                        leitor["nome"].ToString(),
+                        (Double)leitor["preco"],
+                        leitor["descricao"].ToString(),
+                        (int)leitor["codigo"],
+                        (int)leitor["quantidade"],
+                        imgBytes);
+
+                    lista.Add(p);
+                }
+
+                return lista;
+
+            } catch (Exception e)
+            {
+                
+                return null;
+            } finally
+            {
+                con.Close();
+            }
+
+        }
 
 
     }
