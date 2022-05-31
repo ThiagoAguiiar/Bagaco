@@ -67,6 +67,9 @@
 
                         <button class="alterar">@Html.ActionLink("Deletar", "Excluir", new { codigo = p.Codigo })</button>
 
+                        @* tela de + dados do produto *@
+                        <button class="alterar">@Html.ActionLink("Ver Mais", "VisualizarDados", new { codigo = p.Codigo })</button>
+
 
                     </div>
                 </li>
