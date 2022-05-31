@@ -69,6 +69,34 @@ namespace Ecommerce.Controllers
         {
             return View(Produto.Listar());
         }
+        public IActionResult AlterarProduto(int codigo)
+        {
+            ViewData["dados"] = Produto.RetornarDados(codigo);
+
+            return View();
+
+        }
+        [HttpPost]
+        public IActionResult AlterarProduto(string nome, double preco, string descricao, int codigo, int quantidade)
+        {
+            //IFormFile arquivo = Request.Form.Files[0];
+            foreach (IFormFile arquivo in Request.Form.Files)
+            {
+                string tipoArquivo = arquivo.ContentType;
+                if (tipoArquivo.Contains("png") ||
+                        tipoArquivo.Contains("jpeg"))
+                {
+                    MemoryStream s = new MemoryStream();
+                    arquivo.CopyToAsync(s);
+                    byte[] bytesArquivo = s.ToArray();
+                    Produto p = new Produto(nome, preco, descricao, codigo, quantidade, bytesArquivo);
+
+                    TempData["msg"] = p.AlterarProduto(codigo);
+                }
+            }
+
+            return RedirectToAction("AlterarProduto");
+        }
 
     }
 

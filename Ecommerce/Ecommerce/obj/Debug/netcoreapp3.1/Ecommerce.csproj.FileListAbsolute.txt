@@ -543,7 +543,6 @@ C:\Users\yasco\Documents\_Yasmin\_Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcor
 C:\Users\yasco\Documents\_Yasmin\_Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.genruntimeconfig.cache
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\ProdutosAdm.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\ProdutosCliente.cshtml.g.cs
-C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\carrinho.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\PromoveAdm.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\AlterarDados.cshtml.g.cs
 C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListaClientes.cshtml.g.cs
@@ -757,3 +756,5 @@ C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\R
 C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\AlterarDados.cshtml.g.cs
 C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListaClientes.cshtml.g.cs
 C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\PromoveAdm.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Carrinho.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\AlterarProduto.cshtml.g.cs

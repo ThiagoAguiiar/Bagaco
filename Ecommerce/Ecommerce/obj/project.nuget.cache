@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xWe2WY3Z8yNhoTGz9Q6NJEfvazbkT8goDKFilsBIZ6rnADF3L16MDk3qRnFiGNuDWCKIR8ZVIF25BExz4/tfRA==",
+  "dgSpecHash": "0FX43kAfEBAyJYJzWH4mZT9UCW5XDrWexLLTxPDjZyuEwyQCnC6NwdNL2g8j3wGfDtrLrvfhAq6SHbaTX+U3bQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aluno\\Downloads\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
+  "projectFilePath": "C:\\Users\\aluno\\Documents\\yasmin\\_Projeto Final\\Ecommerce\\Ecommerce\\Ecommerce\\Ecommerce.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aluno\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\aluno\\.nuget\\packages\\google.protobuf\\3.19.4\\google.protobuf.3.19.4.nupkg.sha512",
@@ -135,5 +135,12 @@
     "C:\\Users\\aluno\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\aluno\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\aluno\\Documents\\yasmin\\_Projeto Final\\Ecommerce\\Ecommerce\\Ecommerce\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
