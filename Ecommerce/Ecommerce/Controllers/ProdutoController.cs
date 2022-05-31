@@ -41,7 +41,6 @@ namespace Ecommerce.Controllers
         [HttpPost]
         public IActionResult CadastroProduto(string nome, double preco, string descricao, int codigo, int qtd)
         {
-            //IFormFile arquivo = Request.Form.Files[0];
             foreach (IFormFile arquivo in Request.Form.Files)
             {
                 string tipoArquivo = arquivo.ContentType;
@@ -77,9 +76,8 @@ namespace Ecommerce.Controllers
 
         }
         [HttpPost]
-        public IActionResult AlterarProduto(string nome, double preco, string descricao, int codigo, int quantidade)
+        public IActionResult AlterarProduto(string nome, double preco, string descricao, int codigo, int qtd)
         {
-            //IFormFile arquivo = Request.Form.Files[0];
             foreach (IFormFile arquivo in Request.Form.Files)
             {
                 string tipoArquivo = arquivo.ContentType;
@@ -89,7 +87,7 @@ namespace Ecommerce.Controllers
                     MemoryStream s = new MemoryStream();
                     arquivo.CopyToAsync(s);
                     byte[] bytesArquivo = s.ToArray();
-                    Produto p = new Produto(nome, preco, descricao, codigo, quantidade, bytesArquivo);
+                    Produto p = new Produto(nome, preco, descricao, codigo, qtd, bytesArquivo);
 
                     TempData["msg"] = p.AlterarProduto(codigo);
                 }

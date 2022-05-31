@@ -35,7 +35,8 @@
 
         @{ 
             double total = 0;
-            int quantidade = 1; 
+            int quantidade = 1;
+            int aux = 0;
          }
 
         <div class="container-txt">
@@ -50,20 +51,19 @@
                     <div class="info-produto">
                         <img src="@formato" id="img">
                         <div>
-                            <p class="nome">@p.Nome</p>
-                            <p class="descricao">@p.Descricao</p>
-                            <p class="preco">@p.Preco</p>
+                            <p class="nome">Nome: @p.Nome</p>
+                            <p class="descricao">Descrição: @p.Descricao</p>
+                            <p class="preco">Preço: @p.Preco</p>
                         </div>
                     </div>
 
                     @{/* PROBLEMA AQUI  */ }
-                    <div class="combo">
-                        <input type="number"  value="@quantidade" maxlength="@p.Qtd" id="quantidade">
-                    </div>
+                <div class="combo">
+                    <input type="number" value="@p.Qtd" maxlength="@p.Qtd" id="quantidade">
+                    @*@Html.ActionLink("Salvar Dados", "Carrinho", new { quantidade = quantidade })*@
 
-                    <div class="qtd-container">
-                        <div class="qtd">Disponível: @p.Qtd produtos</div>
-                    </div>
+                </div>
+
                 </li>
 
                 total += p.Preco * p.Qtd;

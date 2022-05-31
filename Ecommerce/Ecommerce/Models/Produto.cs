@@ -125,8 +125,27 @@ namespace Ecommerce.Models
                         (int)leitor["quantidade"],
                         imgBytes);
 
-                    carrinho.Add(produto);
+                    if (carrinho.Count == 0)
+                    {
+                        carrinho.Add(produto);
+                    }
+                    else
+                    {
+                        foreach (var item in carrinho)
+                        {
+                            if (item.codigo == produto.codigo)
+                            {
+                                item.qtd += produto.qtd;
+                            }
+                            else
+                            {
+                                carrinho.Add(produto);
+                            }
+                        }
+                    }
                 }
+
+
 
                 con.Close();
 
