@@ -53,6 +53,7 @@ namespace Ecommerce.Models
                 MySqlDataReader leitor = qry.ExecuteReader();
                 leitor.Read();
 
+          
                 // Verifica se existe no Banco
                 if (leitor.HasRows)
                 {
@@ -66,7 +67,6 @@ namespace Ecommerce.Models
                      return u; 
                     
                 }
-
                 con.Close();
                 return null;
 
@@ -118,7 +118,30 @@ namespace Ecommerce.Models
                 qry.ExecuteNonQuery();
                 con.Close();
 
-                return "Promoção feita";
+                return "Usuario promovido a ADM";
+
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public string Remove()
+        {
+            MySqlConnection con = new MySqlConnection(conexao);
+            try
+            {
+                con.Open();
+
+                //atualiza o campo "tipo" 
+                MySqlCommand qry = new MySqlCommand("UPDATE Usuario SET tipo ='Cliente' WHERE cpf = @cpf", con);
+                qry.Parameters.AddWithValue("@cpf", cpf);
+
+                qry.ExecuteNonQuery();
+                con.Close();
+
+                return "ADM removido";
 
             }
             catch (Exception e)
@@ -142,7 +165,7 @@ namespace Ecommerce.Models
                 qry.ExecuteNonQuery();
                 con.Close();
 
-                return "Cadastro feito com sucesso";
+                return "Alteração feita com sucesso";
 
             }
             catch (Exception e)
@@ -160,6 +183,40 @@ namespace Ecommerce.Models
             {
                 con.Open();
                 MySqlCommand comando = new MySqlCommand("SELECT * FROM Usuario WHERE tipo = 'Cliente'", con);
+                MySqlDataReader leitor = comando.ExecuteReader();
+
+                while (leitor.Read())
+                {
+                    Usuario u = new Usuario(leitor["cpf"].ToString(),
+                        leitor["nome"].ToString(),
+                        leitor["Telefone"].ToString(),
+                        leitor["senha"].ToString(),
+                        leitor["Tipo"].ToString(),
+                        leitor["endereco"].ToString());
+
+                    lista.Add(u);
+                }
+                con.Close();
+
+                return lista;
+            }
+
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public static List<Usuario> ListarAdm()
+        {
+            List<Usuario> lista = new List<Usuario>();
+
+            MySqlConnection con = new MySqlConnection(conexao);
+
+            try
+            {
+                con.Open();
+                MySqlCommand comando = new MySqlCommand("SELECT * FROM Usuario WHERE tipo = 'Adm'", con);
                 MySqlDataReader leitor = comando.ExecuteReader();
 
                 while (leitor.Read())

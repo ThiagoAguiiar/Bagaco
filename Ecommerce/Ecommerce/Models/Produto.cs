@@ -55,7 +55,7 @@ namespace Ecommerce.Models
 
                 con.Close();
 
-                return "Feito";
+                return "Produto cadastrado com sucesso!";
 
 
             }
@@ -149,7 +149,7 @@ namespace Ecommerce.Models
 
                 con.Close();
 
-                return "Adicionado";
+                return "Produto adicionado ao carrinho";
             }
             catch (Exception e)
             {
@@ -236,6 +236,28 @@ namespace Ecommerce.Models
                 con.Close();
             }
 
+        }
+
+        public string Excluir()
+        {
+            //Remover do BD
+            MySqlConnection con = new MySqlConnection(
+                conexao);
+            try
+            {
+                con.Open();
+                MySqlCommand qry = new MySqlCommand(
+                    "DELETE FROM Produto WHERE codigo = @codigo", con);
+                qry.Parameters.AddWithValue("@codigo", codigo);
+                qry.ExecuteNonQuery();
+                con.Close();
+
+                return "Produto excluido com sucesso!";
+            }
+            catch (Exception ex)
+            {
+                return "Erro: " + ex.Message;
+            }
         }
 
 

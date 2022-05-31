@@ -72,6 +72,20 @@ namespace Ecommerce.Controllers
             return View("PromoveAdm");
         }
 
+        public IActionResult RemoverAdm()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult RemoverAdm(string cpf)
+        {
+            Usuario u = new Usuario(cpf, null, null, null, null, null);
+            u.Remove();
+            return View("RemoverAdm");
+        }
+
+
         public IActionResult ListarClientes()
         {
             return View();
@@ -92,6 +106,11 @@ namespace Ecommerce.Controllers
         public IActionResult ListaClientes()
         {
             return View(Usuario.ListarClientes());
+        }
+
+        public IActionResult ListarAdm()
+        {
+            return View(Usuario.ListarAdm());
         }
 
         public IActionResult Carrinho()
