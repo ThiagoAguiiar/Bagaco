@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Usuario>
+@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/adm_clientes.css">
+    <title>Bagaço - Clientes</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="~/Produto/ProdutosAdm" id="logo">BAGAÇO</a>
+        </div>
+        <nav>
+            <a href="~/Produto/ProdutosAdm" class="nav-link">Produtos</a>
+            <a href="~/Produto/CadastroProduto" class="nav-link">Cadastrar</a>
+            <a href="" class="nav-link">Vendas</a>
+            <div id="divider"></div>
+            <a href="" class="nav-link  user">
+                <i class="fa-solid fa-user"></i>
+            </a>
+
+
+            @if (Context.Session.GetString("user") != null)
+            {
+                <a href="~/home/index" class="nav-link">Sair</a>
+            }
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="container-txt">
+            <p>CLIENTES</p>
+        </div>
+
+
+        <ul class="clientes">
+            @foreach (Usuario usu in Model)
+            {
+                <li>
+                    <div class="info-cliente">
+                        <div>
+
+                            <p class="nome">NOME DO CLIENTE: @usu.Nome </p>
+                            <p class="nome">CPF DO CLIENTE: @usu.Cpf </p>
+                            <p class="nome">ENDEREÇO DO CLIENTE:@usu.Endereco </p>
+                            <p class="nome">TELEFONE DO CLIENTE: @usu.Telefone </p>
+                            <p class="nome">SENHA DO CLIENTE: @usu.Telefone </p>
+                        </div>
+                    </div>
+
+                </li>
+
+            }
+
+        </ul>
+    </div>
+</body>
+</html>

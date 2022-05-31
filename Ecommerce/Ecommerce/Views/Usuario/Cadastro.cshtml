@@ -25,6 +25,9 @@
 
             <form method="POST" asp-action="Cadastro" class="form">
 
+                <div class="msg">
+                    @TempData["msg"]
+                </div>
 
                 <div class="nome">
                     <label for="nome">Nome</label>

@@ -98,6 +98,13 @@ namespace Ecommerce.Controllers
             return RedirectToAction("AlterarProduto");
         }
 
+        public IActionResult Excluir(int codigo)
+        {
+            Produto p = new Produto(null, 0, null, codigo, 0, null);
+            TempData["msg"] = p.Excluir();
+            return View("ProdutosAdm");
+        }
+
     }
 
 } 
