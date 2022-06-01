@@ -1,48 +1,65 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/19a96cf4ea.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="assets/css/menu.css" />
-    <link rel="stylesheet" href="assets/css/contato.css" />
+
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+          integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="~/css/menu.css" />
+    <link rel="stylesheet" href="~/css/contato.css" />
+
     <title>BAGAÇO - Contato</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <header class="header">
-      <div class="logo">
-        <a href="~/Views/Home/Index.cshtml" id="logo">BAGAÇO</a>
-      </div>
+        <div class="logo">
+            <a href="~/home/index" id="logo">BAGAÇO</a>
+        </div>
+
+        <div class="home">
+            <a href="~/home/index" id="home"><i class="fa-solid fa-house" title="Home"></i></a>
+        </div>
     </header>
 
     <div class="container">
-      <div class="container-txt">
-        <p>ENTRE EM CONTATO</p>
-      </div>
-
-      <div class="email">
-        <p>E-mail: bagaco.store@bagaco.com</p>
-      </div>
-
-      <div class="telefone">
-        <p>Telefone: (19) 99173-3270</p>
-      </div>
-
-      <div class="sociais">
-        <p>Redes Sociais:</p>
-        <div>
-          <a href="https://instagram.com" target="_blank"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
-          <a href="https://facebook.com" target="_blank"
-            ><i class="fa-brands fa-facebook-square"></i
-          ></a>
+        <div class="container-txt">
+            <p>ENTRE EM CONTATO CONOSCO</p>
         </div>
-      </div>
+
+        <form action="" method="POST" class="form">
+
+            <div class="email">
+                <label for="email">Digite seu E-mail</label>
+                <input type="email" name="email" class="email" id="email" required>
+            </div>
+
+            <div class="contato">
+                <textarea name="texto" id="texto" cols="30" rows="10" placeholder="Insira aqui suas sugestões, dúvidas, reclamações..." required></textarea>
+            </div>
+
+            <input type="submit" value="Enviar" id="enviar">
+        </form>
     </div>
-  </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+            integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/js/contato.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init('lW-NZWi49erDjqspf')
+        })();
+    </script>
+
+</body>
+
 </html>

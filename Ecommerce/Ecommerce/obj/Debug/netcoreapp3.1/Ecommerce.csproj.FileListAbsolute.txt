@@ -892,3 +892,7 @@ C:\Bex\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.csproj.Co
 C:\Bex\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.genruntimeconfig.cache
 C:\Bex\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListarAdm.cshtml.g.cs
 C:\Bex\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\RemoverAdm.cshtml.g.cs
+C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\AlterarProduto.cshtml.g.cs
+C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListarAdm.cshtml.g.cs
+C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\RemoverAdm.cshtml.g.cs
+C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contato.cshtml.g.cs

@@ -21,13 +21,11 @@
 
   <ItemGroup>
     <Content Remove="Views\cliente.cshtml" />
-    <Content Remove="Views\Home\contato.cshtml" />
     <Content Remove="Views\Produto\Listar.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Views\Cliente.cshtml" />
-    <None Include="Views\Home\contato.cshtml" />
     <None Include="Views\Produto\CadastroProduto.cshtml" />
     <None Include="Views\Produto\ProdutosAdm.cshtml" />
     <None Include="Views\Produto\ProdutosCliente.cshtml" />
