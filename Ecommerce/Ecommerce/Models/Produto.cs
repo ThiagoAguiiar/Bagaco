@@ -8,7 +8,8 @@ namespace Ecommerce.Models
 {
     public class Produto
     {
-        static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
+        //static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
+        static string conexao = "Server=localhost;Database=bagaco;User id=yasmin;Password=Yasmin230780";
         public static List<Produto> carrinho = new List<Produto>();
 
         private string nome;
@@ -43,7 +44,8 @@ namespace Ecommerce.Models
             {
                 con.Open();
 
-                MySqlCommand comando = new MySqlCommand("INSERT INTO produto VALUES (@nome, @preco, @descricao, @codigo, @quantidade,@imagem)", con);
+                //MySqlCommand comando = new MySqlCommand("INSERT INTO produto VALUES (@nome, @preco, @descricao, @codigo, @quantidade,@imagem)", con);
+                MySqlCommand comando = new MySqlCommand("INSERT INTO produto VALUES (@codigo, @preco, @descricao,@imagem, @nome, @quantidade,)", con);
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@preco", preco);
                 comando.Parameters.AddWithValue("@descricao", descricao);
@@ -197,6 +199,7 @@ namespace Ecommerce.Models
 
         }
 
+        //retorna dados para o carrinho
         public static List<Produto> RetornarDados(int codigo)
         { 
             MySqlConnection con = new MySqlConnection(conexao);
@@ -258,6 +261,50 @@ namespace Ecommerce.Models
             {
                 return "Erro: " + ex.Message;
             }
+        }
+
+        //salva a quantidade na tabela pedido
+        public string SalvarPedido(int quantidade)
+        {
+            MySqlConnection con = new MySqlConnection(conexao);
+
+            try
+            {
+                con.Open();
+                MySqlCommand qry = new MySqlCommand("UPDATE Produto Set quantidade = @quantidade", con);
+                qry.Parameters.AddWithValue("@quantidade", quantidade);
+                qry.ExecuteNonQuery();
+                con.Close();
+
+                return "Quantidade Adicionada!";
+            }
+            catch (Exception ex)
+            {
+                return "Erro: " + ex.Message;
+            }
+        }
+
+        //adiciona o pedido na tabela pedido
+        public string AddPedido(int codigo)
+        {
+            MySqlConnection con = new MySqlConnection(conexao);
+
+            try
+            {
+                con.Open();
+                MySqlCommand qry = new MySqlCommand("UPDATE Pedido Set codigo = @codigo", con);
+                qry.Parameters.AddWithValue("@codigo", codigo);
+                qry.ExecuteNonQuery();
+
+                con.Close();
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return "Erro: " + ex.Message;
+            }
+
         }
 
 

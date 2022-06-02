@@ -35,8 +35,6 @@
 
         @{ 
             double total = 0;
-            int quantidade = 1;
-            int aux = 0;
          }
 
         <div class="container-txt">
@@ -54,14 +52,16 @@
                             <p class="nome">Nome: @p.Nome</p>
                             <p class="descricao">Descrição: @p.Descricao</p>
                             <p class="preco">Preço: @p.Preco</p>
+
+                            @* salva a quantidade do produto no input *@
+                            <button class="salvarDados" value="Salvar"> Salvar </button>
                         </div>
                     </div>
 
                     @{/* PROBLEMA AQUI  */ }
                 <div class="combo">
                     <input type="number" value="@p.Qtd" maxlength="@p.Qtd" id="quantidade">
-                    @*@Html.ActionLink("Salvar Dados", "Carrinho", new { quantidade = quantidade })*@
-
+                  
                 </div>
 
                 </li>
@@ -74,8 +74,9 @@
 
     <div class="finalizar">
         <p class="total">Total da Compra: <span id="tot">@total</span></p>
-        <div class = "btns">
-            <button class="salvarDados">@Html.ActionLink("Salvar Dados", "Carrinho", new {comprados = quantidade})</button>
+        <div class="btns">
+            @*<button class="salvarDados">@Html.ActionLink("Salvar Dados", "Carrinho", new { codigo = p.Codigo })</button>*@
+            
             <button class="finalizarCompra">Finalizar Compra</button>
         </div>
     </div>

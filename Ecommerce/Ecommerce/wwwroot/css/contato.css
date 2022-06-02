@@ -1,0 +1,85 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+:root {
+    --Branco: white;
+    --Fundo: #1c1c1c;
+    --Botão: #8B381F;
+    --BotãoHover: #682a17;
+    --NavLinkHover: lightgray;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--Fundo);
+}
+
+.container {
+    width: 80%;
+    margin: 2em auto;
+}
+
+.container-txt {
+    color: var(--Branco);
+    font-size: 1.5em;
+}
+
+.email {
+    margin-top: 10px;
+}
+
+.email,
+.contato {
+    color: white;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.contato {
+    margin-top: 1em;
+}
+
+.email input {
+    font-family: 'Poppins', sans-serif;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    color: black;
+}
+
+#enviar {
+    font-size: 1em;
+    margin-top: 1em;
+    width: 300px;
+    height: 40px;
+    cursor: pointer;
+    background-color: #682a17;
+    font-weight: bold;
+    color: white;
+    border: none;
+    transition: all .2s;
+}
+
+    #enviar:hover {
+        background-color: #4e2011;
+    }
+
+#texto {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    padding: 10px;
+}
+
+#home {
+    padding-right: 5em;
+    color: white;
+}

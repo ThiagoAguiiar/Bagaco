@@ -8,8 +8,9 @@ namespace Ecommerce.Models
 {
     public class Usuario
     {
-        static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
-        
+        //static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
+        static string conexao = "Server=localhost;Database=bagaco;User id=yasmin;Password=Yasmin230780";
+
 
         private string nome;
         private string telefone;
