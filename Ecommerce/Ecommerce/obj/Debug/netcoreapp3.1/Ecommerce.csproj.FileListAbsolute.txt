@@ -1032,3 +1032,6 @@ C:\Users\yasco\Documents\Trabalho\Ecommerce\Ecommerce\bin\Debug\netcoreapp3.1\ru
 C:\Users\yasco\Documents\Trabalho\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.Views.pdb
 C:\Users\yasco\Documents\Trabalho\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.csproj.CopyComplete
 C:\Users\yasco\Documents\Trabalho\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.genruntimeconfig.cache
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Home\contato.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\ListarAdm.cshtml.g.cs
+C:\Users\aluno\Documents\yasmin\_Projeto Final\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\RemoverAdm.cshtml.g.cs

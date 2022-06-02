@@ -35,6 +35,7 @@
 
         @{ 
             double total = 0;
+            int aux = 0;
          }
 
         <div class="container-txt">
@@ -45,29 +46,32 @@
             {
                 string formato = "data:image/jpeg;base64," + Convert.ToBase64String(p.Img);
 
-                <li>
-                    <div class="info-produto">
-                        <img src="@formato" id="img">
-                        <div>
-                            <p class="nome">Nome: @p.Nome</p>
-                            <p class="descricao">Descrição: @p.Descricao</p>
-                            <p class="preco">Preço: @p.Preco</p>
+                <form method="post" asp-action="SalvarCarrinho">
+                    <li>
+                        <div class="info-produto">
+                            <img src="@formato" id="img">
+                            <div>
+                                <p class="nome">Nome: @p.Nome</p>
+                                <p class="descricao">Descrição: @p.Descricao</p>
+                                <p class="preco">Preço: @p.Preco</p>
 
-                            @* salva a quantidade do produto no input *@
-                            <button class="salvarDados" value="Salvar"> Salvar </button>
+                                @* salva a quantidade do produto no input *@
+                                <button class="salvarDados" value="Salvar"> Salvar </button>
+                            </div>
                         </div>
-                    </div>
 
-                    @{/* PROBLEMA AQUI  */ }
-                <div class="combo">
-                    <input type="number" value="@p.Qtd" maxlength="@p.Qtd" id="quantidade">
-                  
-                </div>
+                        <div class="combo">
+                            <input type="number" name="@aux" value="@p.Qtd" maxlength="@p.Qtd" id="quantidade">
+                        </div>
 
-                </li>
+                    </li>
+                </form>
 
                 total += p.Preco * p.Qtd;
+                aux++;
             }
+
+            <input type="hidden" value="@aux" name="aux"/>
 
         </ul>
     </div>

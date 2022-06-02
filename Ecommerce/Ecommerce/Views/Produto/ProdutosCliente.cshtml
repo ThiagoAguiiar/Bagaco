@@ -41,6 +41,10 @@
             <p>PRODUTOS</p>
         </div>
 
+        @{ 
+   
+            int aux = 0;
+        }
         <div class="lista-produtos">
 
             @foreach (Produto p in Model)
@@ -52,18 +56,20 @@
                 <img src="@formato" alt="Imagem do Produto">
                 <p class="preco">R$ @p.Preco,00</p>
 
-                @* Pega a qtd colocada no input *@
-                <div class="combo">
-                    <input type="number" maxlength="@p.Qtd" id="quantidade">
-                </div>
+                <form method="post" asp-action="AddCarrinho">
+                    @* Pega a qtd colocada no input *@
+                    <div class="combo">
+                        <input type="number" name="@aux" maxlength="@p.Qtd" id="quantidade">
+                    </div>
 
-                @* habilitar botão salvar quando o usuario adicionar o produto no carinho *@
-                <button class="ver-mais" value="Salvar"> SALVAR </button> 
-                    
-                <div class="ver-mais">
-                    <span class="addCarrinho">@Html.ActionLink("ADICIONAR AO CARRINHO", "AddCarrinho", new { codigo = p.Codigo }) </span>
-                </div>
+                    <input type="hidden" name="@aux@aux" value="@p.Codigo"/>
+
+                    @* habilitar botão salvar quando o usuario adicionar o produto no carinho *@
+                    <button type="submit" class="ver-mais"><span class="addCarrinho"> ADICIONAR NO CARRINHO</span> </button>
+                </form>
             </div>
+
+                aux++;
             }
         </div>
         </div>

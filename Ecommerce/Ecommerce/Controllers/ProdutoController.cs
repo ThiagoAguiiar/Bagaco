@@ -42,18 +42,22 @@ namespace Ecommerce.Controllers
             return View(Produto.MostrarCarrinho());
         }
 
-        public IActionResult AddCarrinho(int codigo)
+        [HttpPost]
+        public IActionResult Carrinho(int aux)
         {
+            List<int> qtds = new List<int>();
 
-            Produto p = new Produto("", 0, "", codigo, 0, null);
+            for(int i = 0; i < aux; i++)
+            {
+                string input = aux.ToString();
 
-            //adiciona o produto na tela carrinho
-            TempData["msg"] = p.AddCarrinho();
+                string quantidadeProduto = Request.Form[input].ToString();
+                qtds.Add(int.Parse(quantidadeProduto));
+            }
 
-            //adiciona o produto na tabela pedido
-            TempData["msg"] = p.AddPedido(codigo);
+            Produto.AlterarCarrinho(qtds);
 
-            return RedirectToAction("ProdutosCliente");
+            return RedirectToAction("Carrinho");
         }
 
         [HttpGet]
@@ -69,10 +73,15 @@ namespace Ecommerce.Controllers
         }
 
         [HttpPost]
-        public IActionResult Salvar(int quantidade)
+        public IActionResult AddCarrinho(int aux)
         {
-            Produto p = new Produto(null, 0, null, 0, quantidade, null);
-            TempData["msg"] = p.SalvarPedido(quantidade);
+            string input = aux.ToString();
+
+            string quantidadeProduto = Request.Form[input].ToString();
+            string codigo = Request.Form[input + input].ToString();
+
+            Produto p = new Produto(null, 0, null, int.Parse(codigo), 0, null); 
+            TempData["msg"] = p.AddCarrinho(int.Parse(quantidadeProduto));
 
             return RedirectToAction("ProdutosCliente");
         }

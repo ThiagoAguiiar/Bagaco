@@ -8,8 +8,8 @@ namespace Ecommerce.Models
 {
     public class Produto
     {
-        //static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
-        static string conexao = "Server=localhost;Database=bagaco;User id=yasmin;Password=Yasmin230780";
+        static string conexao = "Server=ESN509VMYSQL;Database=bagaco;User id=aluno;Password=Senai1234";
+       
         public static List<Produto> carrinho = new List<Produto>();
 
         private string nome;
@@ -18,6 +18,7 @@ namespace Ecommerce.Models
         private int codigo;
         private int qtd;
         private byte[] img;
+     
 
         public Produto(string nome, double preco, string descricao, int codigo, int qtd, byte[] img)
         {
@@ -27,6 +28,7 @@ namespace Ecommerce.Models
             this.codigo = codigo;
             this.qtd = qtd;
             this.img = img;
+          
         }
 
         public string Nome { get => nome; set => nome = value; }
@@ -36,6 +38,8 @@ namespace Ecommerce.Models
         public int Qtd { get => qtd; set => qtd = value; }
         public byte[] Img { get => img; set => img = value; }
 
+      
+
         public string Cadastro()
         {
             MySqlConnection con = new MySqlConnection(conexao);
@@ -44,8 +48,7 @@ namespace Ecommerce.Models
             {
                 con.Open();
 
-                //MySqlCommand comando = new MySqlCommand("INSERT INTO produto VALUES (@nome, @preco, @descricao, @codigo, @quantidade,@imagem)", con);
-                MySqlCommand comando = new MySqlCommand("INSERT INTO produto VALUES (@codigo, @preco, @descricao,@imagem, @nome, @quantidade,)", con);
+                MySqlCommand comando = new MySqlCommand("INSERT INTO produto VALUES (@nome, @preco, @descricao, @codigo, @quantidade,@imagem)", con);
                 comando.Parameters.AddWithValue("@nome", nome);
                 comando.Parameters.AddWithValue("@preco", preco);
                 comando.Parameters.AddWithValue("@descricao", descricao);
@@ -104,7 +107,7 @@ namespace Ecommerce.Models
         }
 
         // CARRINHO 
-        public string AddCarrinho()
+        public string AddCarrinho(int quantidade)
         {
             MySqlConnection con = new MySqlConnection(conexao);
 
@@ -124,7 +127,7 @@ namespace Ecommerce.Models
                         (Double)leitor["preco"],
                         leitor["descricao"].ToString(),
                         (int)leitor["codigo"],
-                        (int)leitor["quantidade"],
+                        quantidade,
                         imgBytes);
 
                     if (carrinho.Count == 0)
@@ -147,8 +150,6 @@ namespace Ecommerce.Models
                     }
                 }
 
-
-
                 con.Close();
 
                 return "Produto adicionado ao carrinho";
@@ -156,6 +157,28 @@ namespace Ecommerce.Models
             catch (Exception e)
             {
                 return "Erro " + e;
+            }
+        }
+
+        public static string AlterarCarrinho(List<int> lista)
+        {
+
+            try
+            {
+                int i = 0;
+
+                foreach(var item in carrinho)
+                {
+                    item.qtd = lista[i];
+
+                    i++;
+                }
+
+                return "Alterado com Sucesso";
+
+            } catch(Exception e)
+            {
+                return "Erro: " + e;
             }
         }
 
@@ -264,15 +287,16 @@ namespace Ecommerce.Models
         }
 
         //salva a quantidade na tabela pedido
-        public string SalvarPedido(int quantidade)
+        public string SalvarPedido()
         {
             MySqlConnection con = new MySqlConnection(conexao);
 
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("UPDATE Produto Set quantidade = @quantidade", con);
-                qry.Parameters.AddWithValue("@quantidade", quantidade);
+                MySqlCommand qry = new MySqlCommand("INSERT INTO Pedidos (fk_Produto_Codigo,quantidade_produto) VALUES (@codigo,@quantidade)", con);
+                qry.Parameters.AddWithValue("@codigo", codigo);
+                qry.Parameters.AddWithValue("@quantidade", qtd);
                 qry.ExecuteNonQuery();
                 con.Close();
 
@@ -292,7 +316,7 @@ namespace Ecommerce.Models
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("UPDATE Pedido Set codigo = @codigo", con);
+                MySqlCommand qry = new MySqlCommand("INSERT INTO Pedidos (fk_Produto_Codigo) VALUES (@codigo)", con);
                 qry.Parameters.AddWithValue("@codigo", codigo);
                 qry.ExecuteNonQuery();
 
