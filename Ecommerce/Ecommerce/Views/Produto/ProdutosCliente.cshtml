@@ -47,14 +47,23 @@
             {
                 string formato = "data:image/jpeg;base64," + Convert.ToBase64String(p.Img);
 
-                <div class="produtos-card">
-                    <p class="nome">@p.Nome</p>
-                    <img src="@formato" alt="Imagem do Produto">
-                    <p class="preco">R$ @p.Preco,00</p>
-                    <div class="ver-mais">
-                        <span class="addCarrinho">@Html.ActionLink("ADICIONAR AO CARRINHO", "AddCarrinho", new { codigo = p.Codigo }) </span>
-                    </div>
+            <div class="produtos-card">
+                <p class="nome">@p.Nome</p>
+                <img src="@formato" alt="Imagem do Produto">
+                <p class="preco">R$ @p.Preco,00</p>
+
+                @* Pega a qtd colocada no input *@
+                <div class="combo">
+                    <input type="number" maxlength="@p.Qtd" id="quantidade">
                 </div>
+
+                @* habilitar botão salvar quando o usuario adicionar o produto no carinho *@
+                <button class="ver-mais" value="Salvar"> SALVAR </button> 
+                    
+                <div class="ver-mais">
+                    <span class="addCarrinho">@Html.ActionLink("ADICIONAR AO CARRINHO", "AddCarrinho", new { codigo = p.Codigo }) </span>
+                </div>
+            </div>
             }
         </div>
         </div>

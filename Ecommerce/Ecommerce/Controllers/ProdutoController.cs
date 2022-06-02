@@ -16,27 +16,6 @@ namespace Ecommerce.Controllers
             //retorna para a view principal do Adm
             return View();
         }
-    
-        public IActionResult Carrinho()
-        {
-            return View(Produto.MostrarCarrinho());
-        }
-
-        public IActionResult AddCarrinho(int codigo)
-        {
-
-            Produto p = new Produto("", 0, "", codigo, 0, null);
-
-            TempData["msg"] = p.AddCarrinho();
-            
-            return RedirectToAction("ProdutosCliente");
-        }
-
-        [HttpGet]
-        public IActionResult AtualizarDados(int comprados)
-        {
-            return View("Carrinho");
-        }
 
         [HttpPost]
         public IActionResult CadastroProduto(string nome, double preco, string descricao, int codigo, int qtd)
@@ -51,11 +30,51 @@ namespace Ecommerce.Controllers
                     arquivo.CopyToAsync(s);
                     byte[] bytesArquivo = s.ToArray();
                     Produto p = new Produto(nome, preco, descricao, codigo, qtd, bytesArquivo);
-                    
+
                     TempData["msg"] = p.Cadastro();
                 }
             }
-                return RedirectToAction("CadastroProduto");  
+            return RedirectToAction("CadastroProduto");
+        }
+
+        public IActionResult Carrinho()
+        {
+            return View(Produto.MostrarCarrinho());
+        }
+
+        public IActionResult AddCarrinho(int codigo)
+        {
+
+            Produto p = new Produto("", 0, "", codigo, 0, null);
+
+            //adiciona o produto na tela carrinho
+            TempData["msg"] = p.AddCarrinho();
+
+            //adiciona o produto na tabela pedido
+            TempData["msg"] = p.AddPedido(codigo);
+
+            return RedirectToAction("ProdutosCliente");
+        }
+
+        [HttpGet]
+        public IActionResult AtualizarDados(int comprados)
+        {
+            return View("Carrinho");
+        }
+
+        //método que vai salvar na tabela Pedidos
+        public IActionResult Salvar()
+        {
+            return View("ProdutosCliente");
+        }
+
+        [HttpPost]
+        public IActionResult Salvar(int quantidade)
+        {
+            Produto p = new Produto(null, 0, null, 0, quantidade, null);
+            TempData["msg"] = p.SalvarPedido(quantidade);
+
+            return RedirectToAction("ProdutosCliente");
         }
 
         public IActionResult ProdutosAdm()
@@ -96,6 +115,7 @@ namespace Ecommerce.Controllers
             return RedirectToAction("AlterarProduto");
         }
 
+        //exclui um produto (Adm)
         public IActionResult Excluir(int codigo)
         {
             Produto p = new Produto(null, 0, null, codigo, 0, null);
