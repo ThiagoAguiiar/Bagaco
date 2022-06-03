@@ -49,7 +49,7 @@ namespace Ecommerce.Controllers
 
             for(int i = 0; i < aux; i++)
             {
-                string input = aux.ToString();
+                string input = i.ToString();
 
                 string quantidadeProduto = Request.Form[input].ToString();
                 qtds.Add(int.Parse(quantidadeProduto));
@@ -125,6 +125,7 @@ namespace Ecommerce.Controllers
         }
 
         //exclui um produto (Adm)
+        // LEMBRAR
         public IActionResult Excluir(int codigo)
         {
             Produto p = new Produto(null, 0, null, codigo, 0, null);
@@ -132,6 +133,19 @@ namespace Ecommerce.Controllers
             return View("ProdutosAdm");
         }
 
+        public IActionResult FinalizarCompra()
+        {
+            Produto.FinalizarCompra();
+            return RedirectToAction("ProdutosCliente");
+        }
+
+        public IActionResult Deletar(int id)
+        {
+
+            TempData["msg"] = Produto.Deletar(id);
+
+            return RedirectToAction("Carrinho");
+        }
     }
 
 } 

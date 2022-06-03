@@ -128,7 +128,7 @@ namespace Ecommerce.Models
             }
         }
 
-        public string Remove()
+        public string RemoveAdm()
         {
             MySqlConnection con = new MySqlConnection(conexao);
             try

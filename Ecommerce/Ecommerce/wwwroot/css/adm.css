@@ -135,6 +135,10 @@ nav a {
     color: var(--Branco);
 }
 
+.alterar a {
+    color: white;
+}
+
 .img {
     width: 190px;
     height: 190px;
@@ -144,3 +148,14 @@ nav a {
     color: gray;
     font-size: 1.2em;
 }
+
+
+.descricao {
+    width: 80%;
+    text-align: justify;
+}
+
+.nome {
+    margin-bottom: 20px;
+}
+

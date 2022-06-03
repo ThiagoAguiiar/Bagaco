@@ -94,7 +94,7 @@ input::-webkit-inner-spin-button {
     justify-content: center;
     position: relative;
     width: 300px;
-    height: 380px;
+    height: 400px;
 }
 
 .produtos-card img {
@@ -180,4 +180,13 @@ footer a {
 
 footer a i {
     font-size: 20px;
+}
+
+input#quantidade {   
+    position: absolute;
+    bottom: 4em;
+    WIDTH: 30PX;
+    HEIGHT: 30PX;
+    BORDER-RADIUS: 5PX;
+    
 }

@@ -1,5 +1,9 @@
 ﻿@model List<Produto>
 @using Microsoft.AspNetCore.Http;
+@{
+
+    int aux = 0;
+}
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -19,10 +23,9 @@
         </div>
         <nav>
             <a href="~/produto/ProdutosCliente" class="nav-link">Produtos</a>
-            <a href="~/Usuario/AlterarDados" class="nav-link">Alterar Dados</a>
             <a href="" class="nav-link">Compras</a>
             <div id="divider"></div>
-            <a href="" class="nav-link  user">
+            <a href="~/Usuario/AlterarDados" class="nav-link  user">
                 <i class="fa-solid fa-user"></i>
             </a>
             <a href="~/Produto/Carrinho" class="nav-link car">
@@ -41,52 +44,55 @@
             <p>PRODUTOS</p>
         </div>
 
-        @{ 
-   
-            int aux = 0;
-        }
+
         <div class="lista-produtos">
 
             @foreach (Produto p in Model)
             {
                 string formato = "data:image/jpeg;base64," + Convert.ToBase64String(p.Img);
 
-            <div class="produtos-card">
-                <p class="nome">@p.Nome</p>
-                <img src="@formato" alt="Imagem do Produto">
-                <p class="preco">R$ @p.Preco,00</p>
+                <div class="produtos-card">
+                    <p class="nome">@p.Nome</p>
+                    <img src="@formato" alt="Imagem do Produto">
+                    <p class="preco">R$ @p.Preco,00</p>
 
-                <form method="post" asp-action="AddCarrinho">
-                    @* Pega a qtd colocada no input *@
-                    <div class="combo">
-                        <input type="number" name="@aux" maxlength="@p.Qtd" id="quantidade">
-                    </div>
+                    <form method="post" asp-action="AddCarrinho">
+                        @* Pega a qtd colocada no input *@
+                        <div class="combo">
+                            <input type="number" name="@aux" maxlength="@p.Qtd" id="quantidade">
+                        </div>
 
-                    <input type="hidden" name="@aux@aux" value="@p.Codigo"/>
+                        <input type="hidden" name="@aux@aux" value="@p.Codigo" />
+                        <input type="hidden" name="aux" value="@aux"/>
 
-                    @* habilitar botão salvar quando o usuario adicionar o produto no carinho *@
-                    <button type="submit" class="ver-mais"><span class="addCarrinho"> ADICIONAR NO CARRINHO</span> </button>
-                </form>
-            </div>
+                        @* habilitar botão salvar quando o usuario adicionar o produto no carinho *@
 
-                aux++;
+                        @{
+                            aux++;
+                        }
+
+                        <button type="submit" class="ver-mais"><span class="addCarrinho"> ADICIONAR NO CARRINHO</span> </button>
+
+
+                    </form>
+                </div>
+
             }
         </div>
-        </div>
+    </div>
 
-        <footer>
-            <p>Redes Sociais</p>
-            <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <div id="divider"></div>
-            <p>Email</p>
-            <p>bagaco.store@bagaco.com</p>
-            <div id="divider"></div>
-            <p>Telefone</p>
-            <p>(19) 99173-3270</p>
-        </footer>
+    <footer>
+        <p>Redes Sociais</p>
+        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <div id="divider"></div>
+        <p>Email</p>
+        <p>bagaco.store@bagaco.com</p>
+        <div id="divider"></div>
+        <p>Telefone</p>
+        <p>(19) 99173-3270</p>
+    </footer>
 </body>
 </html>
 
 
- 

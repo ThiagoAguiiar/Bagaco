@@ -83,7 +83,7 @@ namespace Ecommerce.Controllers
         public IActionResult RemoverAdm(string cpf)
         {
             Usuario u = new Usuario(cpf, null, null, null, null, null);
-            u.Remove();
+            u.RemoveAdm();
             return View("RemoverAdm");
         }
 
