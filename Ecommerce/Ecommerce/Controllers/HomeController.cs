@@ -26,6 +26,11 @@ namespace Ecommerce.Controllers
             return View();
         }
 
+        public IActionResult SaibaMais()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

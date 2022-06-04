@@ -28,7 +28,7 @@ namespace Ecommerce.Models
             this.codigo = codigo;
             this.qtd = qtd;
             this.img = img;
-          
+
         }
 
         public string Nome { get => nome; set => nome = value; }
@@ -38,7 +38,8 @@ namespace Ecommerce.Models
         public int Qtd { get => qtd; set => qtd = value; }
         public byte[] Img { get => img; set => img = value; }
 
-      
+
+
 
         public string Cadastro()
         {
@@ -354,52 +355,48 @@ namespace Ecommerce.Models
             }
         }
 
-        ////salva a quantidade na tabela pedido
-        //public string SalvarPedido()
-        //{
-        //    MySqlConnection con = new MySqlConnection(conexao);
 
-        //    try
-        //    {
-        //        con.Open();
-        //        MySqlCommand qry = new MySqlCommand("INSERT INTO Pedido (fk_Produto_Codigo,quantidade_produto) VALUES (@codigo,@quantidade)", con);
-        //        qry.Parameters.AddWithValue("@codigo", codigo);
-        //        qry.Parameters.AddWithValue("@quantidade", qtd);
-        //        qry.ExecuteNonQuery();
-        //        con.Close();
+        // PEGA OS PRODUTOS QUE O USUÁRIO COMPROU E SALVA NUMA LISTA. ESSA LISTA SERÁ MOSTRADA NA VIEW DE PRODUTOS COMPRADOS
+        public static List<Produto> ListarPedidos(string cpf)
+        {
+            List<Produto> lista = new List<Produto>();
 
-        //        return "Quantidade Adicionada!";
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return "Erro: " + ex.Message;
-        //    }
-        //}
+            MySqlConnection con = new MySqlConnection(conexao);
 
-        ////adiciona o pedido na tabela pedido
-        //public string AddPedido(int codigo)
-        //{
-        //    MySqlConnection con = new MySqlConnection(conexao);
+            try
+            {
+                con.Open();
+                MySqlCommand qry = new MySqlCommand("SELECT * FROM Pedido WHERE cpf = @cpf", con);
+                qry.Parameters.AddWithValue("@cpf", cpf);
 
-        //    try
-        //    {
-        //        con.Open();
-        //        MySqlCommand qry = new MySqlCommand("INSERT INTO Pedidos (fk_Produto_Codigo) VALUES (@codigo)", con);
-        //        qry.Parameters.AddWithValue("@codigo", codigo);
-        //        qry.ExecuteNonQuery();
+                MySqlDataReader leitor = qry.ExecuteReader();
 
-        //        con.Close();
+                while (leitor.Read())
+                {
+                    byte[] imgBytes = (byte[])leitor["imagem"];
 
-        //        return null;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return "Erro: " + ex.Message;
-        //    }
+                Produto p = new Produto(
+                leitor["nome_produto"].ToString(),
+                (Double)leitor["preco_produto"],
+                leitor["Descricao_produto"].ToString(),
+                (int)leitor["fk_Produto_Codigo"],
+                (int)leitor["Quantidade_produto"],
+                imgBytes);
 
-        //}
+                lista.Add(p);
 
+         }
 
+                con.Close();
+
+                return lista; 
+            }
+            catch (Exception e) 
+            {
+
+                return null;
+            }
+        }
     }
 }
            

@@ -1,6 +1,7 @@
 ﻿using Ecommerce.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -125,7 +126,6 @@ namespace Ecommerce.Controllers
         }
 
         //exclui um produto (Adm)
-        // LEMBRAR
         public IActionResult Excluir(int codigo)
         {
             Produto p = new Produto(null, 0, null, codigo, 0, null);
@@ -133,7 +133,8 @@ namespace Ecommerce.Controllers
             return View("ProdutosAdm");
         }
 
-        public IActionResult FinalizarCompra()
+
+        public IActionResult FinalizarCompra(string cpf)
         {
             Produto.FinalizarCompra();
             return RedirectToAction("ProdutosCliente");
@@ -146,9 +147,11 @@ namespace Ecommerce.Controllers
 
             return RedirectToAction("Carrinho");
         }
+
+        public IActionResult ListarPedidos(string cpf)
+        {
+            return View(Produto.ListarPedidos(cpf));
+        }
     }
 
 } 
-
-    
-

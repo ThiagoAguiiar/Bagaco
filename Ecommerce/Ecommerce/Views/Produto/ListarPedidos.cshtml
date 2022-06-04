@@ -1,0 +1,68 @@
+﻿@using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+@model IEnumerable<Produto>
+
+@{
+    Usuario u = JsonConvert.DeserializeObject<Usuario>(Context.Session.GetString("user").ToString());
+}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/19a96cf4ea.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="~/css/comprados.css">
+    <title>Bagaço - Suas Compras</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="adm_produtos.html" id="logo">BAGAÇO</a>
+        </div>
+        <nav>
+            <a href="~/Produto/ProdutosCliente" class="nav-link">Produtos</a>
+            <div id="divider"></div>
+            <a href="~/Usuario/PromoveAdm" class="nav-link  user">
+                <i class="fa-solid fa-user"></i>
+            </a>
+
+            <a href="~/Produto/carrinho" class="nav-link car">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+
+            @if (Context.Session.GetString("user") != null)
+            {
+                <a href="~/home/index" class="nav-link">Sair</a>
+            }
+
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="container-txt">
+            <p>SUAS COMPRAS</p>
+        </div>
+
+        <ul class="produtos">
+            @foreach(Produto p in Model)
+            {
+            <li>
+                <div class="desc-produto">
+                    <div>
+                        <p class="nome">@p.Nome</p>
+                        <br>
+                        <p class="descricao">@p.Descricao</p>
+                        <p class="qtd">@p.Qtd</p>
+                    </div>
+                </div>
+            </li>
+            }
+        </ul>
+    </div>
+
+    <button class="listar">@Html.ActionLink("Listar Pedidos", "ListarPedidos", new { cpf = u.Cpf })</button>
+</body>
+</html>
