@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Produto>
 @using Microsoft.AspNetCore.Http;
+@using Newtonsoft.Json;
+
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,69 +30,78 @@
             {
                 <a href="~/home/index" class="nav-link">Sair</a>
             }
+            <a href="~/Produto/ProdutosCliente" class="nav-link">Produtos</a>
         </nav>
     </header>
 
     <div class="container">
 
-        @{ 
+        @{
             double total = 0;
-            int quantidade = 1; 
-         }
+            int aux = 0;
+        }
 
         <div class="container-txt">
             <p>SUAS COMPRAS</p>
         </div>
         <ul class="produtos">
-            @foreach (Produto p in Model)
-            {
-                string formato = "data:image/jpeg;base64," + Convert.ToBase64String(p.Img);
+            <form method="post" asp-action="Carrinho">
+                @foreach (Produto p in Model)
+                {
+                    string formato = "data:image/jpeg;base64," + Convert.ToBase64String(p.Img);
 
                 <li>
                     <div class="info-produto">
                         <img src="@formato" id="img">
                         <div>
-                            <p class="nome">@p.Nome</p>
-                            <p class="descricao">@p.Descricao</p>
+                            <p class="nome">Nome: @p.Nome</p>
+                            <p class="descricao">Descrição: @p.Descricao</p>
                             <p class="preco">@p.Preco</p>
                         </div>
                     </div>
 
-                    @{/* PROBLEMA AQUI  */ }
                     <div class="combo">
-                        <input type="number"  value="@quantidade" maxlength="@p.Qtd" id="quantidade">
+                        <input type="number" name="@aux" value="@p.Qtd" maxlength="@p.Qtd" id="quantidade">
                     </div>
 
-                    <div class="qtd-container">
-                        <div class="qtd">Disponível: @p.Qtd produtos</div>
-                    </div>
+                    <button class="salvarDados">@Html.ActionLink("Deletar", "Deletar", new { id = aux })</button>
+
+                    @{
+                        total += p.Preco * p.Qtd;
+                        aux++;
+                    }
                 </li>
 
-                total += p.Preco * p.Qtd;
+
             }
+                <input type="hidden" value="@aux" name="aux" />
 
-        </ul>
-    </div>
+                <button class="salvarDados" value="Salvar"> Salvar </button>
+                </form>
 
-    <div class="finalizar">
-        <p class="total">Total da Compra: <span id="tot">@total</span></p>
-        <div class = "btns">
-            <button class="salvarDados">@Html.ActionLink("Salvar Dados", "Carrinho", new {comprados = quantidade})</button>
-            <button class="finalizarCompra">Finalizar Compra</button>
+            </ul>
         </div>
-    </div>
 
-    <script>
-        const preco = document.querySelector('.preco')
-        const valuePreco = Number(preco.innerHTML)
-        const formatarPreco = valuePreco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
-        preco.innerHTML = formatarPreco
+        <div class="finalizar">
+            <p class="total">Total da Compra: <span id="tot">@total</span></p>
+            <div class="btns">
+                <button class="salvarDados">@Html.ActionLink("Finalizar Compra", "FinalizarCompra", new {})</button>
 
-        const tot = document.querySelector('#tot')
-        const valueTot = Number(tot.innerHTML)
-        const formatarTot  = valueTot.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
-        tot.innerHTML = formatarTot
+            </div>
+        </div>
 
-    </script>
-</body>
+        <script>
+            const preco = document.querySelector('.preco')
+            const valuePreco = Number(preco.innerHTML)
+            console.log(valuePreco)
+            const formatarPreco = valuePreco.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+            preco.innerHTML = formatarPreco
+
+            const tot = document.querySelector('#tot')
+            const valueTot = Number(tot.innerHTML)
+            const formatarTot = valueTot.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+            tot.innerHTML = formatarTot
+
+        </script>
+    </body>
 </html>

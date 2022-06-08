@@ -81,7 +81,11 @@ body {
 }
 
 .cpf,
-.senha, .telefone, .endereco, .nome {
+.senha, 
+.telefone, 
+.endereco, 
+.nome {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -98,10 +102,6 @@ body {
         width: 400px;
     }
 
-
-.nome, .endereco, .telefone, .senha {
-    margin-top: 20px;
-}
 
 .botao {
     margin-top: 40px;

@@ -18,16 +18,15 @@
             <a href="~/produto/ProdutosAdm" id="logo">BAGAÇO</a>
         </div>
         <nav>
-            <a href="~/produto/ProdutosAdm" class="nav-link">Produtos</a>
-            <a href="~/Usuario/adm_clientes" class="nav-link">Clientes</a>
+            <a href="~/Usuario/ListaClientes" class="nav-link">Clientes</a>
+            <a href="~/usuario/ListarAdm" class="nav-link">Administradores</a>
             <a href="~/produto/CadastroProduto" class="">Cadastrar</a>
             <a href="~/usuario/PromoveAdm" class="nav-link">Promover</a>
-            <a href="" class="nav-link">Venda</a>
-            
+            <a href="~/usuario/RemoverAdm" class="nav-link">Remover</a>
+           
+
             <div id="divider"></div>
-            <a href="" class="nav-link  user">
-                <i class="fa-solid fa-user"></i>
-            </a>
+        
 
             @if (Context.Session.GetString("user") != null)
             {
@@ -60,8 +59,11 @@
 
                     <div class="preco-comprar">
                         <p class="preco">@p.Preco</p>
-                        
-                        <button class="alterar">Alterar</button>
+
+                        <button href="~/Produto/AlterarProduto" class="alterar">@Html.ActionLink("Alterar Dados", "AlterarProduto", new { codigo = p.Codigo })</button>
+
+                        <button class="alterar">@Html.ActionLink("Deletar", "Excluir", new { codigo = p.Codigo })</button>
+
                     </div>
                 </li>
             </ul>

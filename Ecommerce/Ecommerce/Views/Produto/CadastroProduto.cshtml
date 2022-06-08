@@ -24,9 +24,8 @@
             <a href="~/produto/ProdutosAdm" class="nav-link">Produtos</a>
             <a href="~/usuario/adm_clientes" class="nav-link">Clientes</a>
             <a href="" class="nav-link">Venda</a>
-            <a href="" class="nav-link">Relatórios</a>
             <div id="divider"></div>
-            <a href="" class="nav-link  user">
+            <a href="~/usuario/AlterarDados" class="nav-link  user">
                 <i class="fa-solid fa-user"></i>
             </a>
             @if (Context.Session.GetString("user") != null)
@@ -39,6 +38,10 @@
     <div class="container">
         <div class="container-txt">
             <p>CADASTRAR PRODUTOS</p>
+        </div>
+
+        <div class="msg">
+            @TempData["msg"]
         </div>
 
         <div class="container-cadastro">
@@ -55,7 +58,7 @@
 
                 <div class="desc-produto produto">
                     <label for="descricao">Descrição do Produto</label>
-                    <input type="text" name="descricao" id="descricao" maxlength="100" required>
+                    <input type="text" name="descricao" id="descricao" maxlength="500" required>
                 </div>
 
                 <div class="codigo-produto produto">
@@ -77,9 +80,6 @@
                     <input type="submit" value="Cadastrar Produto" id="cadastrar">
                 </div>
 
-                <div class="msg">
-                    @TempData["msg"]
-                </div>
             </form>
         </div>
     </div>

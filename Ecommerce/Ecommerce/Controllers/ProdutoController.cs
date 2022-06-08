@@ -1,6 +1,7 @@
 ﻿using Ecommerce.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,32 +17,10 @@ namespace Ecommerce.Controllers
             //retorna para a view principal do Adm
             return View();
         }
-    
-        public IActionResult Carrinho()
-        {
-            return View(Produto.MostrarCarrinho());
-        }
-
-        public IActionResult AddCarrinho(int codigo)
-        {
-
-            Produto p = new Produto("", 0, "", codigo, 0, null);
-
-            TempData["msg"] = p.AddCarrinho();
-            
-            return RedirectToAction("ProdutosCliente");
-        }
-
-        [HttpGet]
-        public IActionResult AtualizarDados(int comprados)
-        {
-            return View("Carrinho");
-        }
 
         [HttpPost]
         public IActionResult CadastroProduto(string nome, double preco, string descricao, int codigo, int qtd)
         {
-            //IFormFile arquivo = Request.Form.Files[0];
             foreach (IFormFile arquivo in Request.Form.Files)
             {
                 string tipoArquivo = arquivo.ContentType;
@@ -52,11 +31,60 @@ namespace Ecommerce.Controllers
                     arquivo.CopyToAsync(s);
                     byte[] bytesArquivo = s.ToArray();
                     Produto p = new Produto(nome, preco, descricao, codigo, qtd, bytesArquivo);
-                    
+
                     TempData["msg"] = p.Cadastro();
                 }
             }
-                return RedirectToAction("CadastroProduto");  
+            return RedirectToAction("CadastroProduto");
+        }
+
+        public IActionResult Carrinho()
+        {
+            return View(Produto.MostrarCarrinho());
+        }
+
+        [HttpPost]
+        public IActionResult Carrinho(int aux)
+        {
+            List<int> qtds = new List<int>();
+
+            for(int i = 0; i < aux; i++)
+            {
+                string input = i.ToString();
+
+                string quantidadeProduto = Request.Form[input].ToString();
+                qtds.Add(int.Parse(quantidadeProduto));
+            }
+
+            Produto.AlterarCarrinho(qtds);
+
+            return RedirectToAction("Carrinho");
+        }
+
+        [HttpGet]
+        public IActionResult AtualizarDados(int comprados)
+        {
+            return View("Carrinho");
+        }
+
+        //método que vai salvar na tabela Pedidos
+        public IActionResult Salvar()
+        {
+            return View("ProdutosCliente");
+        }
+
+        [HttpPost]
+        public IActionResult AddCarrinho(int aux)
+        {
+            string input = aux.ToString();
+
+            string quantidadeProduto = Request.Form[input].ToString();
+            string codigo = Request.Form[input + input].ToString();
+
+            Produto p = new Produto(null, 0, null, int.Parse(codigo), 0, null); 
+            TempData["msg"] = p.AddCarrinho(int.Parse(quantidadeProduto));
+
+            return RedirectToAction("ProdutosCliente");
         }
 
         public IActionResult ProdutosAdm()
@@ -69,10 +97,61 @@ namespace Ecommerce.Controllers
         {
             return View(Produto.Listar());
         }
+        public IActionResult AlterarProduto(int codigo)
+        {
+            ViewData["dados"] = Produto.RetornarDados(codigo);
 
+            return View();
+
+        }
+        [HttpPost]
+        public IActionResult AlterarProduto(string nome, double preco, string descricao, int codigo, int qtd)
+        {
+            foreach (IFormFile arquivo in Request.Form.Files)
+            {
+                string tipoArquivo = arquivo.ContentType;
+                if (tipoArquivo.Contains("png") ||
+                        tipoArquivo.Contains("jpeg"))
+                {
+                    MemoryStream s = new MemoryStream();
+                    arquivo.CopyToAsync(s);
+                    byte[] bytesArquivo = s.ToArray();
+                    Produto p = new Produto(nome, preco, descricao, codigo, qtd, bytesArquivo);
+
+                    TempData["msg"] = p.AlterarProduto(codigo);
+                }
+            }
+
+            return RedirectToAction("AlterarProduto");
+        }
+
+        //exclui um produto (Adm)
+        public IActionResult Excluir(int codigo)
+        {
+            Produto p = new Produto(null, 0, null, codigo, 0, null);
+            TempData["msg"] = p.Excluir();
+            return View("ProdutosAdm");
+        }
+
+
+        public IActionResult FinalizarCompra(string cpf)
+        {
+            Produto.FinalizarCompra();
+            return RedirectToAction("ProdutosCliente");
+        }
+
+        public IActionResult Deletar(int id)
+        {
+
+            TempData["msg"] = Produto.Deletar(id);
+
+            return RedirectToAction("Carrinho");
+        }
+
+        public IActionResult ListarPedidos(string cpf)
+        {
+            return View(Produto.ListarPedidos(cpf));
+        }
     }
 
 } 
-
-    
-

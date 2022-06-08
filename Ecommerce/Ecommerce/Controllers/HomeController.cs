@@ -17,8 +17,16 @@ namespace Ecommerce.Controllers
         {
             _logger = logger;
         }
-
+        public IActionResult Contato()
+        {
+            return View();
+        }
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult SaibaMais()
         {
             return View();
         }

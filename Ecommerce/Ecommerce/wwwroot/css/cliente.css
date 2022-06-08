@@ -94,7 +94,7 @@ input::-webkit-inner-spin-button {
     justify-content: center;
     position: relative;
     width: 300px;
-    height: 380px;
+    height: 400px;
 }
 
 .produtos-card img {
@@ -140,16 +140,16 @@ input::-webkit-inner-spin-button {
     position: absolute;
     bottom: 0;
     left: 0;
+    color: white;
     width: 100%;
     background-color: black;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
-
 }
 
-.addCarrinho a {
+span.addCarrinho {
     color: white;
 }
 
@@ -182,3 +182,11 @@ footer a i {
     font-size: 20px;
 }
 
+input#quantidade {   
+    position: absolute;
+    bottom: 4em;
+    WIDTH: 30PX;
+    HEIGHT: 30PX;
+    BORDER-RADIUS: 5PX;
+    
+}
