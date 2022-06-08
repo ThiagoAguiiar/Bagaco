@@ -240,7 +240,7 @@ namespace Ecommerce.Models
 
         }
 
-        public static string FinalizarCompra()
+        public static string FinalizarCompra(string cpf)
         {
             MySqlConnection con = new MySqlConnection(conexao);
             int idPedido = 0;
@@ -265,8 +265,9 @@ namespace Ecommerce.Models
 
                 foreach(var item in carrinho)
                 {
-                    MySqlCommand comando = new MySqlCommand("INSERT INTO Pedido VALUES (@fk_Produto_Codigo, @nome_produto, @preco_produto, @Quantidade_produto, @Descricao_produto, @imagem, @id_Pedido)", con);
+                    MySqlCommand comando = new MySqlCommand("INSERT INTO Pedidos VALUES (@fk_Produto_Codigo, @fk_Usuario_Cpf, @nome_produto, @preco_produto, @Quantidade_produto, @Descricao_produto, @id_Pedido, @imagem)", con);
                     comando.Parameters.AddWithValue("@fk_Produto_Codigo", item.codigo);
+                    comando.Parameters.AddWithValue("@fk_Usuario_Cpf", cpf);
                     comando.Parameters.AddWithValue("@nome_produto", item.nome);
                     comando.Parameters.AddWithValue("@preco_produto", item.preco);
                     comando.Parameters.AddWithValue("@Quantidade_produto", item.qtd);
@@ -366,7 +367,7 @@ namespace Ecommerce.Models
             try
             {
                 con.Open();
-                MySqlCommand qry = new MySqlCommand("SELECT * FROM Pedido WHERE cpf = @cpf", con);
+                MySqlCommand qry = new MySqlCommand("SELECT * FROM Pedidos WHERE fk_Usuario_Cpf = @cpf", con);
                 qry.Parameters.AddWithValue("@cpf", cpf);
 
                 MySqlDataReader leitor = qry.ExecuteReader();

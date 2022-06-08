@@ -31,6 +31,8 @@
                 <a href="~/home/index" class="nav-link">Sair</a>
             }
             <a href="~/Produto/ProdutosCliente" class="nav-link">Produtos</a>
+            <a href="~/Produto/ListarPedidos" class="nav-link">Pedidos</a>
+
         </nav>
     </header>
 
@@ -46,6 +48,7 @@
         </div>
         <ul class="produtos">
             <form method="post" asp-action="Carrinho">
+
                 @foreach (Produto p in Model)
                 {
                     string formato = "data:image/jpeg;base64," + Convert.ToBase64String(p.Img);

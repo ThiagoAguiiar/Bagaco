@@ -47,22 +47,25 @@
         </div>
 
         <ul class="produtos">
-            @foreach(Produto p in Model)
+            @if (Model != null)
             {
-            <li>
-                <div class="desc-produto">
-                    <div>
-                        <p class="nome">@p.Nome</p>
-                        <br>
-                        <p class="descricao">@p.Descricao</p>
-                        <p class="qtd">@p.Qtd</p>
-                    </div>
-                </div>
-            </li>
+                @foreach (Produto p in Model)
+                {
+                    <li>
+                        <div class="desc-produto">
+                            <div>
+                                <p class="nome">@p.Nome</p>
+                                <br>
+                                <p class="descricao">@p.Descricao</p>
+                                <p class="qtd">@p.Qtd</p>
+                            </div>
+                        </div>
+                    </li>
+                }
             }
+
+
         </ul>
     </div>
-
-    <button class="listar">@Html.ActionLink("Listar Pedidos", "ListarPedidos", new { cpf = u.Cpf })</button>
 </body>
 </html>

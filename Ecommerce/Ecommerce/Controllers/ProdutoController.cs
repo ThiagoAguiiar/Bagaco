@@ -130,13 +130,15 @@ namespace Ecommerce.Controllers
         {
             Produto p = new Produto(null, 0, null, codigo, 0, null);
             TempData["msg"] = p.Excluir();
-            return View("ProdutosAdm");
+            return RedirectToAction("ProdutosAdm");
         }
 
 
-        public IActionResult FinalizarCompra(string cpf)
+        public IActionResult FinalizarCompra()
         {
-            Produto.FinalizarCompra();
+            Usuario u = JsonConvert.DeserializeObject<Usuario>(HttpContext.Session.GetString("user").ToString());
+
+            Produto.FinalizarCompra(u.Cpf);
             return RedirectToAction("ProdutosCliente");
         }
 
@@ -148,9 +150,11 @@ namespace Ecommerce.Controllers
             return RedirectToAction("Carrinho");
         }
 
-        public IActionResult ListarPedidos(string cpf)
+        public IActionResult ListarPedidos()
         {
-            return View(Produto.ListarPedidos(cpf));
+            Usuario u = JsonConvert.DeserializeObject<Usuario>(HttpContext.Session.GetString("user").ToString());
+
+            return View(Produto.ListarPedidos(u.Cpf));
         }
     }
 

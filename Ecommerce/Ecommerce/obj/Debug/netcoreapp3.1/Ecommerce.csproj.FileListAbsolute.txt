@@ -1173,3 +1173,5 @@ C:\Users\USER\Source\Repos\2dsb_grupoa\Ecommerce\Ecommerce\obj\Debug\netcoreapp3
 C:\Users\USER\Source\Repos\2dsb_grupoa\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.csproj.CopyComplete
 C:\Users\USER\Source\Repos\2dsb_grupoa\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Ecommerce.genruntimeconfig.cache
 C:\Users\USER\Source\Repos\2dsb_grupoa\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Home\SaibaMais.cshtml.g.cs
+C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Home\SaibaMais.cshtml.g.cs
+C:\Users\aluno\Downloads\Ecommerce\Ecommerce\Ecommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produto\ListarPedidos.cshtml.g.cs

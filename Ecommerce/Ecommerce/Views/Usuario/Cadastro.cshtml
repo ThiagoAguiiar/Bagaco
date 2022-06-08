@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    <script src="~/lib/jQuery-Mask-Plugin-master/jQuery-Mask-Plugin-master/src/jquery.mask.js" type="text/javascript" asp-append-version="true"></script>
+
     <div class="container-se">
         <div class="home">
             <a href="~/home/index" id="home"><i class="fa-solid fa-house" title="Home"></i></a>
@@ -51,7 +53,7 @@
 
                 <div class="cpf">
                     <label for="cpf">CPF</label>
-                    <input type="text" name="cpf" id="cpf" required>
+                    <input type="text" name="cpf" class="cpf" id="cpf" required>
                 </div>
 
                 <div class="botao">
@@ -64,42 +66,47 @@
             </form>
         </div>
     </div>
-    
 
 
-    <script>
 
-        const btn = document.querySelector('#enviar')
+    @{/* <script>
 
-        btn.addEventListener('click', () => {
-            const input = document.querySelectorAll('input')
-            input.forEach(e => {
-                if (e.value == ' ' || e.value == '') {
-                    alert('Insira os valores corretamente')
-                }
-            })
+                  const btn = document.querySelector('#enviar')
 
-            Command: toastr["success"]("Cadastro feito com sucesso", "Aviso")
+                  btn.addEventListener('click', () => {
+                      const input = document.querySelectorAll('input')
+                      input.forEach(e => {
+                          if (e.value == ' ' || e.value == '') {
+                              alert('Insira os valores corretamente')
+                          }
+                      })
 
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            }
-        })
-    </script>
+                      Command: toastr["success"]("Cadastro feito com sucesso", "Aviso")
+
+                      toastr.options = {
+                          "closeButton": false,
+                          "debug": false,
+                          "newestOnTop": false,
+                          "progressBar": false,
+                          "positionClass": "toast-top-right",
+                          "preventDuplicates": false,
+                          "onclick": null,
+                          "showDuration": "300",
+                          "hideDuration": "1000",
+                          "timeOut": "5000",
+                          "extendedTimeOut": "1000",
+                          "showEasing": "swing",
+                          "hideEasing": "linear",
+                          "showMethod": "fadeIn",
+                          "hideMethod": "fadeOut"
+                      }
+                   })
+              </script>
+                */
+    }
+
+    <script src="~/js/cliente.js"></script>
+
 </body>
 
 </html>

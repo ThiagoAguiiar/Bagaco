@@ -56,9 +56,18 @@ namespace Ecommerce.Controllers
         [HttpPost]
         public IActionResult Cadastro(string cpf, string nome, string telefone, string senha, string endereco)
         {
+
             Usuario u = new Usuario(cpf, nome, telefone, senha, null, endereco);
-            u.Cadastro();
-            return View("Login");
+            string msg = u.Cadastro();
+
+            if(msg == "foi")
+            {
+                return RedirectToAction("Login");
+            } else
+            {
+                TempData["msg"] = "Esse CPF já está cadastrado";
+                return RedirectToAction("Cadastro");
+            }
         }
 
         public IActionResult PromoveAdm()

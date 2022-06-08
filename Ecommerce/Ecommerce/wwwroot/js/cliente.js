@@ -12,6 +12,10 @@ function modalID() {
     });
 }
 
+$(document).ready(function () {
+    $("#cpf").mask("999.999.999-99");
+});
+
 // FUNÇÃO QUE ABRE O MODAL
 function abrirModal() {
     $(".modal-content").hide();

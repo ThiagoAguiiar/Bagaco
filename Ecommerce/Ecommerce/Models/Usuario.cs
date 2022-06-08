@@ -96,7 +96,7 @@ namespace Ecommerce.Models
                 qry.ExecuteNonQuery();
                 con.Close();
 
-                return "Cadastro feito com sucesso";
+                return "foi";
 
             }
             catch (Exception e)
