@@ -1,1 +1,5 @@
-Projeto Desenvolvido para finalização do semestre do curso. 
+# Bagaço
+Desenvolvimeto da aplicação Web com MVC.
+Projeto desenvolvido para conclusão do semestre
+
+
